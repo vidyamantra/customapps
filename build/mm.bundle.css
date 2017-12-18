@@ -14002,6 +14002,15 @@ ion-popover-view {
 .mma-qtype-ddwtos-container sub {
   bottom: -0.2em; }
 
+.mma-qtype-match-container .item-select select,
+.mma-qtype-match-container .item-select .mm-select-fix {
+  padding: 0 36px 0 0;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column; }
+
 .mma-qtype-gapselect-container p {
   margin: 0 0 .5em; }
 
@@ -14016,15 +14025,6 @@ ion-popover-view {
   border-radius: 4px;
   margin-bottom: 10px;
   background: #f5f5f5; }
-
-.mma-qtype-match-container .item-select select,
-.mma-qtype-match-container .item-select .mm-select-fix {
-  padding: 0 36px 0 0;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column; }
 
 .mma-qtype-multianswer-container p {
   margin: 0 0 .5em; }
