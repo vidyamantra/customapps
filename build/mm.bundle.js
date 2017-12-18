@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-angular.module('mm', ['ionic', 'mm.core', 'mm.core.comments', 'mm.core.contentlinks', 'mm.core.course', 'mm.core.courses', 'mm.core.fileuploader', 'mm.core.grades', 'mm.core.login', 'mm.core.question', 'mm.core.sharedfiles', 'mm.core.sidemenu', 'mm.core.settings', 'mm.core.textviewer', 'mm.core.user', 'mm.addons.badges', 'mm.addons.calendar', 'mm.addons.competency', 'mm.addons.coursecompletion', 'mm.addons.files', 'mm.addons.frontpage', 'mm.addons.grades', 'mm.addons.messageoutput', 'mm.addons.messages', 'mm.addons.myoverview', 'mm.addons.notes', 'mm.addons.notifications', 'mm.addons.participants', 'mm.addons.pushnotifications', 'mm.addons.remotestyles', 'mm.addons.messageoutput_airnotifier', 'mm.addons.mod_assign', 'mm.addons.mod_book', 'mm.addons.mod_chat', 'mm.addons.mod_choice', 'mm.addons.mod_feedback', 'mm.addons.mod_folder', 'mm.addons.mod_forum', 'mm.addons.mod_glossary', 'mm.addons.mod_imscp', 'mm.addons.mod_label', 'mm.addons.mod_lesson', 'mm.addons.mod_lti', 'mm.addons.mod_page', 'mm.addons.mod_quiz', 'mm.addons.mod_resource', 'mm.addons.mod_scorm', 'mm.addons.mod_survey', 'mm.addons.mod_url', 'mm.addons.mod_wiki', 'mm.addons.qbehaviour_adaptive', 'mm.addons.qbehaviour_adaptivenopenalty', 'mm.addons.qbehaviour_deferredcbm', 'mm.addons.qbehaviour_deferredfeedback', 'mm.addons.qbehaviour_immediatecbm', 'mm.addons.qbehaviour_immediatefeedback', 'mm.addons.qbehaviour_informationitem', 'mm.addons.qbehaviour_interactive', 'mm.addons.qbehaviour_interactivecountback', 'mm.addons.qbehaviour_manualgraded', 'mm.addons.qtype_calculated', 'mm.addons.qtype_calculatedmulti', 'mm.addons.qtype_calculatedsimple', 'mm.addons.qtype_ddimageortext', 'mm.addons.qtype_ddmarker', 'mm.addons.qtype_ddwtos', 'mm.addons.qtype_description', 'mm.addons.qtype_essay', 'mm.addons.qtype_gapselect', 'mm.addons.qtype_match', 'mm.addons.qtype_multianswer', 'mm.addons.qtype_multichoice', 'mm.addons.qtype_numerical', 'mm.addons.qtype_randomsamatch', 'mm.addons.qtype_shortanswer', 'mm.addons.qtype_truefalse', 'mm.addons.userprofilefield_checkbox', 'mm.addons.userprofilefield_datetime', 'mm.addons.userprofilefield_menu', 'mm.addons.userprofilefield_text', 'mm.addons.userprofilefield_textarea', 'ngCordova', 'angular-md5', 'pascalprecht.translate', 'ngAria', 'oc.lazyLoad', 'ckeditor',
+angular.module('mm', ['ionic', 'mm.core', 'mm.core.comments', 'mm.core.contentlinks', 'mm.core.course', 'mm.core.courses', 'mm.core.fileuploader', 'mm.core.grades', 'mm.core.login', 'mm.core.question', 'mm.core.settings', 'mm.core.sharedfiles', 'mm.core.sidemenu', 'mm.core.textviewer', 'mm.core.user', 'mm.addons.badges', 'mm.addons.calendar', 'mm.addons.competency', 'mm.addons.coursecompletion', 'mm.addons.files', 'mm.addons.frontpage', 'mm.addons.grades', 'mm.addons.messageoutput', 'mm.addons.messages', 'mm.addons.myoverview', 'mm.addons.notes', 'mm.addons.notifications', 'mm.addons.participants', 'mm.addons.pushnotifications', 'mm.addons.remotestyles', 'mm.addons.messageoutput_airnotifier', 'mm.addons.mod_assign', 'mm.addons.mod_book', 'mm.addons.mod_chat', 'mm.addons.mod_choice', 'mm.addons.mod_feedback', 'mm.addons.mod_folder', 'mm.addons.mod_forum', 'mm.addons.mod_glossary', 'mm.addons.mod_imscp', 'mm.addons.mod_label', 'mm.addons.mod_lesson', 'mm.addons.mod_lti', 'mm.addons.mod_page', 'mm.addons.mod_quiz', 'mm.addons.mod_resource', 'mm.addons.mod_scorm', 'mm.addons.mod_survey', 'mm.addons.mod_url', 'mm.addons.mod_wiki', 'mm.addons.qbehaviour_adaptive', 'mm.addons.qbehaviour_adaptivenopenalty', 'mm.addons.qbehaviour_deferredcbm', 'mm.addons.qbehaviour_deferredfeedback', 'mm.addons.qbehaviour_immediatecbm', 'mm.addons.qbehaviour_immediatefeedback', 'mm.addons.qbehaviour_informationitem', 'mm.addons.qbehaviour_interactive', 'mm.addons.qbehaviour_interactivecountback', 'mm.addons.qbehaviour_manualgraded', 'mm.addons.qtype_calculated', 'mm.addons.qtype_calculatedmulti', 'mm.addons.qtype_calculatedsimple', 'mm.addons.qtype_ddimageortext', 'mm.addons.qtype_ddmarker', 'mm.addons.qtype_ddwtos', 'mm.addons.qtype_description', 'mm.addons.qtype_essay', 'mm.addons.qtype_gapselect', 'mm.addons.qtype_match', 'mm.addons.qtype_multianswer', 'mm.addons.qtype_multichoice', 'mm.addons.qtype_numerical', 'mm.addons.qtype_randomsamatch', 'mm.addons.qtype_shortanswer', 'mm.addons.qtype_truefalse', 'mm.addons.userprofilefield_checkbox', 'mm.addons.userprofilefield_datetime', 'mm.addons.userprofilefield_menu', 'mm.addons.userprofilefield_text', 'mm.addons.userprofilefield_textarea', 'ngCordova', 'angular-md5', 'pascalprecht.translate', 'ngAria', 'oc.lazyLoad', 'ckeditor',
             'ngMessages', 'ngAnimate'])
 .run(["$ionicPlatform", function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -11546,6 +11546,67 @@ angular.module('mm.core.question', [])
 	$mmEvents.on(mmCoreEventRemoteAddonsLoaded, updateHandlers);
 }]);
 
+angular.module('mm.core.settings', [])
+.constant('mmCoreSettingsReportInBackground', 'mmCoreReportInBackground')
+.constant('mmCoreSettingsRichTextEditor', 'mmCoreSettingsRichTextEditor')
+.constant('mmCoreSettingsSyncOnlyOnWifi', 'mmCoreSyncOnlyOnWifi')
+.constant('mmCoreSettingsNotificationSound', 'mmCoreNotificationSound')
+.config(["$stateProvider", function($stateProvider) {
+    $stateProvider
+    .state('site.mm_settings', {
+        url: '/mm_settings',
+        views: {
+            'site': {
+                templateUrl: 'core/components/settings/templates/list.html',
+                controller: 'mmSettingsListCtrl'
+            }
+        }
+    })
+    .state('site.mm_settings-about', {
+        url: '/mm_settings-about',
+        views: {
+            'site': {
+                templateUrl: 'core/components/settings/templates/about.html',
+                controller: 'mmSettingsAboutCtrl'
+            }
+        }
+    })
+    .state('site.mm_settings-general', {
+        url: '/mm_settings-general',
+        views: {
+            'site': {
+                templateUrl: 'core/components/settings/templates/general.html',
+                controller: 'mmSettingsGeneralCtrl'
+            }
+        }
+    })
+    .state('site.mm_settings-spaceusage', {
+        url: '/mm_settings-spaceusage',
+        views: {
+            'site': {
+                templateUrl: 'core/components/settings/templates/space-usage.html',
+                controller: 'mmSettingsSpaceUsageCtrl'
+            }
+        }
+    })
+    .state('site.mm_settings-synchronization', {
+        url: '/mm_settings-synchronization',
+        views: {
+            'site': {
+                templateUrl: 'core/components/settings/templates/synchronization.html',
+                controller: 'mmSettingsSynchronizationCtrl'
+            }
+        }
+    });
+}])
+.run(["$mmEvents", "mmCoreEventLogin", "mmCoreEventSiteUpdated", "mmCoreEventLogout", "$mmSettingsDelegate", "mmCoreEventRemoteAddonsLoaded", function($mmEvents, mmCoreEventLogin, mmCoreEventSiteUpdated, mmCoreEventLogout, $mmSettingsDelegate,
+            mmCoreEventRemoteAddonsLoaded) {
+    $mmEvents.on(mmCoreEventLogin, $mmSettingsDelegate.updateHandlers);
+    $mmEvents.on(mmCoreEventSiteUpdated, $mmSettingsDelegate.updateHandlers);
+    $mmEvents.on(mmCoreEventRemoteAddonsLoaded, $mmSettingsDelegate.updateHandlers);
+    $mmEvents.on(mmCoreEventLogout, $mmSettingsDelegate.clearSiteHandlers);
+}]);
+
 angular.module('mm.core.sharedfiles', ['mm.core'])
 .constant('mmSharedFilesFolder', 'sharedfiles')
 .constant('mmSharedFilesStore', 'shared_files')
@@ -11629,67 +11690,6 @@ angular.module('mm.core.sidemenu', [])
     $mmEvents.on(mmCoreEventSiteUpdated, $mmSideMenuDelegate.updateNavHandlers);
     $mmEvents.on(mmCoreEventRemoteAddonsLoaded, $mmSideMenuDelegate.updateNavHandlers);
     $mmEvents.on(mmCoreEventLogout, $mmSideMenuDelegate.clearSiteHandlers);
-}]);
-
-angular.module('mm.core.settings', [])
-.constant('mmCoreSettingsReportInBackground', 'mmCoreReportInBackground')
-.constant('mmCoreSettingsRichTextEditor', 'mmCoreSettingsRichTextEditor')
-.constant('mmCoreSettingsSyncOnlyOnWifi', 'mmCoreSyncOnlyOnWifi')
-.constant('mmCoreSettingsNotificationSound', 'mmCoreNotificationSound')
-.config(["$stateProvider", function($stateProvider) {
-    $stateProvider
-    .state('site.mm_settings', {
-        url: '/mm_settings',
-        views: {
-            'site': {
-                templateUrl: 'core/components/settings/templates/list.html',
-                controller: 'mmSettingsListCtrl'
-            }
-        }
-    })
-    .state('site.mm_settings-about', {
-        url: '/mm_settings-about',
-        views: {
-            'site': {
-                templateUrl: 'core/components/settings/templates/about.html',
-                controller: 'mmSettingsAboutCtrl'
-            }
-        }
-    })
-    .state('site.mm_settings-general', {
-        url: '/mm_settings-general',
-        views: {
-            'site': {
-                templateUrl: 'core/components/settings/templates/general.html',
-                controller: 'mmSettingsGeneralCtrl'
-            }
-        }
-    })
-    .state('site.mm_settings-spaceusage', {
-        url: '/mm_settings-spaceusage',
-        views: {
-            'site': {
-                templateUrl: 'core/components/settings/templates/space-usage.html',
-                controller: 'mmSettingsSpaceUsageCtrl'
-            }
-        }
-    })
-    .state('site.mm_settings-synchronization', {
-        url: '/mm_settings-synchronization',
-        views: {
-            'site': {
-                templateUrl: 'core/components/settings/templates/synchronization.html',
-                controller: 'mmSettingsSynchronizationCtrl'
-            }
-        }
-    });
-}])
-.run(["$mmEvents", "mmCoreEventLogin", "mmCoreEventSiteUpdated", "mmCoreEventLogout", "$mmSettingsDelegate", "mmCoreEventRemoteAddonsLoaded", function($mmEvents, mmCoreEventLogin, mmCoreEventSiteUpdated, mmCoreEventLogout, $mmSettingsDelegate,
-            mmCoreEventRemoteAddonsLoaded) {
-    $mmEvents.on(mmCoreEventLogin, $mmSettingsDelegate.updateHandlers);
-    $mmEvents.on(mmCoreEventSiteUpdated, $mmSettingsDelegate.updateHandlers);
-    $mmEvents.on(mmCoreEventRemoteAddonsLoaded, $mmSettingsDelegate.updateHandlers);
-    $mmEvents.on(mmCoreEventLogout, $mmSettingsDelegate.clearSiteHandlers);
 }]);
 
 angular.module('mm.core.textviewer', [])
@@ -28103,69 +28103,6 @@ angular.module('mm.addons.messages')
 }]);
 
 angular.module('mm.addons.myoverview')
-.directive('mmaMyOverviewEventList', ["$mmCourse", "$mmUtil", "$mmText", "$mmContentLinksHelper", "$mmSite", function($mmCourse, $mmUtil, $mmText, $mmContentLinksHelper, $mmSite) {
-    function filterEventsByTime(events, start, end) {
-        start = moment().add(start, 'days').unix();
-        end = typeof end == "undefined" ? false : moment().add(end, 'days').unix();
-        return events.filter(function(event) {
-            if (end) {
-                return start <= event.timesort && event.timesort < end;
-            }
-            return start <= event.timesort;
-        }).map(function(event) {
-            event.iconUrl = $mmCourse.getModuleIconSrc(event.icon.component);
-            return event;
-        });
-    }
-    return {
-        restrict: 'E',
-        scope: {
-            events: '=',
-            canLoadMore: '=?',
-            showCourse: '=?',
-            loadMore: '&'
-        },
-        templateUrl: 'addons/myoverview/templates/eventlist.html',
-        link: function(scope, element, attrs) {
-            updateEvents(scope.events);
-            scope.$watch('events', function(newValue) {
-                updateEvents(newValue);
-            });
-            function updateEvents(events) {
-                scope.empty = !events || events.length <= 0;
-                if (!scope.empty) {
-                    scope.recentlyOverdue = filterEventsByTime(events, -14, 0);
-                    scope.today = filterEventsByTime(events, 0, 1);
-                    scope.next7Days = filterEventsByTime(events, 1, 7);
-                    scope.next30Days = filterEventsByTime(events, 7, 30);
-                    scope.future = filterEventsByTime(events, 30);
-                }
-            }
-            scope.loadMoreEvents = function() {
-                scope.loadingMore = true;
-                scope.loadMore().finally(function() {
-                    scope.loadingMore = false;
-                });
-            };
-            scope.action = function(e, url) {
-                e.preventDefault();
-                e.stopPropagation();
-                url = $mmText.decodeHTMLEntities(url);
-                var modal = $mmUtil.showModalLoading();
-                $mmContentLinksHelper.handleLink(url).then(function(treated) {
-                    if (!treated) {
-                        return $mmSite.openInBrowserWithAutoLoginIfSameSite(url);
-                    }
-                }).finally(function() {
-                    modal.dismiss();
-                });
-                return false;
-            }
-        }
-    };
-}]);
-
-angular.module('mm.addons.myoverview')
 .controller('mmaMyOverviewCtrl', ["$scope", "$mmaMyOverview", "$mmUtil", "$q", "$mmCourses", "$mmCoursesDelegate", function($scope, $mmaMyOverview, $mmUtil, $q, $mmCourses, $mmCoursesDelegate) {
     $scope.tabShown = 'courses';
     $scope.timeline = {
@@ -28347,6 +28284,69 @@ angular.module('mm.addons.myoverview')
             course.events = course.events.concat(courseEvents.events);
             course.canLoadMore = courseEvents.canLoadMore;
         });
+    };
+}]);
+
+angular.module('mm.addons.myoverview')
+.directive('mmaMyOverviewEventList', ["$mmCourse", "$mmUtil", "$mmText", "$mmContentLinksHelper", "$mmSite", function($mmCourse, $mmUtil, $mmText, $mmContentLinksHelper, $mmSite) {
+    function filterEventsByTime(events, start, end) {
+        start = moment().add(start, 'days').unix();
+        end = typeof end == "undefined" ? false : moment().add(end, 'days').unix();
+        return events.filter(function(event) {
+            if (end) {
+                return start <= event.timesort && event.timesort < end;
+            }
+            return start <= event.timesort;
+        }).map(function(event) {
+            event.iconUrl = $mmCourse.getModuleIconSrc(event.icon.component);
+            return event;
+        });
+    }
+    return {
+        restrict: 'E',
+        scope: {
+            events: '=',
+            canLoadMore: '=?',
+            showCourse: '=?',
+            loadMore: '&'
+        },
+        templateUrl: 'addons/myoverview/templates/eventlist.html',
+        link: function(scope, element, attrs) {
+            updateEvents(scope.events);
+            scope.$watch('events', function(newValue) {
+                updateEvents(newValue);
+            });
+            function updateEvents(events) {
+                scope.empty = !events || events.length <= 0;
+                if (!scope.empty) {
+                    scope.recentlyOverdue = filterEventsByTime(events, -14, 0);
+                    scope.today = filterEventsByTime(events, 0, 1);
+                    scope.next7Days = filterEventsByTime(events, 1, 7);
+                    scope.next30Days = filterEventsByTime(events, 7, 30);
+                    scope.future = filterEventsByTime(events, 30);
+                }
+            }
+            scope.loadMoreEvents = function() {
+                scope.loadingMore = true;
+                scope.loadMore().finally(function() {
+                    scope.loadingMore = false;
+                });
+            };
+            scope.action = function(e, url) {
+                e.preventDefault();
+                e.stopPropagation();
+                url = $mmText.decodeHTMLEntities(url);
+                var modal = $mmUtil.showModalLoading();
+                $mmContentLinksHelper.handleLink(url).then(function(treated) {
+                    if (!treated) {
+                        return $mmSite.openInBrowserWithAutoLoginIfSameSite(url);
+                    }
+                }).finally(function() {
+                    modal.dismiss();
+                });
+                return false;
+            }
+        }
     };
 }]);
 
@@ -30172,21 +30172,6 @@ angular.module('mm.addons.qbehaviour_deferredcbm')
     return self;
 }]);
 
-angular.module('mm.addons.qbehaviour_immediatecbm')
-.factory('$mmaQbehaviourImmediateCBMHandler', ["$mmQuestionHelper", function($mmQuestionHelper) {
-    var self = {};
-    self.isEnabled = function() {
-        return true;
-    };
-    self.handleQuestion = function(question) {
-        $mmQuestionHelper.extractQbehaviourButtons(question);
-        if ($mmQuestionHelper.extractQbehaviourCBM(question)) {
-            return ['mma-qbehaviour-deferred-cbm'];
-        }
-    };
-    return self;
-}]);
-
 angular.module('mm.addons.qbehaviour_deferredfeedback')
 .factory('$mmaQbehaviourDeferredFeedbackHandler', ["$mmQuestion", function($mmQuestion) {
     var self = {};
@@ -30242,6 +30227,21 @@ angular.module('mm.addons.qbehaviour_deferredfeedback')
         return true;
     };
     self.handleQuestion = function(question) {
+    };
+    return self;
+}]);
+
+angular.module('mm.addons.qbehaviour_immediatecbm')
+.factory('$mmaQbehaviourImmediateCBMHandler', ["$mmQuestionHelper", function($mmQuestionHelper) {
+    var self = {};
+    self.isEnabled = function() {
+        return true;
+    };
+    self.handleQuestion = function(question) {
+        $mmQuestionHelper.extractQbehaviourButtons(question);
+        if ($mmQuestionHelper.extractQbehaviourCBM(question)) {
+            return ['mma-qbehaviour-deferred-cbm'];
+        }
     };
     return self;
 }]);
@@ -32827,49 +32827,6 @@ angular.module('mm.addons.userprofilefield_datetime')
     return self;
 });
 
-angular.module('mm.addons.userprofilefield_text')
-.directive('mmaUserProfileFieldText', ["$log", function($log) {
-    $log = $log.getInstance('mmaUserProfileFieldText');
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/userprofilefield/text/template.html',
-        link: function(scope, element) {
-            var field = scope.field;
-            if (field && scope.edit && scope.model) {
-                field.modelName = 'profile_field_' + field.shortname;
-                if (field.param2) {
-                    field.maxlength = parseInt(field.param2, 10) || '';
-                }
-                field.inputType = field.param3 && field.param3 !== '0' && field.param3 !== 'false' ? 'password' : 'text';
-                if (typeof field.defaultdata != 'undefined' && typeof scope.model[field.modelName] == 'undefined') {
-                    scope.model[field.modelName] = field.defaultdata;
-                }
-            }
-        }
-    };
-}]);
-
-angular.module('mm.addons.userprofilefield_text')
-.factory('$mmaUserProfileFieldTextHandler', ["$mmText", function($mmText) {
-    var self = {};
-    self.isEnabled = function() {
-        return true;
-    };
-    self.getData = function(field, signup, registerAuth, model) {
-        var name = 'profile_field_' + field.shortname;
-        return {
-            type: 'text',
-            name: name,
-            value: $mmText.cleanTags(model[name])
-        };
-    };
-    self.getDirectiveName = function(field) {
-        return 'mma-user-profile-field-text';
-    };
-    return self;
-}]);
-
 angular.module('mm.addons.userprofilefield_menu')
 .directive('mmaUserProfileFieldMenu', ["$log", function($log) {
     $log = $log.getInstance('mmaUserProfileFieldMenu');
@@ -32915,6 +32872,49 @@ angular.module('mm.addons.userprofilefield_menu')
     };
     return self;
 });
+
+angular.module('mm.addons.userprofilefield_text')
+.directive('mmaUserProfileFieldText', ["$log", function($log) {
+    $log = $log.getInstance('mmaUserProfileFieldText');
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/userprofilefield/text/template.html',
+        link: function(scope, element) {
+            var field = scope.field;
+            if (field && scope.edit && scope.model) {
+                field.modelName = 'profile_field_' + field.shortname;
+                if (field.param2) {
+                    field.maxlength = parseInt(field.param2, 10) || '';
+                }
+                field.inputType = field.param3 && field.param3 !== '0' && field.param3 !== 'false' ? 'password' : 'text';
+                if (typeof field.defaultdata != 'undefined' && typeof scope.model[field.modelName] == 'undefined') {
+                    scope.model[field.modelName] = field.defaultdata;
+                }
+            }
+        }
+    };
+}]);
+
+angular.module('mm.addons.userprofilefield_text')
+.factory('$mmaUserProfileFieldTextHandler', ["$mmText", function($mmText) {
+    var self = {};
+    self.isEnabled = function() {
+        return true;
+    };
+    self.getData = function(field, signup, registerAuth, model) {
+        var name = 'profile_field_' + field.shortname;
+        return {
+            type: 'text',
+            name: name,
+            value: $mmText.cleanTags(model[name])
+        };
+    };
+    self.getDirectiveName = function(field) {
+        return 'mma-user-profile-field-text';
+    };
+    return self;
+}]);
 
 angular.module('mm.addons.userprofilefield_textarea')
 .directive('mmaUserProfileFieldTextarea', ["$log", function($log) {
@@ -40845,1599 +40845,6 @@ angular.module('mm.addons.mod_folder')
     return self;
 }]);
 
-angular.module('mm.addons.mod_glossary')
-.controller('mmaModGlossaryEditCtrl', ["$stateParams", "$scope", "mmaModGlossaryComponent", "$mmUtil", "$q", "$mmaModGlossary", "$mmText", "$translate", "$ionicHistory", "$mmEvents", "mmaModGlossaryAddEntryEvent", "$mmaModGlossaryOffline", "$mmaModGlossaryHelper", "$mmLang", "$mmFileUploaderHelper", function($stateParams, $scope, mmaModGlossaryComponent, $mmUtil, $q, $mmaModGlossary, $mmText,
-        $translate, $ionicHistory, $mmEvents, mmaModGlossaryAddEntryEvent, $mmaModGlossaryOffline, $mmaModGlossaryHelper, $mmLang,
-        $mmFileUploaderHelper) {
-    var module = $stateParams.module,
-        courseId = $stateParams.courseid,
-        cmid = $stateParams.cmid,
-        glossaryId = $stateParams.glossaryid,
-        glossary = $stateParams.glossary || {},
-        originalData = null,
-        entry = $stateParams.entry || false,
-        allowDuplicateEntries = !!glossary.allowduplicatedentries;
-    $scope.entry = {
-        concept: '',
-        text: ''
-    };
-    $scope.title = module.name;
-    $scope.component = mmaModGlossaryComponent;
-    $scope.componentId = module.id;
-    $scope.autolinking = !!glossary.usedynalink;
-    $scope.options = {
-        categories: null,
-        aliases: "",
-        usedynalink: false,
-        casesensitive: false,
-        fullmatch: false
-    };
-    $scope.attachments = [];
-    if (entry) {
-        $scope.entry.concept = entry.concept || '';
-        $scope.entry.text = entry.definition || '';
-        originalData = {};
-        originalData.text = $scope.entry.text;
-        originalData.concept = $scope.entry.concept;
-        originalData.files = [];
-        if (entry.options) {
-            $scope.options.categories = entry.options.categories || null;
-            $scope.options.aliases = entry.options.aliases || "";
-            $scope.options.usedynalink = !!entry.options.usedynalink;
-            if ($scope.options.usedynalink) {
-                $scope.options.casesensitive = !!entry.options.casesensitive;
-                $scope.options.fullmatch = !!entry.options.fullmatch;
-            }
-        }
-        if (entry.attachments && entry.attachments.offline) {
-            $mmaModGlossaryHelper.getStoredFiles(glossaryId, entry.concept, entry.timecreated).then(function(files) {
-                $scope.attachments = files;
-                originalData.files = angular.copy(files);
-            });
-        }
-    }
-    $mmUtil.blockLeaveView($scope, cancel);
-    function fetchGlossaryData() {
-        return $mmaModGlossary.getAllCategories(glossaryId).then(function(categories) {
-            $scope.categories = categories;
-            if ($scope.options.categories) {
-                var cats = $scope.options.categories.split(",");
-                angular.forEach(cats, function(catId) {
-                    angular.forEach($scope.categories, function(category) {
-                        if (category.id == catId) {
-                            category.selected = true;
-                        }
-                    });
-                });
-            }
-        });
-    }
-    function cancel() {
-        var promise;
-        if (!$mmaModGlossaryHelper.hasEntryDataChanged($scope.entry, $scope.attachments, originalData)) {
-           promise = $q.when();
-        } else {
-            promise =  $mmUtil.showConfirm($translate('mm.core.confirmcanceledit'));
-        }
-        return promise.then(function() {
-            $mmFileUploaderHelper.clearTmpFiles($scope.attachments);
-        });
-    }
-    $scope.save = function() {
-        var concept = $scope.entry.concept,
-            definition = $scope.entry.text,
-            modal,
-            attachments,
-            timecreated = entry && entry.timecreated || Date.now(),
-            saveOffline = false;
-        if (!concept || !definition) {
-            $mmUtil.showErrorModal('mma.mod_glossary.fillfields', true);
-            return;
-        }
-        modal = $mmUtil.showModalLoading('mm.core.sending', true);
-        $mmUtil.isRichTextEditorEnabled().then(function(enabled) {
-            if (!enabled) {
-                definition = $mmText.formatHtmlLines(definition);
-            }
-            attachments = $scope.attachments;
-            if (!!attachments.length) {
-                return $mmaModGlossaryHelper.uploadOrStoreFiles(glossaryId, concept, timecreated, attachments, false)
-                        .catch(function() {
-                    saveOffline = true;
-                    return $mmaModGlossaryHelper.uploadOrStoreFiles(glossaryId, concept, timecreated, attachments, true);
-                });
-            }
-        }).then(function(attach) {
-            var cats = [];
-            if ($scope.categories) {
-                cats = $scope.categories.filter(function(category) {
-                    return category.selected;
-                }).map(function(category) {
-                    return category.id;
-                });
-            }
-            var options = {
-                aliases: $scope.options.aliases || "",
-                categories: cats.join(',') || ""
-            };
-            if ($scope.autolinking) {
-                options.usedynalink = $scope.options.usedynalink ? 1 : 0;
-                if ($scope.options.usedynalink) {
-                    options.casesensitive = $scope.options.casesensitive ? 1 : 0;
-                    options.fullmatch = $scope.options.fullmatch ? 1 : 0;
-                }
-            }
-            if (saveOffline) {
-                var promise;
-                if (entry && !allowDuplicateEntries) {
-                    promise = $mmaModGlossary.isConceptUsed(glossaryId, concept, entry.timecreated).then(function(used) {
-                        if (used) {
-                            return $mmLang.translateAndReject('mma.mod_glossary.errconceptalreadyexists');
-                        }
-                    });
-                } else {
-                    promise = $q.when();
-                }
-                return promise.then(function() {
-                    return $mmaModGlossaryOffline.saveAddEntry(glossaryId, concept, definition, courseId, options, attach,
-                            timecreated, undefined, undefined, entry).then(function() {
-                    });
-                });
-            } else {
-                return $mmaModGlossary.addEntry(glossaryId, concept, definition, courseId, options, attach, timecreated, undefined,
-                    entry, !attachments.length, !allowDuplicateEntries);
-            }
-        }).then(function(entryId) {
-            if (entryId) {
-                $scope.entry.id = entryId;
-                $mmaModGlossaryHelper.deleteStoredFiles(glossaryId, concept, timecreated);
-            }
-            $scope.entry.glossaryid = glossaryId;
-            $scope.entry.definition = definition;
-            return returnToEntryList();
-        }).catch(function(error) {
-            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.cannoteditentry', true);
-        }).finally(function() {
-            modal.dismiss();
-        });
-    };
-    function returnToEntryList() {
-        var data = {
-            glossaryid: glossaryId,
-            cmid: cmid,
-            entry: $scope.entry
-        };
-        $mmFileUploaderHelper.clearTmpFiles($scope.attachments);
-        $mmEvents.trigger(mmaModGlossaryAddEntryEvent, data);
-        $ionicHistory.goBack();
-    }
-    fetchGlossaryData().finally(function() {
-        $scope.glossaryLoaded = true;
-    });
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.controller('mmaModGlossaryEntryCtrl', ["$scope", "$stateParams", "$mmaModGlossary", "$translate", "mmaModGlossaryComponent", "mmUserProfileState", "$mmUtil", function($scope, $stateParams, $mmaModGlossary, $translate, mmaModGlossaryComponent,
-        mmUserProfileState, $mmUtil) {
-    var entryId = $stateParams.entryid,
-        courseId = $stateParams.cid || 0,
-        glossary,
-        entry;
-    if (!courseId) {
-        $mmUtil.showErrorModal('mma.mod_glossary.errorloadingentry', true);
-        return;
-    }
-    $scope.refreshEntry = function() {
-        return $mmaModGlossary.invalidateEntry(entry.id).then(function() {
-            return fetchEntry(true);
-        }).finally(function() {
-            $scope.$broadcast('scroll.refreshComplete');
-        });
-    };
-    function fetchEntry(refresh) {
-        return $mmaModGlossary.getEntry(entryId).then(function(result) {
-            entry = result;
-            $scope.entry = entry;
-            $scope.title = entry.concept;
-            if (!refresh) {
-                return $mmaModGlossary.getGlossaryById(courseId, entry.glossaryid).then(function(gloss) {
-                    glossary = gloss;
-                    var displayFormat = glossary.displayformat;
-                    $scope.courseId = courseId;
-                    $scope.userStateName = mmUserProfileState;
-                    $scope.component = mmaModGlossaryComponent;
-                    $scope.componentId = glossary.coursemodule;
-                    if (displayFormat == 'fullwithauthor' || displayFormat == 'encyclopedia') {
-                        $scope.showAuthor = true;
-                        $scope.showDate = true;
-                    } else if (displayFormat == 'fullwithoutauthor') {
-                        $scope.showAuthor = false;
-                        $scope.showDate = true;
-                    } else {
-                        $scope.showAuthor = false;
-                        $scope.showDate = false;
-                    }
-                });
-            }
-        }).catch(function(error) {
-            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.errorloadingentry', true);
-            return $q.reject();
-        });
-    }
-    fetchEntry().then(function() {
-        $mmaModGlossary.logEntryView(entry.id);
-    }).finally(function() {
-        $scope.entryLoaded = true;
-    });
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.controller('mmaModGlossaryIndexCtrl', ["$q", "$scope", "$stateParams", "$ionicPopover", "$mmUtil", "$mmCourseHelper", "$mmaModGlossary", "$ionicScrollDelegate", "$translate", "$mmText", "mmaModGlossaryComponent", "mmaModGlossaryLimitEntriesNum", "$state", "$mmCourse", "$mmaModGlossaryOffline", "$mmEvents", "mmaModGlossaryAddEntryEvent", "mmCoreEventOnlineStatusChanged", "$mmApp", "$mmSite", "mmaModGlossaryAutomSyncedEvent", "$mmaModGlossarySync", "mmaModGlossaryShowAllCategories", function($q, $scope, $stateParams, $ionicPopover, $mmUtil, $mmCourseHelper, $mmaModGlossary,
-        $ionicScrollDelegate, $translate, $mmText, mmaModGlossaryComponent, mmaModGlossaryLimitEntriesNum, $state, $mmCourse,
-        $mmaModGlossaryOffline, $mmEvents, mmaModGlossaryAddEntryEvent, mmCoreEventOnlineStatusChanged, $mmApp, $mmSite,
-        mmaModGlossaryAutomSyncedEvent, $mmaModGlossarySync, mmaModGlossaryShowAllCategories) {
-    var module = $stateParams.module ? angular.copy($stateParams.module) : {},
-        courseId = $stateParams.courseid,
-        glossary,
-        noop = function(){},
-        limitFrom = 0,
-        limitNum = mmaModGlossaryLimitEntriesNum,
-        popover,
-        popoverScope,
-        viewMode,   
-        fetchMode,       
-        fetchFunction,
-        fetchInvalidate,
-        fetchArguments,
-        obsAddEntry, onlineObserver, syncObserver,
-        searchingMessage = $translate.instant('mm.core.searching'),
-        loadingMessage = $translate.instant('mm.core.loading');
-    $scope.title = module.name;
-    $scope.description = module.description;
-    $scope.externalUrl = module.url;
-    $scope.courseid = courseId;
-    $scope.loaded = false;
-    $scope.refreshIcon = 'spinner';
-    $scope.syncIcon = 'spinner';
-    $scope.entries = [];
-    $scope.getDivider = noop;
-    $scope.showDivider = noop;
-    $scope.canLoadMore = false;
-    $scope.searchData = {
-        searchQuery: ''
-    };
-    $scope.loadingMessage = loadingMessage;
-    $scope.component = mmaModGlossaryComponent;
-    $scope.componentId = module.id;
-    $scope.moduleName = $mmCourse.translateModuleName('glossary');
-    $scope.offlineEntries = [];
-    function fetchGlossary(refresh, sync, showErrors) {
-        $scope.isOnline = $mmApp.isOnline();
-        return $mmaModGlossary.getGlossary(courseId, module.id).then(function(mod) {
-            glossary = mod;
-            $scope.description = glossary.intro || module.description;
-            $scope.canAdd = ($mmaModGlossary.isPluginEnabledForEditing() && glossary.canaddentry) || false;
-            var browseModes = [
-                    {key: 'search', langkey: 'mma.mod_glossary.bysearch'}
-                ];
-            angular.forEach(glossary.browsemodes, function(mode) {
-                switch (mode) {
-                    case 'letter' :
-                        browseModes.push({key: 'letter_all', langkey: 'mma.mod_glossary.byalphabet'});
-                        break;
-                    case 'cat' :
-                        browseModes.push({key: 'cat_all', langkey: 'mma.mod_glossary.bycategory'});
-                        break;
-                    case 'date' :
-                        browseModes.push({key: 'newest_first', langkey: 'mma.mod_glossary.bynewestfirst'});
-                        browseModes.push({key: 'recently_updated', langkey: 'mma.mod_glossary.byrecentlyupdated'});
-                        break;
-                    case 'author' :
-                        browseModes.push({key: 'author_all', langkey: 'mma.mod_glossary.byauthor'});
-                        break;
-                }
-            });
-            if (!popoverScope) {
-                initSortMenu();
-            }
-            popoverScope.modes = browseModes;
-            if (sync) {
-                return syncGlossary(showErrors).catch(function() {
-                });
-            }
-        }).then(function() {
-            return fetchEntries().then(function() {
-                $mmCourseHelper.fillContextMenu($scope, module, courseId, false, mmaModGlossaryComponent);
-                return $mmaModGlossaryOffline.getGlossaryAddEntries(glossary.id).then(function(offlineEntries) {
-                    $scope.hasOffline = !!offlineEntries.length;
-                    if ($scope.hasOffline) {
-                        $scope.offlineEntries = offlineEntries;
-                        $scope.showNoEntries = ($scope.entries.length + offlineEntries.length) <= 0;
-                    } else {
-                        $scope.offlineEntries = [];
-                    }
-                });
-            });
-        }).catch(function(error) {
-            if (!refresh) {
-                return refreshData(sync);
-            }
-            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.errorloadingglossary', true);
-            $scope.canLoadMore = false; 
-            return $q.reject();
-        }).finally(function() {
-            $scope.loaded = true;
-            $scope.refreshIcon = 'ion-refresh';
-            $scope.syncIcon = 'ion-loop';
-        });
-    }
-    function syncGlossary(showErrors) {
-        return $mmaModGlossarySync.syncGlossaryEntries(glossary.id).then(function(result) {
-            if (result.warnings && result.warnings.length) {
-                $mmUtil.showErrorModal(result.warnings[0]);
-            }
-            return result.updated;
-        }).catch(function(error) {
-            if (showErrors) {
-                $mmUtil.showErrorModalDefault(error, 'mm.core.errorsync', true);
-            }
-            return $q.reject();
-        });
-    }
-    $scope.loadMoreEntries = function() {
-        loadMoreEntries().finally(function() {
-            $scope.$broadcast('scroll.infiniteScrollComplete');
-        });
-    };
-    function refreshData(sync, showErrors) {
-        var promises = [];
-        if (fetchMode != 'search' || $scope.searchQuery) {
-            var args = angular.extend([], fetchArguments);
-            promises.push(fetchInvalidate.apply(this, args));
-            promises.push($mmaModGlossary.invalidateCourseGlossaries(courseId));
-        }
-        if (glossary && glossary.id) {
-            promises.push($mmaModGlossary.invalidateCategories(glossary.id));
-        }
-        return $q.all(promises).then(function() {
-            limitFrom = 0;
-            return fetchGlossary(true, sync, showErrors);
-        });
-    }
-    $scope.refreshEntries = function(showErrors) {
-        return showSpinnerAndFetch(true, showErrors);
-    };
-    function showSpinnerAndFetch(sync, showErrors, onlyFetch) {
-        $scope.refreshIcon = 'spinner';
-        $scope.syncIcon = 'spinner';
-        var promise;
-        if (onlyFetch) {
-            limitFrom = 0;
-            promise = fetchGlossary(true, sync, showErrors);
-        } else {
-            promise = refreshData(sync, showErrors);
-        }
-        return promise.finally(function() {
-            $scope.loaded = true;
-            $scope.refreshIcon = 'ion-refresh';
-            $scope.syncIcon = 'ion-loop';
-            $scope.$broadcast('scroll.refreshComplete');
-        });
-    }
-    $scope.pickMode = function(e) {
-        popover.show(e);
-    };
-    $scope.search = function(query) {
-        $scope.loadingMessage = searchingMessage;
-        fetchArguments = [glossary.id, query, 1, 'CONCEPT', 'ASC'];
-        $scope.loaded = false;
-        showSpinnerAndFetch(false, false, true);
-    };
-    $scope.removeFiles = function() {
-        $mmCourseHelper.confirmAndRemove(module, courseId);
-    };
-    $scope.prefetch = function() {
-        $mmCourseHelper.contextMenuPrefetch($scope, module, courseId);
-    };
-    $scope.expandDescription = function() {
-        $mmText.expandText($translate.instant('mm.core.description'), $scope.description, false,
-                mmaModGlossaryComponent, module.id);
-    };
-    $scope.gotoAddEntry = function() {
-        if ($scope.canAdd) {
-            var stateParams = {
-                module: module,
-                cmid: module.id,
-                glossary: glossary,
-                glossaryid: glossary.id,
-                courseid: courseId
-            };
-            return $state.go('site.mod_glossary-edit', stateParams);
-        }
-    };
-    $scope.gotoEditEntry = function(entry) {
-        if ($scope.canAdd) {
-            var stateParams = {
-                module: module,
-                cmid: module.id,
-                glossary: glossary,
-                glossaryid: glossary.id,
-                courseid: courseId,
-                entry: entry
-            };
-            return $state.go('site.mod_glossary-edit', stateParams);
-        }
-    };
-    function eventReceived(data) {
-        if ((glossary && glossary.id === data.glossaryid) || data.cmid === module.id) {
-            $scope.loaded = false;
-            showSpinnerAndFetch(false);
-            $mmCourse.checkModuleCompletion(courseId, module.completionstatus);
-        }
-    }
-    fetchGlossary(false, true).then(function() {
-        $mmaModGlossary.logView(glossary.id, viewMode).then(function() {
-            $mmCourse.checkModuleCompletion(courseId, module.completionstatus);
-        });
-    }).finally(function() {
-        $scope.refreshIcon = 'ion-refresh';
-        $scope.syncIcon = 'ion-loop';
-        $scope.loaded = true;
-    });
-    obsAddEntry = $mmEvents.on(mmaModGlossaryAddEntryEvent, eventReceived);
-    onlineObserver = $mmEvents.on(mmCoreEventOnlineStatusChanged, function(online) {
-        $scope.isOnline = online;
-    });
-    syncObserver = $mmEvents.on(mmaModGlossaryAutomSyncedEvent, function(data) {
-        if (glossary && data && data.siteid == $mmSite.getId() && data.glossaryid == glossary.id &&
-                data.userid == $mmSite.getUserId()) {
-            $scope.loaded = false;
-            return showSpinnerAndFetch(false);
-        }
-    });
-    function initSortMenu() {
-        switchMode('letter_all');
-        popoverScope = $scope.$new(true);
-        popoverScope.data = { selectedMode: fetchMode };
-        popoverScope.modePicked = function(mode) {
-            $scope.loadingMessage = loadingMessage;
-            $ionicScrollDelegate.$getByHandle('mmaModGlossaryIndex').scrollTop(false);
-            if (switchMode(mode)) {
-                $scope.loaded = false;
-                showSpinnerAndFetch(false, false, true);
-            } else {
-                $scope.loaded = true;
-                $scope.refreshIcon = 'ion-refresh';
-                $scope.syncIcon = 'ion-loop';
-                $scope.entries = [];
-                $scope.canLoadMore = false;
-                $scope.showNoEntries = false;
-            }
-            popoverScope.data.selectedMode = fetchMode;
-            popover.hide();
-        };
-        return $ionicPopover.fromTemplateUrl('addons/mod/glossary/templates/mode_picker.html', {
-            scope: popoverScope
-        }).then(function(po) {
-            popover = po;
-            $scope.sortMenuInit = true;
-        });
-    }
-    function fetchEntries(append) {
-        if (!append) {
-            limitFrom = 0;
-        }
-        var args = angular.extend([], fetchArguments);
-        args.push(limitFrom);
-        args.push(limitNum);
-        return fetchFunction.apply(this, args).then(function(result) {
-            if (append) {
-                $scope.entries = $scope.entries.concat(result.entries);
-            } else {
-                $scope.entries = result.entries;
-            }
-            $scope.canLoadMore = (limitFrom + limitNum) < result.count;
-            $scope.showNoEntries = ($scope.entries.length + $scope.offlineEntries.length) <= 0;
-        }).catch(function() {
-            if (append) {
-                $mmUtil.showErrorModal('mma.mod_glossary.errorloadingentries', true);
-            }
-            $scope.canLoadMore = false; 
-            return $q.reject();
-        });
-    }
-    function loadMoreEntries() {
-        limitFrom += limitNum;
-        return fetchEntries(true);
-    }
-    function switchMode(mode) {
-        if (mode == fetchMode) {
-            return false;
-        }
-        var instantFetch = true;
-        fetchMode = mode;
-        $scope.isSearch = false;
-        switch (mode) {
-            case 'author_all':
-                viewMode = 'author';
-                fetchFunction = $mmaModGlossary.getEntriesByAuthor;
-                fetchInvalidate = $mmaModGlossary.invalidateEntriesByAuthor;
-                fetchArguments = [glossary.id, 'ALL', 'LASTNAME', 'ASC'];
-                $scope.getDivider = function(entry) {
-                    return entry.userfullname;
-                };
-                $scope.showDivider = function(entry, previous) {
-                    if (typeof previous === 'undefined') {
-                        return true;
-                    }
-                    return entry.userid != previous.userid;
-                };
-                break;
-            case 'cat_all':
-                viewMode = 'cat';
-                fetchFunction = $mmaModGlossary.getEntriesByCategory;
-                fetchInvalidate = $mmaModGlossary.invalidateEntriesByCategory;
-                fetchArguments = [glossary.id, mmaModGlossaryShowAllCategories];
-                $scope.getDivider = function(entry) {
-                    return entry.categoryname;
-                };
-                $scope.showDivider = function(entry, previous) {
-                    if (typeof previous === 'undefined') {
-                        return true;
-                    }
-                    return $scope.getDivider(entry) != $scope.getDivider(previous);
-                };
-                break;
-            case 'newest_first':
-                viewMode = 'date';
-                fetchFunction = $mmaModGlossary.getEntriesByDate;
-                fetchInvalidate = $mmaModGlossary.invalidateEntriesByDate;
-                fetchArguments = [glossary.id, 'CREATION', 'DESC'];
-                $scope.getDivider = noop;
-                $scope.showDivider = function() { return false; };
-                break;
-            case 'recently_updated':
-                viewMode = 'date';
-                fetchFunction = $mmaModGlossary.getEntriesByDate;
-                fetchInvalidate = $mmaModGlossary.invalidateEntriesByDate;
-                fetchArguments = [glossary.id, 'UPDATE', 'DESC'];
-                $scope.getDivider = noop;
-                $scope.showDivider = function() { return false; };
-                break;
-            case 'search':
-                viewMode = 'search';
-                fetchFunction = $mmaModGlossary.getEntriesBySearch;
-                fetchInvalidate = $mmaModGlossary.invalidateEntriesBySearch;
-                fetchArguments = false; 
-                $scope.isSearch = true;
-                $scope.getDivider = noop;
-                $scope.showDivider = function() { return false; };
-                instantFetch = false;
-                break;
-            case 'letter_all':
-            default:
-                viewMode = 'letter';
-                fetchMode = 'letter_all';
-                fetchFunction = $mmaModGlossary.getEntriesByLetter;
-                fetchInvalidate = $mmaModGlossary.invalidateEntriesByLetter;
-                fetchArguments = [glossary.id, 'ALL'];
-                $scope.getDivider = function(entry) {
-                    return entry.concept.substr(0, 1).toUpperCase();
-                };
-                $scope.showDivider = function(entry, previous) {
-                    if (typeof previous === 'undefined') {
-                        return true;
-                    }
-                    return $scope.getDivider(entry) != $scope.getDivider(previous);
-                };
-                break;
-            }
-        return instantFetch;
-    }
-    $scope.$on('$destroy', function() {
-        obsAddEntry && obsAddEntry.off && obsAddEntry.off();
-        onlineObserver && onlineObserver.off && onlineObserver.off();
-        syncObserver && syncObserver.off && syncObserver.off();
-        if (popover && popoverScope) {
-            popover.remove();
-            popoverScope.$destroy();
-        }
-    });
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.factory('$mmaModGlossary', ["$mmSite", "$q", "$mmSitesManager", "$mmFilepool", "mmaModGlossaryComponent", "$mmaModGlossaryOffline", "mmaModGlossaryLimitEntriesNum", "$mmApp", "$mmUtil", "mmaModGlossaryLimitCategoriesNum", "$mmText", "$mmLang", "mmaModGlossaryShowAllCategories", function($mmSite, $q, $mmSitesManager, $mmFilepool, mmaModGlossaryComponent, $mmaModGlossaryOffline,
-        mmaModGlossaryLimitEntriesNum, $mmApp, $mmUtil, mmaModGlossaryLimitCategoriesNum, $mmText, $mmLang,
-        mmaModGlossaryShowAllCategories) {
-    var self = {};
-    self._getCourseGlossariesCacheKey = function(courseId) {
-        return 'mmaModGlossary:courseGlossaries:' + courseId;
-    };
-    self.getCourseGlossaries = function(courseId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    courseids: [courseId]
-                },
-                preSets = {
-                    cacheKey: self._getCourseGlossariesCacheKey(courseId)
-                };
-            return site.read('mod_glossary_get_glossaries_by_courses', params, preSets).then(function(result) {
-                return result.glossaries;
-            });
-        });
-    };
-    self.invalidateCourseGlossaries = function(courseId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var key = self._getCourseGlossariesCacheKey(courseId);
-            return site.invalidateWsCacheForKey(key);
-        });
-    };
-    self._getEntriesByAuthorCacheKey = function(glossaryId, letter, field, sort) {
-        return 'mmaModGlossary:entriesByAuthor:' + glossaryId + ":" + letter + ":" + field + ":" + sort;
-    };
-    self.getEntriesByAuthor = function(glossaryId, letter, field, sort, from, limit, forceCache, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    id: glossaryId,
-                    letter: letter,
-                    field: field,
-                    sort: sort,
-                    from: from,
-                    limit: limit
-                },
-                preSets = {
-                    cacheKey: self._getEntriesByAuthorCacheKey(glossaryId, letter, field, sort)
-                };
-            if (forceCache) {
-                preSets.omitExpires = true;
-            }
-            return site.read('mod_glossary_get_entries_by_author', params, preSets);
-        });
-    };
-    self.invalidateEntriesByAuthor = function(glossaryId, letter, field, sort, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var key = self._getEntriesByAuthorCacheKey(glossaryId, letter, field, sort);
-            return site.invalidateWsCacheForKey(key);
-        });
-    };
-    self.getEntriesByCategory = function(glossaryId, categoryId, from, limit, forceCache, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    id: glossaryId,
-                    categoryid: categoryId,
-                    from: from,
-                    limit: limit
-                },
-                preSets = {
-                    cacheKey: self._getEntriesByCategoryCacheKey(glossaryId, categoryId)
-                };
-            if (forceCache) {
-                preSets.omitExpires = true;
-            }
-            return site.read('mod_glossary_get_entries_by_category', params, preSets);
-        });
-    };
-    self.invalidateEntriesByCategory = function(glossaryId, categoryId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var key = self._getEntriesByCategoryCacheKey(glossaryId, categoryId);
-            return site.invalidateWsCacheForKey(key);
-        });
-    };
-    self._getEntriesByCategoryCacheKey = function(glossaryId, categoryId) {
-        return 'mmaModGlossary:entriesByCategory:' + glossaryId + ":" + categoryId;
-    };
-    self._getEntriesByDateCacheKey = function(glossaryId, order, sort) {
-        return 'mmaModGlossary:entriesByDate:' + glossaryId + ":" + order + ":" + sort;
-    };
-    self.getEntriesByDate = function(glossaryId, order, sort, from, limit, forceCache, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    id: glossaryId,
-                    order: order,
-                    sort: sort,
-                    from: from,
-                    limit: limit
-                },
-                preSets = {
-                    cacheKey: self._getEntriesByDateCacheKey(glossaryId, order, sort)
-                };
-            if (forceCache) {
-                preSets.omitExpires = true;
-            }
-            return site.read('mod_glossary_get_entries_by_date', params, preSets);
-        });
-    };
-    self.invalidateEntriesByDate = function(glossaryId, order, sort, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var key = self._getEntriesByDateCacheKey(glossaryId, order, sort);
-            return site.invalidateWsCacheForKey(key);
-        });
-    };
-    self._getEntriesByLetterCacheKey = function(glossaryId, letter) {
-        return 'mmaModGlossary:entriesByLetter:' + glossaryId + ":" + letter;
-    };
-    self.getEntriesByLetter = function(glossaryId, letter, from, limit, forceCache, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    id: glossaryId,
-                    letter: letter,
-                    from: from,
-                    limit: limit
-                },
-                preSets = {
-                    cacheKey: self._getEntriesByLetterCacheKey(glossaryId, letter)
-                };
-            if (forceCache) {
-                preSets.omitExpires = true;
-            }
-            return site.read('mod_glossary_get_entries_by_letter', params, preSets);
-        });
-    };
-    self.invalidateEntriesByLetter = function(glossaryId, letter, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var key = self._getEntriesByLetterCacheKey(glossaryId, letter);
-            return site.invalidateWsCacheForKey(key);
-        });
-    };
-    self._getEntriesBySearchCacheKey = function(glossaryId, query, fullsearch, order, sort) {
-        return 'mmaModGlossary:entriesBySearch:' + glossaryId + ":" + fullsearch + ":" + order + ":" + sort + ":" + query;
-    };
-    self.getEntriesBySearch = function(glossaryId, query, fullsearch, order, sort, from, limit, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    id: glossaryId,
-                    query: query,
-                    fullsearch: fullsearch,
-                    order: order,
-                    sort: sort,
-                    from: from,
-                    limit: limit
-                },
-                preSets = {
-                    cacheKey: self._getEntriesBySearchCacheKey(glossaryId, query, fullsearch, order, sort)
-                };
-            return site.read('mod_glossary_get_entries_by_search', params, preSets);
-        });
-    };
-    self.invalidateEntriesBySearch = function(glossaryId, query, fullsearch, order, sort, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var key = self._getEntriesBySearchCacheKey(glossaryId, query, fullsearch, order, sort);
-            return site.invalidateWsCacheForKey(key);
-        });
-    };
-    function getCategoriesCacheKey(glossaryId) {
-        return 'mmaModGlossary:categories:' + glossaryId;
-    }
-    self.getAllCategories = function(glossaryId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return getCategories(glossaryId, 0, mmaModGlossaryLimitCategoriesNum, [], site);
-        });
-    };
-    function getCategories(glossaryId, from, limit, categories, site) {
-        var params = {
-                id: glossaryId,
-                from: from,
-                limit: limit
-            },
-            preSets = {
-                cacheKey: getCategoriesCacheKey(glossaryId)
-            };
-        return site.read('mod_glossary_get_categories', params, preSets).then(function(response) {
-            categories = categories.concat(response.categories);
-            canLoadMore = (from + limit) < response.count;
-            if (canLoadMore) {
-                from += limit;
-                return getCategories(glossaryId, from, limit, categories, site);
-            }
-            return categories;
-        });
-    }
-    self.invalidateCategories = function(glossaryId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.invalidateWsCacheForKey(getCategoriesCacheKey(glossaryId));
-        });
-    };
-    self._getEntryCacheKey = function(entryId) {
-        return 'mmaModGlossary:getEntry:' + entryId;
-    };
-    self.getEntry = function(entryId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    id: entryId
-                },
-                preSets = {
-                    cacheKey: self._getEntryCacheKey(entryId)
-                };
-            return site.read('mod_glossary_get_entry_by_id', params, preSets).then(function(response) {
-                if (response && response.entry) {
-                    return response.entry;
-                } else {
-                    return $q.reject();
-                }
-            });
-        });
-    };
-    self.fetchAllEntries = function(fetchFunction, fetchArguments, forceCache, entries, limitFrom, siteId) {
-        var limitNum = mmaModGlossaryLimitEntriesNum;
-        siteId = siteId || $mmSite.getId();
-        if (typeof limitFrom == 'undefined' || typeof entries == 'undefined') {
-            limitFrom = 0;
-            entries = [];
-        }
-        var args = angular.extend([], fetchArguments);
-        args.push(limitFrom);
-        args.push(limitNum);
-        args.push(siteId);
-        return fetchFunction.apply(this, args).then(function(result) {
-            entries = entries.concat(result.entries);
-            canLoadMore = (limitFrom + limitNum) < result.count;
-            if (canLoadMore) {
-                limitFrom += limitNum;
-                return self.fetchAllEntries(fetchFunction, fetchArguments, forceCache, entries, limitFrom, siteId);
-            }
-            return entries;
-        });
-    };
-    self.invalidateEntry = function(entryId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.invalidateWsCacheForKey(self._getEntryCacheKey(entryId));
-        });
-    };
-    function invalidateEntries(entries, siteId) {
-        var keys = [];
-        angular.forEach(entries, function(entry) {
-            keys.push(self._getEntryCacheKey(entry.id));
-        });
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.invalidateMultipleWsCacheForKey(keys);
-        });
-    }
-     self.invalidateContent = function(moduleId, courseId) {
-        return self.getGlossary(courseId, moduleId).then(function(glossary) {
-            return self.invalidateGlossaryEntries(glossary).finally(function() {
-                var promises = [];
-                promises.push(self.invalidateCourseGlossaries(courseId));
-                promises.push(self.invalidateCategories(glossary.id));
-                return $q.all(promises);
-            });
-        });
-    };
-    self.invalidateGlossaryEntries = function(glossary, onlyEntriesList) {
-        var promises = [];
-        if (!onlyEntriesList) {
-            promises.push(self.fetchAllEntries(self.getEntriesByLetter, [glossary.id, 'ALL'], true).then(function(entries) {
-                return invalidateEntries(entries);
-            }));
-        }
-        angular.forEach(glossary.browsemodes, function(mode) {
-            switch(mode) {
-                case 'letter':
-                    promises.push(self.invalidateEntriesByLetter(glossary.id, 'ALL'));
-                    break;
-                case 'cat':
-                    promises.push(self.invalidateEntriesByCategory(glossary.id, mmaModGlossaryShowAllCategories));
-                    break;
-                case 'date':
-                    promises.push(self.invalidateEntriesByDate(glossary.id, 'CREATION', 'DESC'));
-                    promises.push(self.invalidateEntriesByDate(glossary.id, 'UPDATE', 'DESC'));
-                    break;
-                case 'author':
-                    promises.push(self.invalidateEntriesByAuthor(glossary.id, 'ALL', 'LASTNAME', 'ASC'));
-                    break;
-            }
-        });
-        return $q.all(promises);
-    };
-     self.invalidateFiles = function(moduleId, siteId) {
-         return $mmFilepool.invalidateFilesByComponent(siteId, mmaModGlossaryComponent, moduleId);
-     };
-    self.getGlossary = function(courseId, cmId, siteId) {
-        return self.getCourseGlossaries(courseId, siteId).then(function(glossaries) {
-            var result = $q.reject();
-            angular.forEach(glossaries, function(glossary) {
-                if (glossary.coursemodule == cmId) {
-                    result = glossary;
-                }
-            });
-            return result;
-        });
-    };
-    self.getGlossaryById = function(courseId, glossaryId, siteId) {
-        return self.getCourseGlossaries(courseId, siteId).then(function(glossaries) {
-            var result = $q.reject();
-            angular.forEach(glossaries, function(glossary) {
-                if (glossary.id == glossaryId) {
-                    result = glossary;
-                }
-            });
-            return result;
-        });
-    };
-    self.addEntry = function(glossaryId, concept, definition, courseId, options, attach, timecreated, siteId, discardEntry,
-            allowOffline, checkDuplicates) {
-        siteId = siteId || $mmSite.getId();
-        if (!$mmApp.isOnline() && allowOffline) {
-            return storeOffline();
-        }
-        var discardPromise = discardEntry ?
-            $mmaModGlossaryOffline.deleteAddEntry(glossaryId, discardEntry.concept, discardEntry.timecreated, siteId) : $q.when();
-        return discardPromise.then(function() {
-            return self.addEntryOnline(glossaryId, concept, definition, options, attach, siteId).then(function(entryId) {
-                return entryId;
-            }).catch(function(error) {
-                if (allowOffline && error && !error.wserror) {
-                    return storeOffline();
-                } else {
-                    return $q.reject(error.error);
-                }
-            });
-        });
-        function storeOffline() {
-            var discardTime = discardEntry && discardEntry.timecreated,
-                duplicatesPromise = checkDuplicates ? self.isConceptUsed(glossaryId, concept, discardTime, siteId) : $q.when(false);
-            return duplicatesPromise.then(function(used) {
-                if (used) {
-                    return $mmLang.translateAndReject('mma.mod_glossary.errconceptalreadyexists');
-                }
-                return $mmaModGlossaryOffline.saveAddEntry(glossaryId, concept, definition, courseId, options, attach, timecreated,
-                        siteId, undefined, discardEntry).then(function() {
-                    return false;
-                });
-            });
-        }
-    };
-    self.addEntryOnline = function(glossaryId, concept, definition, options, attachId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var params = {
-                    glossaryid: glossaryId,
-                    concept: concept,
-                    definition: definition,
-                    definitionformat: 1
-                };
-            if (options) {
-                params.options = $mmUtil.objectToArrayOfObjects(options, 'name', 'value');
-            }
-            if (attachId) {
-                params.options.push({
-                    name: 'attachmentsid',
-                    value: attachId
-                });
-            }
-            return addEntryOnline(site, params).then(function(response) {
-                if (response.entryid) {
-                    return response.entryid;
-                }
-                return $q.reject({
-                    wserror: true
-                });
-            });
-        });
-        function addEntryOnline(site, params) {
-            return site.write('mod_glossary_add_entry', params).catch(function(error) {
-                var wserror = $mmUtil.isWebServiceError(error);
-                if (wserror && error == "Invalid parameter value detected") {
-                    var definition = $mmText.cleanTags(params.definition);
-                    if (definition != params.definition) {
-                        params.definition = definition;
-                        return addEntryOnline(site, params);
-                    }
-                }
-                return $q.reject({
-                    error: error,
-                    wserror: wserror
-                });
-            });
-        }
-    };
-    self.isConceptUsed = function(glossaryId, concept, timecreated, siteId) {
-        return $mmaModGlossaryOffline.isConceptUsed(glossaryId, concept, timecreated, siteId).then(function(exists) {
-            if (exists) {
-                return true;
-            }
-            return self.fetchAllEntries(self.getEntriesByLetter, [glossaryId, 'ALL'], true, undefined, undefined, siteId)
-                    .then(function(entries) {
-                for (var i = 0, len = entries.length; i < len; i++) {
-                    if (entries[i].concept == concept) {
-                        return true;
-                    }
-                }
-                return false;
-            });
-        }).catch(function() {
-            return false;
-        });
-    };
-    self.isPluginEnabled = function(siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.wsAvailable('mod_glossary_get_glossaries_by_courses');
-        });
-    };
-    self.isPluginEnabledForEditing = function() {
-        return  $mmSite.wsAvailable('mod_glossary_add_entry');
-    };
-    self.logView = function(glossaryId, mode) {
-        var params = {
-            id: glossaryId,
-            mode: mode
-        };
-        return $mmSite.write('mod_glossary_view_glossary', params);
-    };
-    self.logEntryView = function(entryId) {
-        var params = {
-            id: entryId
-        };
-        return $mmSite.write('mod_glossary_view_entry', params);
-    };
-    return self;
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.constant('mmaModGlossaryAddEntryStore', 'mma_mod_glossary_add_entry')
-.config(["$mmSitesFactoryProvider", "mmaModGlossaryAddEntryStore", function($mmSitesFactoryProvider, mmaModGlossaryAddEntryStore) {
-    var stores = [
-        {
-            name: mmaModGlossaryAddEntryStore,
-            keyPath: ['glossaryid', 'concept', 'timecreated'],
-            indexes: [
-                {
-                    name: 'glossaryid'
-                },
-                {
-                    name: 'concept'
-                },
-                {
-                    name: 'userid'
-                },
-                {
-                    name: 'glossaryAndConcept',
-                    keyPath: ['glossaryid', 'concept']
-                },
-                {
-                    name: 'glossaryAndUser',
-                    keyPath: ['glossaryid', 'userid']
-                }
-            ]
-        }
-    ];
-    $mmSitesFactoryProvider.registerStores(stores);
-}])
-.factory('$mmaModGlossaryOffline', ["$mmSitesManager", "$log", "mmaModGlossaryAddEntryStore", "$mmFS", "$q", "$mmUtil", function($mmSitesManager, $log, mmaModGlossaryAddEntryStore, $mmFS, $q, $mmUtil) {
-    $log = $log.getInstance('$mmaModGlossaryOffline');
-    var self = {};
-    self.deleteAddEntry = function(glossaryId, concept, timecreated, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.getDb().remove(mmaModGlossaryAddEntryStore, [glossaryId, concept, timecreated]);
-        });
-    };
-    self.getAllAddEntries = function(siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.getDb().getAll(mmaModGlossaryAddEntryStore);
-        });
-    };
-    self.getAddEntry = function(glossaryId, concept, timecreated, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.getDb().get(mmaModGlossaryAddEntryStore, [glossaryId, concept, timecreated]);
-        });
-    };
-    self.getGlossaryAddEntries = function(glossaryId, siteId, userId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            userId = userId || site.getUserId();
-            return site.getDb().whereEqual(mmaModGlossaryAddEntryStore, 'glossaryAndUser', [glossaryId, userId]);
-        });
-    };
-    self.isConceptUsed = function(glossaryId, concept, timecreated, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            return site.getDb().whereEqual(mmaModGlossaryAddEntryStore, 'glossaryAndConcept', [glossaryId, concept])
-                    .then(function(entries) {
-                if (!!entries.length) {
-                    if (entries.length > 1 || !timecreated) {
-                        return true;
-                    }
-                    return $mmUtil.promiseFails(self.getAddEntry(glossaryId, concept, timecreated, siteId));
-                }
-                return false;
-            });
-        }).catch(function() {
-            return false;
-        });
-    };
-    self.saveAddEntry = function(glossaryId, concept, definition, courseId, options, attach, timecreated, siteId, userId,
-            discardEntry) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            userId = userId || site.getUserId();
-            var entry = {
-                    glossaryid: glossaryId,
-                    courseid: courseId,
-                    concept: concept,
-                    definition: definition,
-                    definitionformat: 'html',
-                    options: options,
-                    userid: userId,
-                    timecreated: timecreated || new Date().getTime()
-                };
-            if (attach) {
-                entry.attachments = attach;
-            }
-            var discardPromise = discardEntry ?
-                self.deleteAddEntry(glossaryId, discardEntry.concept, discardEntry.timecreated, site.getId()) : $q.when();
-            return discardPromise.then(function() {
-                return site.getDb().insert(mmaModGlossaryAddEntryStore, entry);
-            });
-        });
-    };
-    self.getGlossaryFolder = function(glossaryId, siteId) {
-        return $mmSitesManager.getSite(siteId).then(function(site) {
-            var siteFolderPath = $mmFS.getSiteFolder(site.getId()),
-                folderPath = 'offlineglossary/' + glossaryId;
-            return $mmFS.concatenatePaths(siteFolderPath, folderPath);
-        });
-    };
-    self.getEntryFolder = function(glossaryId, entryName, timecreated, siteId) {
-        return self.getGlossaryFolder(glossaryId, siteId).then(function(folderPath) {
-            return $mmFS.concatenatePaths(folderPath, 'newentry_' + entryName + '_' + timecreated);
-        });
-    };
-    return self;
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.factory('$mmaModGlossarySync', ["$q", "$log", "$mmApp", "$mmSitesManager", "$mmaModGlossaryOffline", "$mmSite", "$mmEvents", "$mmSync", "$mmLang", "mmaModGlossaryComponent", "$mmaModGlossary", "$translate", "mmaModGlossaryAutomSyncedEvent", "mmaModGlossarySyncTime", "$mmCourse", "$mmSyncBlock", "$mmUtil", "$mmaModGlossaryHelper", "$mmFileUploader", function($q, $log, $mmApp, $mmSitesManager, $mmaModGlossaryOffline, $mmSite, $mmEvents, $mmSync,
-        $mmLang, mmaModGlossaryComponent, $mmaModGlossary, $translate, mmaModGlossaryAutomSyncedEvent, mmaModGlossarySyncTime,
-        $mmCourse, $mmSyncBlock, $mmUtil, $mmaModGlossaryHelper, $mmFileUploader) {
-    $log = $log.getInstance('$mmaModGlossarySync');
-    var self = $mmSync.createChild(mmaModGlossaryComponent, mmaModGlossarySyncTime);
-    self.syncAllGlossaries = function(siteId) {
-        if (!$mmApp.isOnline()) {
-            $log.debug('Cannot sync all glossaries because device is offline.');
-            return $q.reject();
-        }
-        var promise;
-        if (!siteId) {
-            $log.debug('Try to sync glossaries in all sites.');
-            promise = $mmSitesManager.getSitesIds();
-        } else {
-            $log.debug('Try to sync glossaries in site ' + siteId);
-            promise = $q.when([siteId]);
-        }
-        return promise.then(function(siteIds) {
-            var sitePromises = [];
-            angular.forEach(siteIds, function(siteId) {
-                sitePromises.push($mmaModGlossaryOffline.getAllAddEntries(siteId).then(function(entries) {
-                    var promises = {};
-                    for (var i in entries) {
-                        var entry = entries[i];
-                        if (typeof promises[entry.glossaryid] != 'undefined') {
-                            continue;
-                        }
-                        promises[entry.glossaryid] = self.syncGlossaryEntriesIfNeeded(entry.glossaryid, entry.userid, siteId)
-                                .then(function(result) {
-                            if (result && result.updated) {
-                                $mmEvents.trigger(mmaModGlossaryAutomSyncedEvent, {
-                                    siteid: siteId,
-                                    glossaryid: entry.glossaryid,
-                                    userid: entry.userid,
-                                    warnings: result.warnings
-                                });
-                            }
-                        });
-                    }
-                    promises = $mmUtil.objectToArray(promises);
-                    return $q.all(promises);
-                }));
-            });
-            return $q.all(sitePromises);
-        });
-    };
-    self.syncGlossaryEntriesIfNeeded = function(glossaryId, userId, siteId) {
-        siteId = siteId || $mmSite.getId();
-        var syncId = self.getGlossarySyncId(glossaryId, userId);
-        return self.isSyncNeeded(syncId, siteId).then(function(needed) {
-            if (needed) {
-                return self.syncGlossaryEntries(glossaryId, userId, siteId);
-            }
-        });
-    };
-    self.syncGlossaryEntries = function(glossaryId, userId, siteId) {
-        userId = userId || $mmSite.getUserId();
-        siteId = siteId || $mmSite.getId();
-        var syncPromise,
-            courseId,
-            syncId = self.getGlossarySyncId(glossaryId, userId),
-            result = {
-                warnings: [],
-                updated: false
-            };
-        if (self.isSyncing(syncId, siteId)) {
-            return self.getOngoingSync(syncId, siteId);
-        }
-        if ($mmSyncBlock.isBlocked(mmaModGlossaryComponent, syncId, siteId)) {
-            $log.debug('Cannot sync glossary ' + glossaryId + ' because it is blocked.');
-            var modulename = $mmCourse.translateModuleName('glossary');
-            return $mmLang.translateAndReject('mm.core.errorsyncblocked', {$a: modulename});
-        }
-        $log.debug('Try to sync glossary ' + glossaryId + ' for user ' + userId);
-        syncPromise = $mmaModGlossaryOffline.getGlossaryAddEntries(glossaryId, siteId, userId).catch(function() {
-            return [];
-        }).then(function(entries) {
-            if (!entries.length) {
-                return;
-            } else if (!$mmApp.isOnline()) {
-                return $q.reject();
-            }
-            var promises = [];
-            angular.forEach(entries, function(data) {
-                var promise;
-                courseId = data.courseid;
-                promise = uploadAttachments(glossaryId, data, siteId).then(function(itemId) {
-                    return $mmaModGlossary.addEntryOnline(glossaryId, data.concept, data.definition, data.options, itemId, siteId);
-                });
-                promises.push(promise.then(function() {
-                    result.updated = true;
-                    return deleteAddEntry(glossaryId, data.concept, data.timecreated, siteId);
-                }).catch(function(error) {
-                    if (error && error.wserror) {
-                        result.updated = true;
-                        return deleteAddEntry(glossaryId, data.concept, data.timecreated, siteId).then(function() {
-                            result.warnings.push($translate.instant('mm.core.warningofflinedatadeleted', {
-                                component: $mmCourse.translateModuleName('glossary'),
-                                name: data.concept,
-                                error: error.error
-                            }));
-                        });
-                    } else {
-                        return $q.reject(error && error.error);
-                    }
-                }));
-            });
-            return $q.all(promises);
-        }).then(function() {
-            if (result.updated && courseId) {
-                return $mmaModGlossary.getGlossaryById(courseId, glossaryId).then(function(glossary) {
-                    return $mmaModGlossary.invalidateGlossaryEntries(glossary, true);
-                }).catch(function() {
-                });
-            }
-        }).then(function() {
-            return self.setSyncTime(syncId, siteId).catch(function() {
-            });
-        }).then(function() {
-            return result;
-        });
-        return self.addOngoingSync(syncId, syncPromise, siteId);
-    };
-    function deleteAddEntry(glossaryId, concept, timecreated, siteId) {
-        var promises = [];
-        promises.push($mmaModGlossaryOffline.deleteAddEntry(glossaryId, concept, timecreated, siteId));
-        promises.push($mmaModGlossaryHelper.deleteStoredFiles(glossaryId, concept, timecreated, siteId).catch(function() {
-        }));
-        return $q.all(promises);
-    }
-    function uploadAttachments(glossaryId, entry, siteId) {
-        var attachments = entry && entry.attachments;
-        if (attachments) {
-            var files = attachments.online || [],
-                promise;
-            if (attachments.offline) {
-                promise = $mmaModGlossaryHelper.getStoredFiles(glossaryId, entry.concept, entry.timecreated, siteId).then(function(atts) {
-                    files = files.concat(atts);
-                }).catch(function() {
-                });
-            } else {
-                promise = $q.when();
-            }
-            return promise.then(function() {
-                return $mmFileUploader.uploadOrReuploadFiles(files, mmaModGlossaryComponent, glossaryId, siteId);
-            });
-        }
-        return $q.when();
-    }
-    self.getGlossarySyncId = function(glossaryId, userId) {
-        userId = userId || $mmSite.getUserId();
-        return 'glossary#' + glossaryId + '#' + userId;
-    };
-    return self;
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.factory('$mmaModGlossaryHandlers', ["$mmCourse", "$mmaModGlossary", "$state", "$q", "$mmContentLinksHelper", "$mmUtil", "$mmEvents", "$mmCourseHelper", "$mmaModGlossaryPrefetchHandler", "mmaModGlossaryComponent", "mmCoreEventPackageStatusChanged", "$mmCoursePrefetchDelegate", "mmCoreDownloading", "mmCoreDownloaded", "mmCoreNotDownloaded", "mmCoreOutdated", "$mmSite", "$mmaModGlossarySync", "$mmContentLinkHandlerFactory", function($mmCourse, $mmaModGlossary, $state, $q, $mmContentLinksHelper, $mmUtil, $mmEvents,
-            $mmCourseHelper, $mmaModGlossaryPrefetchHandler, mmaModGlossaryComponent, mmCoreEventPackageStatusChanged,
-            $mmCoursePrefetchDelegate, mmCoreDownloading, mmCoreDownloaded, mmCoreNotDownloaded, mmCoreOutdated, $mmSite,
-            $mmaModGlossarySync, $mmContentLinkHandlerFactory) {
-    var self = {};
-    self.courseContent = function() {
-        var self = {};
-        self.isEnabled = function() {
-            return $mmaModGlossary.isPluginEnabled();
-        };
-        self.getController = function(module, courseId) {
-            return function($scope) {
-                var downloadBtn = {
-                        hidden: true,
-                        icon: 'ion-ios-cloud-download-outline',
-                        label: 'mm.core.download',
-                        action: function(e) {
-                            if (e) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                            }
-                            download();
-                        }
-                    },
-                    refreshBtn = {
-                        hidden: true,
-                        icon: 'ion-android-refresh',
-                        label: 'mm.core.refresh',
-                        action: function(e) {
-                            if (e) {
-                                e.preventDefault();
-                                e.stopPropagation();
-                            }
-                            $scope.spinner = true; 
-                            $mmaModGlossary.invalidateContent(module.id, courseId).finally(function() {
-                                download();
-                            });
-                        }
-                    };
-                $scope.title = module.name;
-                $scope.icon = $mmCourse.getModuleIconSrc('glossary');
-                $scope.class = 'mma-mod_glossary-handler';
-                $scope.buttons = [downloadBtn, refreshBtn];
-                $scope.spinner = true; 
-                $scope.action = function(e) {
-                    if (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                    }
-                    $state.go('site.mod_glossary', {module: module, courseid: courseId});
-                };
-                function download() {
-                    $scope.spinner = true; 
-                    $mmaModGlossaryPrefetchHandler.getDownloadSize(module, courseId).then(function(size) {
-                        $mmUtil.confirmDownloadSize(size).then(function() {
-                            $mmaModGlossaryPrefetchHandler.prefetch(module, courseId).catch(function() {
-                                if (!$scope.$$destroyed) {
-                                    $mmUtil.showErrorModal('mm.core.errordownloading', true);
-                                }
-                            });
-                        }).catch(function() {
-                            $scope.spinner = false;
-                        });
-                    }).catch(function(error) {
-                        $scope.spinner = false;
-                        $mmUtil.showErrorModalDefault(error, 'mm.core.errordownloading', true);
-                    });
-                }
-                function showStatus(status) {
-                    if (status) {
-                        $scope.spinner = status === mmCoreDownloading;
-                        downloadBtn.hidden = status !== mmCoreNotDownloaded;
-                        refreshBtn.hidden = status !== mmCoreOutdated;
-                        if (!$mmCoursePrefetchDelegate.canCheckUpdates()) {
-                            refreshBtn.hidden = refreshBtn.hidden && status !== mmCoreDownloaded;
-                        }
-                    }
-                }
-                var statusObserver = $mmEvents.on(mmCoreEventPackageStatusChanged, function(data) {
-                    if (data.siteid === $mmSite.getId() && data.componentId === module.id &&
-                            data.component === mmaModGlossaryComponent) {
-                        showStatus(data.status);
-                    }
-                });
-                $mmCoursePrefetchDelegate.getModuleStatus(module, courseId).then(showStatus);
-                $scope.$on('$destroy', function() {
-                    statusObserver && statusObserver.off && statusObserver.off();
-                });
-            };
-        };
-        return self;
-    };
-    self.indexLinksHandler = $mmContentLinksHelper.createModuleIndexLinkHandler('mmaModGlossary', 'glossary', $mmaModGlossary);
-    self.entryLinksHandler = $mmContentLinkHandlerFactory.createChild(
-                /\/mod\/glossary\/showentry\.php.*([\&\?]eid=\d+)/, '$mmCourseDelegate_mmaModGlossary');
-    self.entryLinksHandler.isEnabled = function(siteId, url, params, courseId) {
-        courseId = courseId || params.courseid || params.cid;
-        return $mmContentLinksHelper.isModuleIndexEnabled($mmaModGlossary, siteId, courseId);
-    };
-    self.entryLinksHandler.getActions = function(siteIds, url, params, courseId) {
-        courseId = courseId || params.courseid || params.cid;
-        return [{
-            action: function(siteId) {
-                var modal = $mmUtil.showModalLoading(),
-                    entryId = parseInt(params.eid, 10),
-                    promise;
-                if (courseId) {
-                    promise = $q.when(courseId);
-                } else {
-                    promise = getEntry(entryId, siteId).then(function(entry) {
-                        return $mmCourseHelper.getModuleCourseIdByInstance(entry.glossaryid, 'glossary', siteId);
-                    });
-                }
-                return promise.then(function(courseId) {
-                    var stateParams = {
-                        entryid: entryId,
-                        cid: courseId
-                    };
-                    $mmContentLinksHelper.goInSite('site.mod_glossary-entry', stateParams, siteId);
-                }).finally(function() {
-                    modal.dismiss();
-                });
-            }
-        }];
-    };
-    function getEntry(entryId, siteId) {
-        return $mmaModGlossary.getEntry(entryId, siteId).catch(function(error) {
-            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.errorloadingentry', true);
-            return $q.reject();
-        });
-    }
-    self.syncHandler = function() {
-        var self = {};
-        self.execute = function(siteId) {
-            return $mmaModGlossarySync.syncAllGlossaries(siteId);
-        };
-        self.getInterval = function() {
-            return 600000; 
-        };
-        self.isSync = function() {
-            return true;
-        };
-        self.usesNetwork = function() {
-            return true;
-        };
-        return self;
-    };
-    return self;
-}]);
-
-angular.module('mm.addons.mod_glossary')
-.factory('$mmaModGlossaryHelper', ["$mmaModGlossaryOffline", "$mmSite", "$mmFileUploader", "$mmFS", "mmaModGlossaryComponent", "$mmFileUploaderHelper", function($mmaModGlossaryOffline, $mmSite, $mmFileUploader, $mmFS, mmaModGlossaryComponent,
-        $mmFileUploaderHelper) {
-    var self = {};
-    self.deleteStoredFiles = function(glossaryId, entryName, timecreated, siteId) {
-        return $mmaModGlossaryOffline.getEntryFolder(glossaryId, entryName, timecreated, siteId).then(function(folderPath) {
-            return $mmFS.removeDir(folderPath);
-        });
-    };
-    self.getStoredFiles = function(glossaryId, entryName, timecreated, siteId) {
-        return $mmaModGlossaryOffline.getEntryFolder(glossaryId, entryName, timecreated, siteId).then(function(folderPath) {
-            return $mmFileUploaderHelper.getStoredFiles(folderPath);
-        });
-    };
-    self.hasEntryDataChanged = function(entry, files, original) {
-        if (!original || typeof original.concept == 'undefined') {
-            return entry.text || entry.concept || files.length > 0;
-        }
-        if (original.text != entry.text || original.concept != entry.concept) {
-            return true;
-        }
-        return $mmFileUploaderHelper.areFileListDifferent(files, original.files);
-    };
-    self.storeFiles = function(glossaryId, entryName, timecreated, files, siteId) {
-        return $mmaModGlossaryOffline.getEntryFolder(glossaryId, entryName, timecreated, siteId).then(function(folderPath) {
-            return $mmFileUploader.storeFilesToUpload(folderPath, files);
-        });
-    };
-    self.uploadOrStoreFiles = function(glossaryId, entryName, timecreated, files, offline, siteId) {
-        if (offline) {
-            return self.storeFiles(glossaryId, entryName, timecreated, files, siteId);
-        } else {
-            return $mmFileUploader.uploadOrReuploadFiles(files, mmaModGlossaryComponent, glossaryId, siteId);
-        }
-    };
-    return self;
-}]);
-angular.module('mm.addons.mod_glossary')
-.factory('$mmaModGlossaryPrefetchHandler', ["$mmaModGlossary", "mmaModGlossaryComponent", "$mmFilepool", "$q", "$mmUser", "mmCoreDownloaded", "mmCoreOutdated", "$mmUtil", "$mmPrefetchFactory", "$mmCoursePrefetchDelegate", "mmaModGlossaryShowAllCategories", function($mmaModGlossary, mmaModGlossaryComponent, $mmFilepool, $q, $mmUser,
-            mmCoreDownloaded, mmCoreOutdated, $mmUtil, $mmPrefetchFactory, $mmCoursePrefetchDelegate,
-            mmaModGlossaryShowAllCategories) {
-    var self = $mmPrefetchFactory.createPrefetchHandler(mmaModGlossaryComponent, false);
-    self.updatesNames = /^configuration$|^.*files$|^entries$/;
-    self.determineStatus = function(status, canCheck) {
-        if (!canCheck && status === mmCoreDownloaded) {
-            return mmCoreOutdated;
-        } else {
-            return status;
-        }
-    };
-    self.download = function(module, courseId) {
-        return self.prefetch(module, courseId);
-    };
-    self.getFiles = function(module, courseId) {
-        return $mmaModGlossary.getGlossary(courseId, module.id).then(function(glossary) {
-            return $mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByLetter, [glossary.id, 'ALL'])
-                    .then(function(entries) {
-                return getFilesFromGlossaryAndEntries(module, glossary, entries);
-            });
-        }).catch(function() {
-            return [];
-        });
-    };
-    function getFilesFromGlossaryAndEntries(module, glossary, entries) {
-        var files = self.getIntroFilesFromInstance(module, glossary);
-        angular.forEach(entries, function(entry) {
-            files = files.concat($mmUtil.extractDownloadableFilesFromHtmlAsFakeFileObjects(entry.definition));
-            files = files.concat(entry.attachments);
-        });
-        return files;
-    }
-    self.getRevision = function(module, courseId) {
-        return "0";
-    };
-    self.getTimemodified = function(module, courseId) {
-        return 0;
-    };
-    self.invalidateContent = function(moduleId, courseId) {
-        return $mmaModGlossary.invalidateContent(moduleId, courseId);
-    };
-    self.invalidateModule = function(module, courseId) {
-        if ($mmCoursePrefetchDelegate.canCheckUpdates()) {
-            return $mmaModGlossary.invalidateCourseGlossaries(courseId);
-        }
-        return $mmaModGlossary.getGlossary(courseId, module.id).then(function(glossary) {
-            var promises = [];
-            promises.push($mmaModGlossary.invalidateEntriesByLetter(glossary.id, 'ALL'));
-            promises.push($mmaModGlossary.invalidateCourseGlossaries(courseId));
-            return $q.all(promises);
-        });
-    };
-    self.isEnabled = function() {
-        return $mmaModGlossary.isPluginEnabled();
-    };
-    self.prefetch = function(module, courseId, single) {
-        return self.prefetchPackage(module, courseId, single, prefetchGlossary);
-    };
-    function prefetchGlossary(module, courseId, single, siteId) {
-        var revision,
-            timemod;
-        siteId = siteId || $mmSite.getId();
-        return $mmaModGlossary.getGlossary(courseId, module.id, siteId).then(function(glossary) {
-            var promises = [];
-            angular.forEach(glossary.browsemodes, function(mode) {
-                switch(mode) {
-                    case 'letter': 
-                        break;
-                    case 'cat': 
-                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByCategory,
-                            [glossary.id, mmaModGlossaryShowAllCategories], false, undefined, undefined, siteId));
-                        break;
-                    case 'date':
-                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByDate,
-                            [glossary.id, 'CREATION', 'DESC'], false, undefined, undefined, siteId));
-                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByDate,
-                            [glossary.id, 'UPDATE', 'DESC'], false, undefined, undefined, siteId));
-                        break;
-                    case 'author':
-                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByAuthor,
-                            [glossary.id, 'ALL', 'LASTNAME', 'ASC'], false, undefined, undefined, siteId));
-                        break;
-                }
-            });
-            promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByLetter, [glossary.id, 'ALL'], false,
-                    undefined, undefined, siteId).then(function(entries) {
-                var promises = [],
-                    files = getFilesFromGlossaryAndEntries(module, glossary, entries),
-                    userIds = [];
-                angular.forEach(entries, function(entry) {
-                    promises.push($mmaModGlossary.getEntry(entry.id, siteId));
-                    userIds.push(entry.userid);
-                });
-                promises.push($mmUser.prefetchProfiles(userIds, courseId, siteId));
-                promises.push($mmFilepool.addFilesToQueueByUrl(siteId, files, self.component, module.id));
-                return $q.all(promises);
-            }));
-            revision = self.getRevision(module, courseId);
-            timemod = self.getTimemodified(module, courseId);
-            return $q.all(promises);
-        }).then(function() {
-            return {
-                revision: revision,
-                timemod: timemod
-            };
-        });
-    }
-    return self;
-}]);
-
 angular.module('mm.addons.mod_forum')
 .controller('mmaModForumDiscussionCtrl', ["$q", "$scope", "$stateParams", "$mmaModForum", "$mmSite", "$mmUtil", "$translate", "$mmEvents", "$ionicScrollDelegate", "mmaModForumComponent", "mmaModForumReplyDiscussionEvent", "$mmaModForumOffline", "$mmaModForumSync", "mmaModForumAutomSyncedEvent", "mmaModForumManualSyncedEvent", "$mmApp", "$ionicPlatform", "mmCoreEventOnlineStatusChanged", "$mmaModForumHelper", "$mmFileUploaderHelper", function($q, $scope, $stateParams, $mmaModForum, $mmSite, $mmUtil, $translate, $mmEvents,
             $ionicScrollDelegate, mmaModForumComponent, mmaModForumReplyDiscussionEvent, $mmaModForumOffline, $mmaModForumSync,
@@ -44749,6 +43156,1599 @@ angular.module('mm.addons.mod_forum')
             if (canCreateDiscussions) {
                 return $q.reject(error);
             }
+        });
+    }
+    return self;
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.controller('mmaModGlossaryEditCtrl', ["$stateParams", "$scope", "mmaModGlossaryComponent", "$mmUtil", "$q", "$mmaModGlossary", "$mmText", "$translate", "$ionicHistory", "$mmEvents", "mmaModGlossaryAddEntryEvent", "$mmaModGlossaryOffline", "$mmaModGlossaryHelper", "$mmLang", "$mmFileUploaderHelper", function($stateParams, $scope, mmaModGlossaryComponent, $mmUtil, $q, $mmaModGlossary, $mmText,
+        $translate, $ionicHistory, $mmEvents, mmaModGlossaryAddEntryEvent, $mmaModGlossaryOffline, $mmaModGlossaryHelper, $mmLang,
+        $mmFileUploaderHelper) {
+    var module = $stateParams.module,
+        courseId = $stateParams.courseid,
+        cmid = $stateParams.cmid,
+        glossaryId = $stateParams.glossaryid,
+        glossary = $stateParams.glossary || {},
+        originalData = null,
+        entry = $stateParams.entry || false,
+        allowDuplicateEntries = !!glossary.allowduplicatedentries;
+    $scope.entry = {
+        concept: '',
+        text: ''
+    };
+    $scope.title = module.name;
+    $scope.component = mmaModGlossaryComponent;
+    $scope.componentId = module.id;
+    $scope.autolinking = !!glossary.usedynalink;
+    $scope.options = {
+        categories: null,
+        aliases: "",
+        usedynalink: false,
+        casesensitive: false,
+        fullmatch: false
+    };
+    $scope.attachments = [];
+    if (entry) {
+        $scope.entry.concept = entry.concept || '';
+        $scope.entry.text = entry.definition || '';
+        originalData = {};
+        originalData.text = $scope.entry.text;
+        originalData.concept = $scope.entry.concept;
+        originalData.files = [];
+        if (entry.options) {
+            $scope.options.categories = entry.options.categories || null;
+            $scope.options.aliases = entry.options.aliases || "";
+            $scope.options.usedynalink = !!entry.options.usedynalink;
+            if ($scope.options.usedynalink) {
+                $scope.options.casesensitive = !!entry.options.casesensitive;
+                $scope.options.fullmatch = !!entry.options.fullmatch;
+            }
+        }
+        if (entry.attachments && entry.attachments.offline) {
+            $mmaModGlossaryHelper.getStoredFiles(glossaryId, entry.concept, entry.timecreated).then(function(files) {
+                $scope.attachments = files;
+                originalData.files = angular.copy(files);
+            });
+        }
+    }
+    $mmUtil.blockLeaveView($scope, cancel);
+    function fetchGlossaryData() {
+        return $mmaModGlossary.getAllCategories(glossaryId).then(function(categories) {
+            $scope.categories = categories;
+            if ($scope.options.categories) {
+                var cats = $scope.options.categories.split(",");
+                angular.forEach(cats, function(catId) {
+                    angular.forEach($scope.categories, function(category) {
+                        if (category.id == catId) {
+                            category.selected = true;
+                        }
+                    });
+                });
+            }
+        });
+    }
+    function cancel() {
+        var promise;
+        if (!$mmaModGlossaryHelper.hasEntryDataChanged($scope.entry, $scope.attachments, originalData)) {
+           promise = $q.when();
+        } else {
+            promise =  $mmUtil.showConfirm($translate('mm.core.confirmcanceledit'));
+        }
+        return promise.then(function() {
+            $mmFileUploaderHelper.clearTmpFiles($scope.attachments);
+        });
+    }
+    $scope.save = function() {
+        var concept = $scope.entry.concept,
+            definition = $scope.entry.text,
+            modal,
+            attachments,
+            timecreated = entry && entry.timecreated || Date.now(),
+            saveOffline = false;
+        if (!concept || !definition) {
+            $mmUtil.showErrorModal('mma.mod_glossary.fillfields', true);
+            return;
+        }
+        modal = $mmUtil.showModalLoading('mm.core.sending', true);
+        $mmUtil.isRichTextEditorEnabled().then(function(enabled) {
+            if (!enabled) {
+                definition = $mmText.formatHtmlLines(definition);
+            }
+            attachments = $scope.attachments;
+            if (!!attachments.length) {
+                return $mmaModGlossaryHelper.uploadOrStoreFiles(glossaryId, concept, timecreated, attachments, false)
+                        .catch(function() {
+                    saveOffline = true;
+                    return $mmaModGlossaryHelper.uploadOrStoreFiles(glossaryId, concept, timecreated, attachments, true);
+                });
+            }
+        }).then(function(attach) {
+            var cats = [];
+            if ($scope.categories) {
+                cats = $scope.categories.filter(function(category) {
+                    return category.selected;
+                }).map(function(category) {
+                    return category.id;
+                });
+            }
+            var options = {
+                aliases: $scope.options.aliases || "",
+                categories: cats.join(',') || ""
+            };
+            if ($scope.autolinking) {
+                options.usedynalink = $scope.options.usedynalink ? 1 : 0;
+                if ($scope.options.usedynalink) {
+                    options.casesensitive = $scope.options.casesensitive ? 1 : 0;
+                    options.fullmatch = $scope.options.fullmatch ? 1 : 0;
+                }
+            }
+            if (saveOffline) {
+                var promise;
+                if (entry && !allowDuplicateEntries) {
+                    promise = $mmaModGlossary.isConceptUsed(glossaryId, concept, entry.timecreated).then(function(used) {
+                        if (used) {
+                            return $mmLang.translateAndReject('mma.mod_glossary.errconceptalreadyexists');
+                        }
+                    });
+                } else {
+                    promise = $q.when();
+                }
+                return promise.then(function() {
+                    return $mmaModGlossaryOffline.saveAddEntry(glossaryId, concept, definition, courseId, options, attach,
+                            timecreated, undefined, undefined, entry).then(function() {
+                    });
+                });
+            } else {
+                return $mmaModGlossary.addEntry(glossaryId, concept, definition, courseId, options, attach, timecreated, undefined,
+                    entry, !attachments.length, !allowDuplicateEntries);
+            }
+        }).then(function(entryId) {
+            if (entryId) {
+                $scope.entry.id = entryId;
+                $mmaModGlossaryHelper.deleteStoredFiles(glossaryId, concept, timecreated);
+            }
+            $scope.entry.glossaryid = glossaryId;
+            $scope.entry.definition = definition;
+            return returnToEntryList();
+        }).catch(function(error) {
+            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.cannoteditentry', true);
+        }).finally(function() {
+            modal.dismiss();
+        });
+    };
+    function returnToEntryList() {
+        var data = {
+            glossaryid: glossaryId,
+            cmid: cmid,
+            entry: $scope.entry
+        };
+        $mmFileUploaderHelper.clearTmpFiles($scope.attachments);
+        $mmEvents.trigger(mmaModGlossaryAddEntryEvent, data);
+        $ionicHistory.goBack();
+    }
+    fetchGlossaryData().finally(function() {
+        $scope.glossaryLoaded = true;
+    });
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.controller('mmaModGlossaryEntryCtrl', ["$scope", "$stateParams", "$mmaModGlossary", "$translate", "mmaModGlossaryComponent", "mmUserProfileState", "$mmUtil", function($scope, $stateParams, $mmaModGlossary, $translate, mmaModGlossaryComponent,
+        mmUserProfileState, $mmUtil) {
+    var entryId = $stateParams.entryid,
+        courseId = $stateParams.cid || 0,
+        glossary,
+        entry;
+    if (!courseId) {
+        $mmUtil.showErrorModal('mma.mod_glossary.errorloadingentry', true);
+        return;
+    }
+    $scope.refreshEntry = function() {
+        return $mmaModGlossary.invalidateEntry(entry.id).then(function() {
+            return fetchEntry(true);
+        }).finally(function() {
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+    };
+    function fetchEntry(refresh) {
+        return $mmaModGlossary.getEntry(entryId).then(function(result) {
+            entry = result;
+            $scope.entry = entry;
+            $scope.title = entry.concept;
+            if (!refresh) {
+                return $mmaModGlossary.getGlossaryById(courseId, entry.glossaryid).then(function(gloss) {
+                    glossary = gloss;
+                    var displayFormat = glossary.displayformat;
+                    $scope.courseId = courseId;
+                    $scope.userStateName = mmUserProfileState;
+                    $scope.component = mmaModGlossaryComponent;
+                    $scope.componentId = glossary.coursemodule;
+                    if (displayFormat == 'fullwithauthor' || displayFormat == 'encyclopedia') {
+                        $scope.showAuthor = true;
+                        $scope.showDate = true;
+                    } else if (displayFormat == 'fullwithoutauthor') {
+                        $scope.showAuthor = false;
+                        $scope.showDate = true;
+                    } else {
+                        $scope.showAuthor = false;
+                        $scope.showDate = false;
+                    }
+                });
+            }
+        }).catch(function(error) {
+            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.errorloadingentry', true);
+            return $q.reject();
+        });
+    }
+    fetchEntry().then(function() {
+        $mmaModGlossary.logEntryView(entry.id);
+    }).finally(function() {
+        $scope.entryLoaded = true;
+    });
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.controller('mmaModGlossaryIndexCtrl', ["$q", "$scope", "$stateParams", "$ionicPopover", "$mmUtil", "$mmCourseHelper", "$mmaModGlossary", "$ionicScrollDelegate", "$translate", "$mmText", "mmaModGlossaryComponent", "mmaModGlossaryLimitEntriesNum", "$state", "$mmCourse", "$mmaModGlossaryOffline", "$mmEvents", "mmaModGlossaryAddEntryEvent", "mmCoreEventOnlineStatusChanged", "$mmApp", "$mmSite", "mmaModGlossaryAutomSyncedEvent", "$mmaModGlossarySync", "mmaModGlossaryShowAllCategories", function($q, $scope, $stateParams, $ionicPopover, $mmUtil, $mmCourseHelper, $mmaModGlossary,
+        $ionicScrollDelegate, $translate, $mmText, mmaModGlossaryComponent, mmaModGlossaryLimitEntriesNum, $state, $mmCourse,
+        $mmaModGlossaryOffline, $mmEvents, mmaModGlossaryAddEntryEvent, mmCoreEventOnlineStatusChanged, $mmApp, $mmSite,
+        mmaModGlossaryAutomSyncedEvent, $mmaModGlossarySync, mmaModGlossaryShowAllCategories) {
+    var module = $stateParams.module ? angular.copy($stateParams.module) : {},
+        courseId = $stateParams.courseid,
+        glossary,
+        noop = function(){},
+        limitFrom = 0,
+        limitNum = mmaModGlossaryLimitEntriesNum,
+        popover,
+        popoverScope,
+        viewMode,   
+        fetchMode,       
+        fetchFunction,
+        fetchInvalidate,
+        fetchArguments,
+        obsAddEntry, onlineObserver, syncObserver,
+        searchingMessage = $translate.instant('mm.core.searching'),
+        loadingMessage = $translate.instant('mm.core.loading');
+    $scope.title = module.name;
+    $scope.description = module.description;
+    $scope.externalUrl = module.url;
+    $scope.courseid = courseId;
+    $scope.loaded = false;
+    $scope.refreshIcon = 'spinner';
+    $scope.syncIcon = 'spinner';
+    $scope.entries = [];
+    $scope.getDivider = noop;
+    $scope.showDivider = noop;
+    $scope.canLoadMore = false;
+    $scope.searchData = {
+        searchQuery: ''
+    };
+    $scope.loadingMessage = loadingMessage;
+    $scope.component = mmaModGlossaryComponent;
+    $scope.componentId = module.id;
+    $scope.moduleName = $mmCourse.translateModuleName('glossary');
+    $scope.offlineEntries = [];
+    function fetchGlossary(refresh, sync, showErrors) {
+        $scope.isOnline = $mmApp.isOnline();
+        return $mmaModGlossary.getGlossary(courseId, module.id).then(function(mod) {
+            glossary = mod;
+            $scope.description = glossary.intro || module.description;
+            $scope.canAdd = ($mmaModGlossary.isPluginEnabledForEditing() && glossary.canaddentry) || false;
+            var browseModes = [
+                    {key: 'search', langkey: 'mma.mod_glossary.bysearch'}
+                ];
+            angular.forEach(glossary.browsemodes, function(mode) {
+                switch (mode) {
+                    case 'letter' :
+                        browseModes.push({key: 'letter_all', langkey: 'mma.mod_glossary.byalphabet'});
+                        break;
+                    case 'cat' :
+                        browseModes.push({key: 'cat_all', langkey: 'mma.mod_glossary.bycategory'});
+                        break;
+                    case 'date' :
+                        browseModes.push({key: 'newest_first', langkey: 'mma.mod_glossary.bynewestfirst'});
+                        browseModes.push({key: 'recently_updated', langkey: 'mma.mod_glossary.byrecentlyupdated'});
+                        break;
+                    case 'author' :
+                        browseModes.push({key: 'author_all', langkey: 'mma.mod_glossary.byauthor'});
+                        break;
+                }
+            });
+            if (!popoverScope) {
+                initSortMenu();
+            }
+            popoverScope.modes = browseModes;
+            if (sync) {
+                return syncGlossary(showErrors).catch(function() {
+                });
+            }
+        }).then(function() {
+            return fetchEntries().then(function() {
+                $mmCourseHelper.fillContextMenu($scope, module, courseId, false, mmaModGlossaryComponent);
+                return $mmaModGlossaryOffline.getGlossaryAddEntries(glossary.id).then(function(offlineEntries) {
+                    $scope.hasOffline = !!offlineEntries.length;
+                    if ($scope.hasOffline) {
+                        $scope.offlineEntries = offlineEntries;
+                        $scope.showNoEntries = ($scope.entries.length + offlineEntries.length) <= 0;
+                    } else {
+                        $scope.offlineEntries = [];
+                    }
+                });
+            });
+        }).catch(function(error) {
+            if (!refresh) {
+                return refreshData(sync);
+            }
+            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.errorloadingglossary', true);
+            $scope.canLoadMore = false; 
+            return $q.reject();
+        }).finally(function() {
+            $scope.loaded = true;
+            $scope.refreshIcon = 'ion-refresh';
+            $scope.syncIcon = 'ion-loop';
+        });
+    }
+    function syncGlossary(showErrors) {
+        return $mmaModGlossarySync.syncGlossaryEntries(glossary.id).then(function(result) {
+            if (result.warnings && result.warnings.length) {
+                $mmUtil.showErrorModal(result.warnings[0]);
+            }
+            return result.updated;
+        }).catch(function(error) {
+            if (showErrors) {
+                $mmUtil.showErrorModalDefault(error, 'mm.core.errorsync', true);
+            }
+            return $q.reject();
+        });
+    }
+    $scope.loadMoreEntries = function() {
+        loadMoreEntries().finally(function() {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
+    };
+    function refreshData(sync, showErrors) {
+        var promises = [];
+        if (fetchMode != 'search' || $scope.searchQuery) {
+            var args = angular.extend([], fetchArguments);
+            promises.push(fetchInvalidate.apply(this, args));
+            promises.push($mmaModGlossary.invalidateCourseGlossaries(courseId));
+        }
+        if (glossary && glossary.id) {
+            promises.push($mmaModGlossary.invalidateCategories(glossary.id));
+        }
+        return $q.all(promises).then(function() {
+            limitFrom = 0;
+            return fetchGlossary(true, sync, showErrors);
+        });
+    }
+    $scope.refreshEntries = function(showErrors) {
+        return showSpinnerAndFetch(true, showErrors);
+    };
+    function showSpinnerAndFetch(sync, showErrors, onlyFetch) {
+        $scope.refreshIcon = 'spinner';
+        $scope.syncIcon = 'spinner';
+        var promise;
+        if (onlyFetch) {
+            limitFrom = 0;
+            promise = fetchGlossary(true, sync, showErrors);
+        } else {
+            promise = refreshData(sync, showErrors);
+        }
+        return promise.finally(function() {
+            $scope.loaded = true;
+            $scope.refreshIcon = 'ion-refresh';
+            $scope.syncIcon = 'ion-loop';
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+    }
+    $scope.pickMode = function(e) {
+        popover.show(e);
+    };
+    $scope.search = function(query) {
+        $scope.loadingMessage = searchingMessage;
+        fetchArguments = [glossary.id, query, 1, 'CONCEPT', 'ASC'];
+        $scope.loaded = false;
+        showSpinnerAndFetch(false, false, true);
+    };
+    $scope.removeFiles = function() {
+        $mmCourseHelper.confirmAndRemove(module, courseId);
+    };
+    $scope.prefetch = function() {
+        $mmCourseHelper.contextMenuPrefetch($scope, module, courseId);
+    };
+    $scope.expandDescription = function() {
+        $mmText.expandText($translate.instant('mm.core.description'), $scope.description, false,
+                mmaModGlossaryComponent, module.id);
+    };
+    $scope.gotoAddEntry = function() {
+        if ($scope.canAdd) {
+            var stateParams = {
+                module: module,
+                cmid: module.id,
+                glossary: glossary,
+                glossaryid: glossary.id,
+                courseid: courseId
+            };
+            return $state.go('site.mod_glossary-edit', stateParams);
+        }
+    };
+    $scope.gotoEditEntry = function(entry) {
+        if ($scope.canAdd) {
+            var stateParams = {
+                module: module,
+                cmid: module.id,
+                glossary: glossary,
+                glossaryid: glossary.id,
+                courseid: courseId,
+                entry: entry
+            };
+            return $state.go('site.mod_glossary-edit', stateParams);
+        }
+    };
+    function eventReceived(data) {
+        if ((glossary && glossary.id === data.glossaryid) || data.cmid === module.id) {
+            $scope.loaded = false;
+            showSpinnerAndFetch(false);
+            $mmCourse.checkModuleCompletion(courseId, module.completionstatus);
+        }
+    }
+    fetchGlossary(false, true).then(function() {
+        $mmaModGlossary.logView(glossary.id, viewMode).then(function() {
+            $mmCourse.checkModuleCompletion(courseId, module.completionstatus);
+        });
+    }).finally(function() {
+        $scope.refreshIcon = 'ion-refresh';
+        $scope.syncIcon = 'ion-loop';
+        $scope.loaded = true;
+    });
+    obsAddEntry = $mmEvents.on(mmaModGlossaryAddEntryEvent, eventReceived);
+    onlineObserver = $mmEvents.on(mmCoreEventOnlineStatusChanged, function(online) {
+        $scope.isOnline = online;
+    });
+    syncObserver = $mmEvents.on(mmaModGlossaryAutomSyncedEvent, function(data) {
+        if (glossary && data && data.siteid == $mmSite.getId() && data.glossaryid == glossary.id &&
+                data.userid == $mmSite.getUserId()) {
+            $scope.loaded = false;
+            return showSpinnerAndFetch(false);
+        }
+    });
+    function initSortMenu() {
+        switchMode('letter_all');
+        popoverScope = $scope.$new(true);
+        popoverScope.data = { selectedMode: fetchMode };
+        popoverScope.modePicked = function(mode) {
+            $scope.loadingMessage = loadingMessage;
+            $ionicScrollDelegate.$getByHandle('mmaModGlossaryIndex').scrollTop(false);
+            if (switchMode(mode)) {
+                $scope.loaded = false;
+                showSpinnerAndFetch(false, false, true);
+            } else {
+                $scope.loaded = true;
+                $scope.refreshIcon = 'ion-refresh';
+                $scope.syncIcon = 'ion-loop';
+                $scope.entries = [];
+                $scope.canLoadMore = false;
+                $scope.showNoEntries = false;
+            }
+            popoverScope.data.selectedMode = fetchMode;
+            popover.hide();
+        };
+        return $ionicPopover.fromTemplateUrl('addons/mod/glossary/templates/mode_picker.html', {
+            scope: popoverScope
+        }).then(function(po) {
+            popover = po;
+            $scope.sortMenuInit = true;
+        });
+    }
+    function fetchEntries(append) {
+        if (!append) {
+            limitFrom = 0;
+        }
+        var args = angular.extend([], fetchArguments);
+        args.push(limitFrom);
+        args.push(limitNum);
+        return fetchFunction.apply(this, args).then(function(result) {
+            if (append) {
+                $scope.entries = $scope.entries.concat(result.entries);
+            } else {
+                $scope.entries = result.entries;
+            }
+            $scope.canLoadMore = (limitFrom + limitNum) < result.count;
+            $scope.showNoEntries = ($scope.entries.length + $scope.offlineEntries.length) <= 0;
+        }).catch(function() {
+            if (append) {
+                $mmUtil.showErrorModal('mma.mod_glossary.errorloadingentries', true);
+            }
+            $scope.canLoadMore = false; 
+            return $q.reject();
+        });
+    }
+    function loadMoreEntries() {
+        limitFrom += limitNum;
+        return fetchEntries(true);
+    }
+    function switchMode(mode) {
+        if (mode == fetchMode) {
+            return false;
+        }
+        var instantFetch = true;
+        fetchMode = mode;
+        $scope.isSearch = false;
+        switch (mode) {
+            case 'author_all':
+                viewMode = 'author';
+                fetchFunction = $mmaModGlossary.getEntriesByAuthor;
+                fetchInvalidate = $mmaModGlossary.invalidateEntriesByAuthor;
+                fetchArguments = [glossary.id, 'ALL', 'LASTNAME', 'ASC'];
+                $scope.getDivider = function(entry) {
+                    return entry.userfullname;
+                };
+                $scope.showDivider = function(entry, previous) {
+                    if (typeof previous === 'undefined') {
+                        return true;
+                    }
+                    return entry.userid != previous.userid;
+                };
+                break;
+            case 'cat_all':
+                viewMode = 'cat';
+                fetchFunction = $mmaModGlossary.getEntriesByCategory;
+                fetchInvalidate = $mmaModGlossary.invalidateEntriesByCategory;
+                fetchArguments = [glossary.id, mmaModGlossaryShowAllCategories];
+                $scope.getDivider = function(entry) {
+                    return entry.categoryname;
+                };
+                $scope.showDivider = function(entry, previous) {
+                    if (typeof previous === 'undefined') {
+                        return true;
+                    }
+                    return $scope.getDivider(entry) != $scope.getDivider(previous);
+                };
+                break;
+            case 'newest_first':
+                viewMode = 'date';
+                fetchFunction = $mmaModGlossary.getEntriesByDate;
+                fetchInvalidate = $mmaModGlossary.invalidateEntriesByDate;
+                fetchArguments = [glossary.id, 'CREATION', 'DESC'];
+                $scope.getDivider = noop;
+                $scope.showDivider = function() { return false; };
+                break;
+            case 'recently_updated':
+                viewMode = 'date';
+                fetchFunction = $mmaModGlossary.getEntriesByDate;
+                fetchInvalidate = $mmaModGlossary.invalidateEntriesByDate;
+                fetchArguments = [glossary.id, 'UPDATE', 'DESC'];
+                $scope.getDivider = noop;
+                $scope.showDivider = function() { return false; };
+                break;
+            case 'search':
+                viewMode = 'search';
+                fetchFunction = $mmaModGlossary.getEntriesBySearch;
+                fetchInvalidate = $mmaModGlossary.invalidateEntriesBySearch;
+                fetchArguments = false; 
+                $scope.isSearch = true;
+                $scope.getDivider = noop;
+                $scope.showDivider = function() { return false; };
+                instantFetch = false;
+                break;
+            case 'letter_all':
+            default:
+                viewMode = 'letter';
+                fetchMode = 'letter_all';
+                fetchFunction = $mmaModGlossary.getEntriesByLetter;
+                fetchInvalidate = $mmaModGlossary.invalidateEntriesByLetter;
+                fetchArguments = [glossary.id, 'ALL'];
+                $scope.getDivider = function(entry) {
+                    return entry.concept.substr(0, 1).toUpperCase();
+                };
+                $scope.showDivider = function(entry, previous) {
+                    if (typeof previous === 'undefined') {
+                        return true;
+                    }
+                    return $scope.getDivider(entry) != $scope.getDivider(previous);
+                };
+                break;
+            }
+        return instantFetch;
+    }
+    $scope.$on('$destroy', function() {
+        obsAddEntry && obsAddEntry.off && obsAddEntry.off();
+        onlineObserver && onlineObserver.off && onlineObserver.off();
+        syncObserver && syncObserver.off && syncObserver.off();
+        if (popover && popoverScope) {
+            popover.remove();
+            popoverScope.$destroy();
+        }
+    });
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.factory('$mmaModGlossary', ["$mmSite", "$q", "$mmSitesManager", "$mmFilepool", "mmaModGlossaryComponent", "$mmaModGlossaryOffline", "mmaModGlossaryLimitEntriesNum", "$mmApp", "$mmUtil", "mmaModGlossaryLimitCategoriesNum", "$mmText", "$mmLang", "mmaModGlossaryShowAllCategories", function($mmSite, $q, $mmSitesManager, $mmFilepool, mmaModGlossaryComponent, $mmaModGlossaryOffline,
+        mmaModGlossaryLimitEntriesNum, $mmApp, $mmUtil, mmaModGlossaryLimitCategoriesNum, $mmText, $mmLang,
+        mmaModGlossaryShowAllCategories) {
+    var self = {};
+    self._getCourseGlossariesCacheKey = function(courseId) {
+        return 'mmaModGlossary:courseGlossaries:' + courseId;
+    };
+    self.getCourseGlossaries = function(courseId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    courseids: [courseId]
+                },
+                preSets = {
+                    cacheKey: self._getCourseGlossariesCacheKey(courseId)
+                };
+            return site.read('mod_glossary_get_glossaries_by_courses', params, preSets).then(function(result) {
+                return result.glossaries;
+            });
+        });
+    };
+    self.invalidateCourseGlossaries = function(courseId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var key = self._getCourseGlossariesCacheKey(courseId);
+            return site.invalidateWsCacheForKey(key);
+        });
+    };
+    self._getEntriesByAuthorCacheKey = function(glossaryId, letter, field, sort) {
+        return 'mmaModGlossary:entriesByAuthor:' + glossaryId + ":" + letter + ":" + field + ":" + sort;
+    };
+    self.getEntriesByAuthor = function(glossaryId, letter, field, sort, from, limit, forceCache, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    id: glossaryId,
+                    letter: letter,
+                    field: field,
+                    sort: sort,
+                    from: from,
+                    limit: limit
+                },
+                preSets = {
+                    cacheKey: self._getEntriesByAuthorCacheKey(glossaryId, letter, field, sort)
+                };
+            if (forceCache) {
+                preSets.omitExpires = true;
+            }
+            return site.read('mod_glossary_get_entries_by_author', params, preSets);
+        });
+    };
+    self.invalidateEntriesByAuthor = function(glossaryId, letter, field, sort, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var key = self._getEntriesByAuthorCacheKey(glossaryId, letter, field, sort);
+            return site.invalidateWsCacheForKey(key);
+        });
+    };
+    self.getEntriesByCategory = function(glossaryId, categoryId, from, limit, forceCache, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    id: glossaryId,
+                    categoryid: categoryId,
+                    from: from,
+                    limit: limit
+                },
+                preSets = {
+                    cacheKey: self._getEntriesByCategoryCacheKey(glossaryId, categoryId)
+                };
+            if (forceCache) {
+                preSets.omitExpires = true;
+            }
+            return site.read('mod_glossary_get_entries_by_category', params, preSets);
+        });
+    };
+    self.invalidateEntriesByCategory = function(glossaryId, categoryId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var key = self._getEntriesByCategoryCacheKey(glossaryId, categoryId);
+            return site.invalidateWsCacheForKey(key);
+        });
+    };
+    self._getEntriesByCategoryCacheKey = function(glossaryId, categoryId) {
+        return 'mmaModGlossary:entriesByCategory:' + glossaryId + ":" + categoryId;
+    };
+    self._getEntriesByDateCacheKey = function(glossaryId, order, sort) {
+        return 'mmaModGlossary:entriesByDate:' + glossaryId + ":" + order + ":" + sort;
+    };
+    self.getEntriesByDate = function(glossaryId, order, sort, from, limit, forceCache, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    id: glossaryId,
+                    order: order,
+                    sort: sort,
+                    from: from,
+                    limit: limit
+                },
+                preSets = {
+                    cacheKey: self._getEntriesByDateCacheKey(glossaryId, order, sort)
+                };
+            if (forceCache) {
+                preSets.omitExpires = true;
+            }
+            return site.read('mod_glossary_get_entries_by_date', params, preSets);
+        });
+    };
+    self.invalidateEntriesByDate = function(glossaryId, order, sort, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var key = self._getEntriesByDateCacheKey(glossaryId, order, sort);
+            return site.invalidateWsCacheForKey(key);
+        });
+    };
+    self._getEntriesByLetterCacheKey = function(glossaryId, letter) {
+        return 'mmaModGlossary:entriesByLetter:' + glossaryId + ":" + letter;
+    };
+    self.getEntriesByLetter = function(glossaryId, letter, from, limit, forceCache, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    id: glossaryId,
+                    letter: letter,
+                    from: from,
+                    limit: limit
+                },
+                preSets = {
+                    cacheKey: self._getEntriesByLetterCacheKey(glossaryId, letter)
+                };
+            if (forceCache) {
+                preSets.omitExpires = true;
+            }
+            return site.read('mod_glossary_get_entries_by_letter', params, preSets);
+        });
+    };
+    self.invalidateEntriesByLetter = function(glossaryId, letter, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var key = self._getEntriesByLetterCacheKey(glossaryId, letter);
+            return site.invalidateWsCacheForKey(key);
+        });
+    };
+    self._getEntriesBySearchCacheKey = function(glossaryId, query, fullsearch, order, sort) {
+        return 'mmaModGlossary:entriesBySearch:' + glossaryId + ":" + fullsearch + ":" + order + ":" + sort + ":" + query;
+    };
+    self.getEntriesBySearch = function(glossaryId, query, fullsearch, order, sort, from, limit, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    id: glossaryId,
+                    query: query,
+                    fullsearch: fullsearch,
+                    order: order,
+                    sort: sort,
+                    from: from,
+                    limit: limit
+                },
+                preSets = {
+                    cacheKey: self._getEntriesBySearchCacheKey(glossaryId, query, fullsearch, order, sort)
+                };
+            return site.read('mod_glossary_get_entries_by_search', params, preSets);
+        });
+    };
+    self.invalidateEntriesBySearch = function(glossaryId, query, fullsearch, order, sort, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var key = self._getEntriesBySearchCacheKey(glossaryId, query, fullsearch, order, sort);
+            return site.invalidateWsCacheForKey(key);
+        });
+    };
+    function getCategoriesCacheKey(glossaryId) {
+        return 'mmaModGlossary:categories:' + glossaryId;
+    }
+    self.getAllCategories = function(glossaryId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return getCategories(glossaryId, 0, mmaModGlossaryLimitCategoriesNum, [], site);
+        });
+    };
+    function getCategories(glossaryId, from, limit, categories, site) {
+        var params = {
+                id: glossaryId,
+                from: from,
+                limit: limit
+            },
+            preSets = {
+                cacheKey: getCategoriesCacheKey(glossaryId)
+            };
+        return site.read('mod_glossary_get_categories', params, preSets).then(function(response) {
+            categories = categories.concat(response.categories);
+            canLoadMore = (from + limit) < response.count;
+            if (canLoadMore) {
+                from += limit;
+                return getCategories(glossaryId, from, limit, categories, site);
+            }
+            return categories;
+        });
+    }
+    self.invalidateCategories = function(glossaryId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.invalidateWsCacheForKey(getCategoriesCacheKey(glossaryId));
+        });
+    };
+    self._getEntryCacheKey = function(entryId) {
+        return 'mmaModGlossary:getEntry:' + entryId;
+    };
+    self.getEntry = function(entryId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    id: entryId
+                },
+                preSets = {
+                    cacheKey: self._getEntryCacheKey(entryId)
+                };
+            return site.read('mod_glossary_get_entry_by_id', params, preSets).then(function(response) {
+                if (response && response.entry) {
+                    return response.entry;
+                } else {
+                    return $q.reject();
+                }
+            });
+        });
+    };
+    self.fetchAllEntries = function(fetchFunction, fetchArguments, forceCache, entries, limitFrom, siteId) {
+        var limitNum = mmaModGlossaryLimitEntriesNum;
+        siteId = siteId || $mmSite.getId();
+        if (typeof limitFrom == 'undefined' || typeof entries == 'undefined') {
+            limitFrom = 0;
+            entries = [];
+        }
+        var args = angular.extend([], fetchArguments);
+        args.push(limitFrom);
+        args.push(limitNum);
+        args.push(siteId);
+        return fetchFunction.apply(this, args).then(function(result) {
+            entries = entries.concat(result.entries);
+            canLoadMore = (limitFrom + limitNum) < result.count;
+            if (canLoadMore) {
+                limitFrom += limitNum;
+                return self.fetchAllEntries(fetchFunction, fetchArguments, forceCache, entries, limitFrom, siteId);
+            }
+            return entries;
+        });
+    };
+    self.invalidateEntry = function(entryId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.invalidateWsCacheForKey(self._getEntryCacheKey(entryId));
+        });
+    };
+    function invalidateEntries(entries, siteId) {
+        var keys = [];
+        angular.forEach(entries, function(entry) {
+            keys.push(self._getEntryCacheKey(entry.id));
+        });
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.invalidateMultipleWsCacheForKey(keys);
+        });
+    }
+     self.invalidateContent = function(moduleId, courseId) {
+        return self.getGlossary(courseId, moduleId).then(function(glossary) {
+            return self.invalidateGlossaryEntries(glossary).finally(function() {
+                var promises = [];
+                promises.push(self.invalidateCourseGlossaries(courseId));
+                promises.push(self.invalidateCategories(glossary.id));
+                return $q.all(promises);
+            });
+        });
+    };
+    self.invalidateGlossaryEntries = function(glossary, onlyEntriesList) {
+        var promises = [];
+        if (!onlyEntriesList) {
+            promises.push(self.fetchAllEntries(self.getEntriesByLetter, [glossary.id, 'ALL'], true).then(function(entries) {
+                return invalidateEntries(entries);
+            }));
+        }
+        angular.forEach(glossary.browsemodes, function(mode) {
+            switch(mode) {
+                case 'letter':
+                    promises.push(self.invalidateEntriesByLetter(glossary.id, 'ALL'));
+                    break;
+                case 'cat':
+                    promises.push(self.invalidateEntriesByCategory(glossary.id, mmaModGlossaryShowAllCategories));
+                    break;
+                case 'date':
+                    promises.push(self.invalidateEntriesByDate(glossary.id, 'CREATION', 'DESC'));
+                    promises.push(self.invalidateEntriesByDate(glossary.id, 'UPDATE', 'DESC'));
+                    break;
+                case 'author':
+                    promises.push(self.invalidateEntriesByAuthor(glossary.id, 'ALL', 'LASTNAME', 'ASC'));
+                    break;
+            }
+        });
+        return $q.all(promises);
+    };
+     self.invalidateFiles = function(moduleId, siteId) {
+         return $mmFilepool.invalidateFilesByComponent(siteId, mmaModGlossaryComponent, moduleId);
+     };
+    self.getGlossary = function(courseId, cmId, siteId) {
+        return self.getCourseGlossaries(courseId, siteId).then(function(glossaries) {
+            var result = $q.reject();
+            angular.forEach(glossaries, function(glossary) {
+                if (glossary.coursemodule == cmId) {
+                    result = glossary;
+                }
+            });
+            return result;
+        });
+    };
+    self.getGlossaryById = function(courseId, glossaryId, siteId) {
+        return self.getCourseGlossaries(courseId, siteId).then(function(glossaries) {
+            var result = $q.reject();
+            angular.forEach(glossaries, function(glossary) {
+                if (glossary.id == glossaryId) {
+                    result = glossary;
+                }
+            });
+            return result;
+        });
+    };
+    self.addEntry = function(glossaryId, concept, definition, courseId, options, attach, timecreated, siteId, discardEntry,
+            allowOffline, checkDuplicates) {
+        siteId = siteId || $mmSite.getId();
+        if (!$mmApp.isOnline() && allowOffline) {
+            return storeOffline();
+        }
+        var discardPromise = discardEntry ?
+            $mmaModGlossaryOffline.deleteAddEntry(glossaryId, discardEntry.concept, discardEntry.timecreated, siteId) : $q.when();
+        return discardPromise.then(function() {
+            return self.addEntryOnline(glossaryId, concept, definition, options, attach, siteId).then(function(entryId) {
+                return entryId;
+            }).catch(function(error) {
+                if (allowOffline && error && !error.wserror) {
+                    return storeOffline();
+                } else {
+                    return $q.reject(error.error);
+                }
+            });
+        });
+        function storeOffline() {
+            var discardTime = discardEntry && discardEntry.timecreated,
+                duplicatesPromise = checkDuplicates ? self.isConceptUsed(glossaryId, concept, discardTime, siteId) : $q.when(false);
+            return duplicatesPromise.then(function(used) {
+                if (used) {
+                    return $mmLang.translateAndReject('mma.mod_glossary.errconceptalreadyexists');
+                }
+                return $mmaModGlossaryOffline.saveAddEntry(glossaryId, concept, definition, courseId, options, attach, timecreated,
+                        siteId, undefined, discardEntry).then(function() {
+                    return false;
+                });
+            });
+        }
+    };
+    self.addEntryOnline = function(glossaryId, concept, definition, options, attachId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var params = {
+                    glossaryid: glossaryId,
+                    concept: concept,
+                    definition: definition,
+                    definitionformat: 1
+                };
+            if (options) {
+                params.options = $mmUtil.objectToArrayOfObjects(options, 'name', 'value');
+            }
+            if (attachId) {
+                params.options.push({
+                    name: 'attachmentsid',
+                    value: attachId
+                });
+            }
+            return addEntryOnline(site, params).then(function(response) {
+                if (response.entryid) {
+                    return response.entryid;
+                }
+                return $q.reject({
+                    wserror: true
+                });
+            });
+        });
+        function addEntryOnline(site, params) {
+            return site.write('mod_glossary_add_entry', params).catch(function(error) {
+                var wserror = $mmUtil.isWebServiceError(error);
+                if (wserror && error == "Invalid parameter value detected") {
+                    var definition = $mmText.cleanTags(params.definition);
+                    if (definition != params.definition) {
+                        params.definition = definition;
+                        return addEntryOnline(site, params);
+                    }
+                }
+                return $q.reject({
+                    error: error,
+                    wserror: wserror
+                });
+            });
+        }
+    };
+    self.isConceptUsed = function(glossaryId, concept, timecreated, siteId) {
+        return $mmaModGlossaryOffline.isConceptUsed(glossaryId, concept, timecreated, siteId).then(function(exists) {
+            if (exists) {
+                return true;
+            }
+            return self.fetchAllEntries(self.getEntriesByLetter, [glossaryId, 'ALL'], true, undefined, undefined, siteId)
+                    .then(function(entries) {
+                for (var i = 0, len = entries.length; i < len; i++) {
+                    if (entries[i].concept == concept) {
+                        return true;
+                    }
+                }
+                return false;
+            });
+        }).catch(function() {
+            return false;
+        });
+    };
+    self.isPluginEnabled = function(siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.wsAvailable('mod_glossary_get_glossaries_by_courses');
+        });
+    };
+    self.isPluginEnabledForEditing = function() {
+        return  $mmSite.wsAvailable('mod_glossary_add_entry');
+    };
+    self.logView = function(glossaryId, mode) {
+        var params = {
+            id: glossaryId,
+            mode: mode
+        };
+        return $mmSite.write('mod_glossary_view_glossary', params);
+    };
+    self.logEntryView = function(entryId) {
+        var params = {
+            id: entryId
+        };
+        return $mmSite.write('mod_glossary_view_entry', params);
+    };
+    return self;
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.constant('mmaModGlossaryAddEntryStore', 'mma_mod_glossary_add_entry')
+.config(["$mmSitesFactoryProvider", "mmaModGlossaryAddEntryStore", function($mmSitesFactoryProvider, mmaModGlossaryAddEntryStore) {
+    var stores = [
+        {
+            name: mmaModGlossaryAddEntryStore,
+            keyPath: ['glossaryid', 'concept', 'timecreated'],
+            indexes: [
+                {
+                    name: 'glossaryid'
+                },
+                {
+                    name: 'concept'
+                },
+                {
+                    name: 'userid'
+                },
+                {
+                    name: 'glossaryAndConcept',
+                    keyPath: ['glossaryid', 'concept']
+                },
+                {
+                    name: 'glossaryAndUser',
+                    keyPath: ['glossaryid', 'userid']
+                }
+            ]
+        }
+    ];
+    $mmSitesFactoryProvider.registerStores(stores);
+}])
+.factory('$mmaModGlossaryOffline', ["$mmSitesManager", "$log", "mmaModGlossaryAddEntryStore", "$mmFS", "$q", "$mmUtil", function($mmSitesManager, $log, mmaModGlossaryAddEntryStore, $mmFS, $q, $mmUtil) {
+    $log = $log.getInstance('$mmaModGlossaryOffline');
+    var self = {};
+    self.deleteAddEntry = function(glossaryId, concept, timecreated, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.getDb().remove(mmaModGlossaryAddEntryStore, [glossaryId, concept, timecreated]);
+        });
+    };
+    self.getAllAddEntries = function(siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.getDb().getAll(mmaModGlossaryAddEntryStore);
+        });
+    };
+    self.getAddEntry = function(glossaryId, concept, timecreated, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.getDb().get(mmaModGlossaryAddEntryStore, [glossaryId, concept, timecreated]);
+        });
+    };
+    self.getGlossaryAddEntries = function(glossaryId, siteId, userId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            userId = userId || site.getUserId();
+            return site.getDb().whereEqual(mmaModGlossaryAddEntryStore, 'glossaryAndUser', [glossaryId, userId]);
+        });
+    };
+    self.isConceptUsed = function(glossaryId, concept, timecreated, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            return site.getDb().whereEqual(mmaModGlossaryAddEntryStore, 'glossaryAndConcept', [glossaryId, concept])
+                    .then(function(entries) {
+                if (!!entries.length) {
+                    if (entries.length > 1 || !timecreated) {
+                        return true;
+                    }
+                    return $mmUtil.promiseFails(self.getAddEntry(glossaryId, concept, timecreated, siteId));
+                }
+                return false;
+            });
+        }).catch(function() {
+            return false;
+        });
+    };
+    self.saveAddEntry = function(glossaryId, concept, definition, courseId, options, attach, timecreated, siteId, userId,
+            discardEntry) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            userId = userId || site.getUserId();
+            var entry = {
+                    glossaryid: glossaryId,
+                    courseid: courseId,
+                    concept: concept,
+                    definition: definition,
+                    definitionformat: 'html',
+                    options: options,
+                    userid: userId,
+                    timecreated: timecreated || new Date().getTime()
+                };
+            if (attach) {
+                entry.attachments = attach;
+            }
+            var discardPromise = discardEntry ?
+                self.deleteAddEntry(glossaryId, discardEntry.concept, discardEntry.timecreated, site.getId()) : $q.when();
+            return discardPromise.then(function() {
+                return site.getDb().insert(mmaModGlossaryAddEntryStore, entry);
+            });
+        });
+    };
+    self.getGlossaryFolder = function(glossaryId, siteId) {
+        return $mmSitesManager.getSite(siteId).then(function(site) {
+            var siteFolderPath = $mmFS.getSiteFolder(site.getId()),
+                folderPath = 'offlineglossary/' + glossaryId;
+            return $mmFS.concatenatePaths(siteFolderPath, folderPath);
+        });
+    };
+    self.getEntryFolder = function(glossaryId, entryName, timecreated, siteId) {
+        return self.getGlossaryFolder(glossaryId, siteId).then(function(folderPath) {
+            return $mmFS.concatenatePaths(folderPath, 'newentry_' + entryName + '_' + timecreated);
+        });
+    };
+    return self;
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.factory('$mmaModGlossarySync', ["$q", "$log", "$mmApp", "$mmSitesManager", "$mmaModGlossaryOffline", "$mmSite", "$mmEvents", "$mmSync", "$mmLang", "mmaModGlossaryComponent", "$mmaModGlossary", "$translate", "mmaModGlossaryAutomSyncedEvent", "mmaModGlossarySyncTime", "$mmCourse", "$mmSyncBlock", "$mmUtil", "$mmaModGlossaryHelper", "$mmFileUploader", function($q, $log, $mmApp, $mmSitesManager, $mmaModGlossaryOffline, $mmSite, $mmEvents, $mmSync,
+        $mmLang, mmaModGlossaryComponent, $mmaModGlossary, $translate, mmaModGlossaryAutomSyncedEvent, mmaModGlossarySyncTime,
+        $mmCourse, $mmSyncBlock, $mmUtil, $mmaModGlossaryHelper, $mmFileUploader) {
+    $log = $log.getInstance('$mmaModGlossarySync');
+    var self = $mmSync.createChild(mmaModGlossaryComponent, mmaModGlossarySyncTime);
+    self.syncAllGlossaries = function(siteId) {
+        if (!$mmApp.isOnline()) {
+            $log.debug('Cannot sync all glossaries because device is offline.');
+            return $q.reject();
+        }
+        var promise;
+        if (!siteId) {
+            $log.debug('Try to sync glossaries in all sites.');
+            promise = $mmSitesManager.getSitesIds();
+        } else {
+            $log.debug('Try to sync glossaries in site ' + siteId);
+            promise = $q.when([siteId]);
+        }
+        return promise.then(function(siteIds) {
+            var sitePromises = [];
+            angular.forEach(siteIds, function(siteId) {
+                sitePromises.push($mmaModGlossaryOffline.getAllAddEntries(siteId).then(function(entries) {
+                    var promises = {};
+                    for (var i in entries) {
+                        var entry = entries[i];
+                        if (typeof promises[entry.glossaryid] != 'undefined') {
+                            continue;
+                        }
+                        promises[entry.glossaryid] = self.syncGlossaryEntriesIfNeeded(entry.glossaryid, entry.userid, siteId)
+                                .then(function(result) {
+                            if (result && result.updated) {
+                                $mmEvents.trigger(mmaModGlossaryAutomSyncedEvent, {
+                                    siteid: siteId,
+                                    glossaryid: entry.glossaryid,
+                                    userid: entry.userid,
+                                    warnings: result.warnings
+                                });
+                            }
+                        });
+                    }
+                    promises = $mmUtil.objectToArray(promises);
+                    return $q.all(promises);
+                }));
+            });
+            return $q.all(sitePromises);
+        });
+    };
+    self.syncGlossaryEntriesIfNeeded = function(glossaryId, userId, siteId) {
+        siteId = siteId || $mmSite.getId();
+        var syncId = self.getGlossarySyncId(glossaryId, userId);
+        return self.isSyncNeeded(syncId, siteId).then(function(needed) {
+            if (needed) {
+                return self.syncGlossaryEntries(glossaryId, userId, siteId);
+            }
+        });
+    };
+    self.syncGlossaryEntries = function(glossaryId, userId, siteId) {
+        userId = userId || $mmSite.getUserId();
+        siteId = siteId || $mmSite.getId();
+        var syncPromise,
+            courseId,
+            syncId = self.getGlossarySyncId(glossaryId, userId),
+            result = {
+                warnings: [],
+                updated: false
+            };
+        if (self.isSyncing(syncId, siteId)) {
+            return self.getOngoingSync(syncId, siteId);
+        }
+        if ($mmSyncBlock.isBlocked(mmaModGlossaryComponent, syncId, siteId)) {
+            $log.debug('Cannot sync glossary ' + glossaryId + ' because it is blocked.');
+            var modulename = $mmCourse.translateModuleName('glossary');
+            return $mmLang.translateAndReject('mm.core.errorsyncblocked', {$a: modulename});
+        }
+        $log.debug('Try to sync glossary ' + glossaryId + ' for user ' + userId);
+        syncPromise = $mmaModGlossaryOffline.getGlossaryAddEntries(glossaryId, siteId, userId).catch(function() {
+            return [];
+        }).then(function(entries) {
+            if (!entries.length) {
+                return;
+            } else if (!$mmApp.isOnline()) {
+                return $q.reject();
+            }
+            var promises = [];
+            angular.forEach(entries, function(data) {
+                var promise;
+                courseId = data.courseid;
+                promise = uploadAttachments(glossaryId, data, siteId).then(function(itemId) {
+                    return $mmaModGlossary.addEntryOnline(glossaryId, data.concept, data.definition, data.options, itemId, siteId);
+                });
+                promises.push(promise.then(function() {
+                    result.updated = true;
+                    return deleteAddEntry(glossaryId, data.concept, data.timecreated, siteId);
+                }).catch(function(error) {
+                    if (error && error.wserror) {
+                        result.updated = true;
+                        return deleteAddEntry(glossaryId, data.concept, data.timecreated, siteId).then(function() {
+                            result.warnings.push($translate.instant('mm.core.warningofflinedatadeleted', {
+                                component: $mmCourse.translateModuleName('glossary'),
+                                name: data.concept,
+                                error: error.error
+                            }));
+                        });
+                    } else {
+                        return $q.reject(error && error.error);
+                    }
+                }));
+            });
+            return $q.all(promises);
+        }).then(function() {
+            if (result.updated && courseId) {
+                return $mmaModGlossary.getGlossaryById(courseId, glossaryId).then(function(glossary) {
+                    return $mmaModGlossary.invalidateGlossaryEntries(glossary, true);
+                }).catch(function() {
+                });
+            }
+        }).then(function() {
+            return self.setSyncTime(syncId, siteId).catch(function() {
+            });
+        }).then(function() {
+            return result;
+        });
+        return self.addOngoingSync(syncId, syncPromise, siteId);
+    };
+    function deleteAddEntry(glossaryId, concept, timecreated, siteId) {
+        var promises = [];
+        promises.push($mmaModGlossaryOffline.deleteAddEntry(glossaryId, concept, timecreated, siteId));
+        promises.push($mmaModGlossaryHelper.deleteStoredFiles(glossaryId, concept, timecreated, siteId).catch(function() {
+        }));
+        return $q.all(promises);
+    }
+    function uploadAttachments(glossaryId, entry, siteId) {
+        var attachments = entry && entry.attachments;
+        if (attachments) {
+            var files = attachments.online || [],
+                promise;
+            if (attachments.offline) {
+                promise = $mmaModGlossaryHelper.getStoredFiles(glossaryId, entry.concept, entry.timecreated, siteId).then(function(atts) {
+                    files = files.concat(atts);
+                }).catch(function() {
+                });
+            } else {
+                promise = $q.when();
+            }
+            return promise.then(function() {
+                return $mmFileUploader.uploadOrReuploadFiles(files, mmaModGlossaryComponent, glossaryId, siteId);
+            });
+        }
+        return $q.when();
+    }
+    self.getGlossarySyncId = function(glossaryId, userId) {
+        userId = userId || $mmSite.getUserId();
+        return 'glossary#' + glossaryId + '#' + userId;
+    };
+    return self;
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.factory('$mmaModGlossaryHandlers', ["$mmCourse", "$mmaModGlossary", "$state", "$q", "$mmContentLinksHelper", "$mmUtil", "$mmEvents", "$mmCourseHelper", "$mmaModGlossaryPrefetchHandler", "mmaModGlossaryComponent", "mmCoreEventPackageStatusChanged", "$mmCoursePrefetchDelegate", "mmCoreDownloading", "mmCoreDownloaded", "mmCoreNotDownloaded", "mmCoreOutdated", "$mmSite", "$mmaModGlossarySync", "$mmContentLinkHandlerFactory", function($mmCourse, $mmaModGlossary, $state, $q, $mmContentLinksHelper, $mmUtil, $mmEvents,
+            $mmCourseHelper, $mmaModGlossaryPrefetchHandler, mmaModGlossaryComponent, mmCoreEventPackageStatusChanged,
+            $mmCoursePrefetchDelegate, mmCoreDownloading, mmCoreDownloaded, mmCoreNotDownloaded, mmCoreOutdated, $mmSite,
+            $mmaModGlossarySync, $mmContentLinkHandlerFactory) {
+    var self = {};
+    self.courseContent = function() {
+        var self = {};
+        self.isEnabled = function() {
+            return $mmaModGlossary.isPluginEnabled();
+        };
+        self.getController = function(module, courseId) {
+            return function($scope) {
+                var downloadBtn = {
+                        hidden: true,
+                        icon: 'ion-ios-cloud-download-outline',
+                        label: 'mm.core.download',
+                        action: function(e) {
+                            if (e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+                            download();
+                        }
+                    },
+                    refreshBtn = {
+                        hidden: true,
+                        icon: 'ion-android-refresh',
+                        label: 'mm.core.refresh',
+                        action: function(e) {
+                            if (e) {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }
+                            $scope.spinner = true; 
+                            $mmaModGlossary.invalidateContent(module.id, courseId).finally(function() {
+                                download();
+                            });
+                        }
+                    };
+                $scope.title = module.name;
+                $scope.icon = $mmCourse.getModuleIconSrc('glossary');
+                $scope.class = 'mma-mod_glossary-handler';
+                $scope.buttons = [downloadBtn, refreshBtn];
+                $scope.spinner = true; 
+                $scope.action = function(e) {
+                    if (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                    $state.go('site.mod_glossary', {module: module, courseid: courseId});
+                };
+                function download() {
+                    $scope.spinner = true; 
+                    $mmaModGlossaryPrefetchHandler.getDownloadSize(module, courseId).then(function(size) {
+                        $mmUtil.confirmDownloadSize(size).then(function() {
+                            $mmaModGlossaryPrefetchHandler.prefetch(module, courseId).catch(function() {
+                                if (!$scope.$$destroyed) {
+                                    $mmUtil.showErrorModal('mm.core.errordownloading', true);
+                                }
+                            });
+                        }).catch(function() {
+                            $scope.spinner = false;
+                        });
+                    }).catch(function(error) {
+                        $scope.spinner = false;
+                        $mmUtil.showErrorModalDefault(error, 'mm.core.errordownloading', true);
+                    });
+                }
+                function showStatus(status) {
+                    if (status) {
+                        $scope.spinner = status === mmCoreDownloading;
+                        downloadBtn.hidden = status !== mmCoreNotDownloaded;
+                        refreshBtn.hidden = status !== mmCoreOutdated;
+                        if (!$mmCoursePrefetchDelegate.canCheckUpdates()) {
+                            refreshBtn.hidden = refreshBtn.hidden && status !== mmCoreDownloaded;
+                        }
+                    }
+                }
+                var statusObserver = $mmEvents.on(mmCoreEventPackageStatusChanged, function(data) {
+                    if (data.siteid === $mmSite.getId() && data.componentId === module.id &&
+                            data.component === mmaModGlossaryComponent) {
+                        showStatus(data.status);
+                    }
+                });
+                $mmCoursePrefetchDelegate.getModuleStatus(module, courseId).then(showStatus);
+                $scope.$on('$destroy', function() {
+                    statusObserver && statusObserver.off && statusObserver.off();
+                });
+            };
+        };
+        return self;
+    };
+    self.indexLinksHandler = $mmContentLinksHelper.createModuleIndexLinkHandler('mmaModGlossary', 'glossary', $mmaModGlossary);
+    self.entryLinksHandler = $mmContentLinkHandlerFactory.createChild(
+                /\/mod\/glossary\/showentry\.php.*([\&\?]eid=\d+)/, '$mmCourseDelegate_mmaModGlossary');
+    self.entryLinksHandler.isEnabled = function(siteId, url, params, courseId) {
+        courseId = courseId || params.courseid || params.cid;
+        return $mmContentLinksHelper.isModuleIndexEnabled($mmaModGlossary, siteId, courseId);
+    };
+    self.entryLinksHandler.getActions = function(siteIds, url, params, courseId) {
+        courseId = courseId || params.courseid || params.cid;
+        return [{
+            action: function(siteId) {
+                var modal = $mmUtil.showModalLoading(),
+                    entryId = parseInt(params.eid, 10),
+                    promise;
+                if (courseId) {
+                    promise = $q.when(courseId);
+                } else {
+                    promise = getEntry(entryId, siteId).then(function(entry) {
+                        return $mmCourseHelper.getModuleCourseIdByInstance(entry.glossaryid, 'glossary', siteId);
+                    });
+                }
+                return promise.then(function(courseId) {
+                    var stateParams = {
+                        entryid: entryId,
+                        cid: courseId
+                    };
+                    $mmContentLinksHelper.goInSite('site.mod_glossary-entry', stateParams, siteId);
+                }).finally(function() {
+                    modal.dismiss();
+                });
+            }
+        }];
+    };
+    function getEntry(entryId, siteId) {
+        return $mmaModGlossary.getEntry(entryId, siteId).catch(function(error) {
+            $mmUtil.showErrorModalDefault(error, 'mma.mod_glossary.errorloadingentry', true);
+            return $q.reject();
+        });
+    }
+    self.syncHandler = function() {
+        var self = {};
+        self.execute = function(siteId) {
+            return $mmaModGlossarySync.syncAllGlossaries(siteId);
+        };
+        self.getInterval = function() {
+            return 600000; 
+        };
+        self.isSync = function() {
+            return true;
+        };
+        self.usesNetwork = function() {
+            return true;
+        };
+        return self;
+    };
+    return self;
+}]);
+
+angular.module('mm.addons.mod_glossary')
+.factory('$mmaModGlossaryHelper', ["$mmaModGlossaryOffline", "$mmSite", "$mmFileUploader", "$mmFS", "mmaModGlossaryComponent", "$mmFileUploaderHelper", function($mmaModGlossaryOffline, $mmSite, $mmFileUploader, $mmFS, mmaModGlossaryComponent,
+        $mmFileUploaderHelper) {
+    var self = {};
+    self.deleteStoredFiles = function(glossaryId, entryName, timecreated, siteId) {
+        return $mmaModGlossaryOffline.getEntryFolder(glossaryId, entryName, timecreated, siteId).then(function(folderPath) {
+            return $mmFS.removeDir(folderPath);
+        });
+    };
+    self.getStoredFiles = function(glossaryId, entryName, timecreated, siteId) {
+        return $mmaModGlossaryOffline.getEntryFolder(glossaryId, entryName, timecreated, siteId).then(function(folderPath) {
+            return $mmFileUploaderHelper.getStoredFiles(folderPath);
+        });
+    };
+    self.hasEntryDataChanged = function(entry, files, original) {
+        if (!original || typeof original.concept == 'undefined') {
+            return entry.text || entry.concept || files.length > 0;
+        }
+        if (original.text != entry.text || original.concept != entry.concept) {
+            return true;
+        }
+        return $mmFileUploaderHelper.areFileListDifferent(files, original.files);
+    };
+    self.storeFiles = function(glossaryId, entryName, timecreated, files, siteId) {
+        return $mmaModGlossaryOffline.getEntryFolder(glossaryId, entryName, timecreated, siteId).then(function(folderPath) {
+            return $mmFileUploader.storeFilesToUpload(folderPath, files);
+        });
+    };
+    self.uploadOrStoreFiles = function(glossaryId, entryName, timecreated, files, offline, siteId) {
+        if (offline) {
+            return self.storeFiles(glossaryId, entryName, timecreated, files, siteId);
+        } else {
+            return $mmFileUploader.uploadOrReuploadFiles(files, mmaModGlossaryComponent, glossaryId, siteId);
+        }
+    };
+    return self;
+}]);
+angular.module('mm.addons.mod_glossary')
+.factory('$mmaModGlossaryPrefetchHandler', ["$mmaModGlossary", "mmaModGlossaryComponent", "$mmFilepool", "$q", "$mmUser", "mmCoreDownloaded", "mmCoreOutdated", "$mmUtil", "$mmPrefetchFactory", "$mmCoursePrefetchDelegate", "mmaModGlossaryShowAllCategories", function($mmaModGlossary, mmaModGlossaryComponent, $mmFilepool, $q, $mmUser,
+            mmCoreDownloaded, mmCoreOutdated, $mmUtil, $mmPrefetchFactory, $mmCoursePrefetchDelegate,
+            mmaModGlossaryShowAllCategories) {
+    var self = $mmPrefetchFactory.createPrefetchHandler(mmaModGlossaryComponent, false);
+    self.updatesNames = /^configuration$|^.*files$|^entries$/;
+    self.determineStatus = function(status, canCheck) {
+        if (!canCheck && status === mmCoreDownloaded) {
+            return mmCoreOutdated;
+        } else {
+            return status;
+        }
+    };
+    self.download = function(module, courseId) {
+        return self.prefetch(module, courseId);
+    };
+    self.getFiles = function(module, courseId) {
+        return $mmaModGlossary.getGlossary(courseId, module.id).then(function(glossary) {
+            return $mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByLetter, [glossary.id, 'ALL'])
+                    .then(function(entries) {
+                return getFilesFromGlossaryAndEntries(module, glossary, entries);
+            });
+        }).catch(function() {
+            return [];
+        });
+    };
+    function getFilesFromGlossaryAndEntries(module, glossary, entries) {
+        var files = self.getIntroFilesFromInstance(module, glossary);
+        angular.forEach(entries, function(entry) {
+            files = files.concat($mmUtil.extractDownloadableFilesFromHtmlAsFakeFileObjects(entry.definition));
+            files = files.concat(entry.attachments);
+        });
+        return files;
+    }
+    self.getRevision = function(module, courseId) {
+        return "0";
+    };
+    self.getTimemodified = function(module, courseId) {
+        return 0;
+    };
+    self.invalidateContent = function(moduleId, courseId) {
+        return $mmaModGlossary.invalidateContent(moduleId, courseId);
+    };
+    self.invalidateModule = function(module, courseId) {
+        if ($mmCoursePrefetchDelegate.canCheckUpdates()) {
+            return $mmaModGlossary.invalidateCourseGlossaries(courseId);
+        }
+        return $mmaModGlossary.getGlossary(courseId, module.id).then(function(glossary) {
+            var promises = [];
+            promises.push($mmaModGlossary.invalidateEntriesByLetter(glossary.id, 'ALL'));
+            promises.push($mmaModGlossary.invalidateCourseGlossaries(courseId));
+            return $q.all(promises);
+        });
+    };
+    self.isEnabled = function() {
+        return $mmaModGlossary.isPluginEnabled();
+    };
+    self.prefetch = function(module, courseId, single) {
+        return self.prefetchPackage(module, courseId, single, prefetchGlossary);
+    };
+    function prefetchGlossary(module, courseId, single, siteId) {
+        var revision,
+            timemod;
+        siteId = siteId || $mmSite.getId();
+        return $mmaModGlossary.getGlossary(courseId, module.id, siteId).then(function(glossary) {
+            var promises = [];
+            angular.forEach(glossary.browsemodes, function(mode) {
+                switch(mode) {
+                    case 'letter': 
+                        break;
+                    case 'cat': 
+                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByCategory,
+                            [glossary.id, mmaModGlossaryShowAllCategories], false, undefined, undefined, siteId));
+                        break;
+                    case 'date':
+                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByDate,
+                            [glossary.id, 'CREATION', 'DESC'], false, undefined, undefined, siteId));
+                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByDate,
+                            [glossary.id, 'UPDATE', 'DESC'], false, undefined, undefined, siteId));
+                        break;
+                    case 'author':
+                        promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByAuthor,
+                            [glossary.id, 'ALL', 'LASTNAME', 'ASC'], false, undefined, undefined, siteId));
+                        break;
+                }
+            });
+            promises.push($mmaModGlossary.fetchAllEntries($mmaModGlossary.getEntriesByLetter, [glossary.id, 'ALL'], false,
+                    undefined, undefined, siteId).then(function(entries) {
+                var promises = [],
+                    files = getFilesFromGlossaryAndEntries(module, glossary, entries),
+                    userIds = [];
+                angular.forEach(entries, function(entry) {
+                    promises.push($mmaModGlossary.getEntry(entry.id, siteId));
+                    userIds.push(entry.userid);
+                });
+                promises.push($mmUser.prefetchProfiles(userIds, courseId, siteId));
+                promises.push($mmFilepool.addFilesToQueueByUrl(siteId, files, self.component, module.id));
+                return $q.all(promises);
+            }));
+            revision = self.getRevision(module, courseId);
+            timemod = self.getTimemodified(module, courseId);
+            return $q.all(promises);
+        }).then(function() {
+            return {
+                revision: revision,
+                timemod: timemod
+            };
         });
     }
     return self;
