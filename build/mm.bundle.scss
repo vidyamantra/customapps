@@ -2320,10 +2320,6 @@ mm-course-list-item .item-icon-left {
   }
 }
 
-#mm-settings-languagelabel {
-  color: $base-color;
-}
-
 
 $mm-question-correct-color:         $green-dark !default;
 $mm-question-correct-color-bg:      $green-light !default;
@@ -2455,6 +2451,10 @@ li.mm-question-answer-incorrect,
 
 .mm-question-warning, p.mm-question-warning, .item .mm-question-warning {
   color: $mm-question-warning-color;
+}
+
+#mm-settings-languagelabel {
+  color: $base-color;
 }
 
 // Variables.
@@ -3775,19 +3775,6 @@ $mma-qbehaviour-deferredcbm-confident-color:    $red !default;
 
 
 
-// Style match content a bit.
-.mma-qtype-match-container .item-select {
-  select,
-  .mm-select-fix {
-    padding: 0 36px 0 0;
-    max-width: 100%;
-    display: flex;
-    justify-content:center;
-    align-content:center;
-    flex-direction:column;
-  }
-}
-
 // Style gapselect content a bit. All these styles are copied from Moodle.
 .mma-qtype-gapselect-container {
   p {
@@ -3808,6 +3795,19 @@ $mma-qbehaviour-deferredcbm-confident-color:    $red !default;
   }
 }
 
+
+// Style match content a bit.
+.mma-qtype-match-container .item-select {
+  select,
+  .mm-select-fix {
+    padding: 0 36px 0 0;
+    max-width: 100%;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+  }
+}
 
 // Style multianswer content a bit. All these styles are copied from Moodle.
 .mma-qtype-multianswer-container {
