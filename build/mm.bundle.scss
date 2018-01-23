@@ -2137,6 +2137,19 @@ $doughnut-text-colour: $gray-darker;
 mm-course-list-item .item-icon-left {
   color: $black;
 }
+.mm-fileuploader-file-handler {
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        opacity: 0;
+        outline: none;
+        z-index: 100;
+    }
+}
+
 /* - User grades table (most of it extracted from MM1)
 -------------------------------------------------------------------------- */
 .mm-grades-container {
@@ -2240,19 +2253,6 @@ mm-course-list-item .item-icon-left {
     border-top: 1px solid $item-light-border;
     border-bottom: 1px solid $item-light-border;
   }
-}
-
-.mm-fileuploader-file-handler {
-    input {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        z-index: 100;
-    }
 }
 
 
@@ -3775,6 +3775,19 @@ $mma-qbehaviour-deferredcbm-confident-color:    $red !default;
 
 
 
+// Style match content a bit.
+.mma-qtype-match-container .item-select {
+  select,
+  .mm-select-fix {
+    padding: 0 36px 0 0;
+    max-width: 100%;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+  }
+}
+
 // Style gapselect content a bit. All these styles are copied from Moodle.
 .mma-qtype-gapselect-container {
   p {
@@ -3795,19 +3808,6 @@ $mma-qbehaviour-deferredcbm-confident-color:    $red !default;
   }
 }
 
-
-// Style match content a bit.
-.mma-qtype-match-container .item-select {
-  select,
-  .mm-select-fix {
-    padding: 0 36px 0 0;
-    max-width: 100%;
-    display: flex;
-    justify-content:center;
-    align-content:center;
-    flex-direction:column;
-  }
-}
 
 // Style multianswer content a bit. All these styles are copied from Moodle.
 .mma-qtype-multianswer-container {
