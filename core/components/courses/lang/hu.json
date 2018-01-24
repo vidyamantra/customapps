@@ -11,6 +11,9 @@
     "nosearchresults": "Keresése nem adott eredményt",
     "notenroled": "Ezt a kurzust nem vette föl",
     "password": "Megosztott titkos jel",
-    "search": "Keresés",
-    "searchcourses": "Kurzusok keresése"
+    "paymentrequired": "Ebbe a kurzusba csak fizetés után léphet be.",
+    "paypalaccepted": "PayPal-lel való fizetést elfogadunk",
+    "search": "Keresés...",
+    "searchcourses": "Kurzusok keresése",
+    "sendpaymentbutton": "Fizetés küldése Paypal-lel"
 }

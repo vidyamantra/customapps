@@ -5,6 +5,7 @@
     "cannotcreatediscussion": "Kunne ikke oprette en ny tråd.",
     "couldnotadd": "Kunne ikke tilføje dit indlæg pga. en ukendt fejl",
     "discussion": "Tråd",
+    "discussionlocked": "Denne tråd er låst, så du kan ikke længere svare på den.",
     "discussionpinned": "Fastgjort",
     "discussionsubscription": "Abonnement på tråd",
     "edit": "Rediger",

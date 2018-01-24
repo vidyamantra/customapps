@@ -47,7 +47,7 @@ angular.module('mm.core.fileuploader')
         // Currently we are going to compare the order of the files as well.
         // This function can be improved comparing more fields or not comparing the order.
         for (var i = 0; i < a.length; i++) {
-            if (a[i].name != b[i].name) {
+            if ((a[i].name || a[i].filename) != (b[i].name || b[i].filename)) {
                 return true;
             }
         }
@@ -69,7 +69,8 @@ angular.module('mm.core.fileuploader')
         // Delete the local files from the tmp folder.
         files.forEach(function(file) {
             if (!file.offline && file.remove) {
-                file.remove();
+                // Pass an empty function to prevent missing parameter error.
+                file.remove(function() {});
             }
         });
     };
@@ -121,9 +122,12 @@ angular.module('mm.core.fileuploader')
      * @name $mmFileUploaderHelper#copyAndUploadFile
      * @param  {Object} file    File to copy and upload.
      * @param  {Boolean} upload True if the file should be uploaded, false to return the picked file.
+     * @param  {String}  [name] Name to use when uploading the file. If not defined, use the file's name.
      * @return {Promise}        Promise resolved when the file is uploaded.
      */
-    self.copyAndUploadFile = function(file, upload) {
+    self.copyAndUploadFile = function(file, upload, name) {
+        name = name || file.name;
+
         var modal = $mmUtil.showModalLoading('mm.fileuploader.readingfile', true),
             fileData;
 
@@ -132,7 +136,7 @@ angular.module('mm.core.fileuploader')
             fileData = data;
 
             // Get unique name for the copy.
-            return $mmFS.getUniqueNameInFolder($mmFS.getTmpFolder(), file.name);
+            return $mmFS.getUniqueNameInFolder($mmFS.getTmpFolder(), name);
         }).then(function(newName) {
             var filepath = $mmFS.concatenatePaths($mmFS.getTmpFolder(), newName);
 
@@ -146,7 +150,7 @@ angular.module('mm.core.fileuploader')
 
             if (upload) {
                 // Pass true to delete the copy after the upload.
-                return self.uploadGenericFile(fileEntry.toURL(), file.name, file.type, true);
+                return self.uploadGenericFile(fileEntry.toURL(), name, file.type, true);
             } else {
                 return fileEntry;
             }
@@ -228,6 +232,155 @@ angular.module('mm.core.fileuploader')
     };
 
     /**
+     * Get stored files from combined online and offline file object.
+     *
+     * @module mm.core.fileuploader
+     * @ngdoc method
+     * @name $mmFileUploaderHelper#getStoredFilesFromOfflineFilesObject
+     * @param  {Object} filesObject  The combined offline and online files object.
+     * @param  {String} folderPath   Folder path to get files from.
+     * @return {Promise}             Promise resolved with files when done.
+     */
+    self.getStoredFilesFromOfflineFilesObject = function(filesObject, folderPath) {
+        var files = [];
+
+        if (filesObject) {
+            if (filesObject.online && filesObject.online.length > 0) {
+                files = angular.copy(filesObject.online);
+            }
+
+            if (filesObject.offline > 0) {
+                return self.getStoredFiles(folderPath).then(function(offlineFiles) {
+                    return files.concat(offlineFiles);
+                }).catch(function() {
+                    // Ignore not found files.
+                    return files;
+                });
+            }
+        }
+        return $q.when(files);
+    };
+
+    /**
+     * Check if a file's mimetype is invalid based on the list of accepted mimetypes. This function needs either the file's
+     * mimetype or the file's path/name.
+     *
+     * @module mm.core.fileuploader
+     * @ngdoc method
+     * @name $mmFileUploaderHelper#isInvalidMimetype
+     * @param  {String[]} [mimetypes] List of supported mimetypes. If undefined, all mimetypes supported.
+     * @param  {String} [path]        File's path or name.
+     * @param  {String} [mimetype]    File's mimetype.
+     * @return {Mixed}                False if file is valid, error message if file is invalid.
+     */
+    self.isInvalidMimetype = function(mimetypes, path, mimetype) {
+        var extension;
+
+        if (mimetypes) {
+            // Verify that the mimetype of the file is supported.
+            if (mimetype) {
+                extension = $mmFS.getExtension(mimetype);
+            } else {
+                extension = $mmFS.getFileExtension(path);
+                mimetype = $mmFS.getMimeType(extension);
+            }
+
+            if (mimetype && mimetypes.indexOf(mimetype) == -1) {
+                extension = extension || $translate.instant('mm.core.unknown');
+                return $translate.instant('mm.fileuploader.invalidfiletype', {$a: extension});
+            }
+        }
+
+        return false;
+    };
+
+    /**
+     * Add a dot to the beginning of an extension.
+     *
+     * @param  {String} extension Extension.
+     * @return {String}           Treated extension.
+     */
+    function addDot(extension) {
+        return '.' + extension;
+    }
+
+    /**
+     * Parse filetypeslist to get the list of allowed mimetypes and the data to render information.
+     *
+     * @module mm.core.fileuploader
+     * @ngdoc method
+     * @name $mmFileUploaderHelper#prepareFiletypeList
+     * @param  {String} filetypeList Formatted string list where the mimetypes can be checked.
+     * @return {Object}              With mimetypes and the filetypes informations.
+     */
+    self.prepareFiletypeList = function(filetypeList) {
+        var filetypes = filetypeList.split(/[;, ]+/g),
+            mimetypes = {}, // Use an object to prevent duplicates.
+            typesInfo = [];
+
+        angular.forEach(filetypes, function(filetype) {
+            filetype = filetype.trim();
+
+            if (filetype) {
+                if (filetype.indexOf('/') != -1) {
+                    // It's a mimetype.
+                    typesInfo.push({
+                        name: $mmFS.getMimetypeDescription(filetype),
+                        extlist: $mmFS.getExtensions(filetype).map(addDot).join(' ')
+                    });
+
+                    mimetypes[filetype] = true;
+                } else if (filetype.indexOf('.') === 0) {
+                    // It's an extension.
+                    var mimetype = $mmFS.getMimeType(filetype);
+                    typesInfo.push({
+                        name: mimetype ? $mmFS.getMimetypeDescription(mimetype) : false,
+                        extlist: filetype
+                    });
+
+                    if (mimetype) {
+                        mimetypes[mimetype] = true;
+                    }
+                } else {
+                    // It's a group.
+                    var groupExtensions = $mmFS.getGroupMimeInfo(filetype, 'extensions'),
+                        groupMimetypes = $mmFS.getGroupMimeInfo(filetype, 'mimetypes');
+
+                    if (groupExtensions.length > 0) {
+                        typesInfo.push({
+                            name: $mmFS.getTranslatedGroupName(filetype),
+                            extlist: groupExtensions ? groupExtensions.map(addDot).join(' ') : ''
+                        });
+
+                        angular.forEach(groupMimetypes, function(mimetype) {
+                            if (mimetype) {
+                                mimetypes[mimetype] = true;
+                            }
+                        });
+                    } else {
+                        // Treat them as extensions.
+                        filetype = '.' + filetype;
+                        var mimetype = $mmFS.getMimeType(filetype);
+                        typesInfo.push({
+                            name: mimetype ? $mmFS.getMimetypeDescription(mimetype) : false,
+                            extlist: filetype
+                        });
+
+                        if (mimetype) {
+                            mimetypes[mimetype] = true;
+                        }
+                    }
+                }
+            }
+        });
+
+        return {
+            info: typesInfo,
+            mimetypes: Object.keys(mimetypes)
+        };
+    };
+
+    /**
      * Mark files as offline.
      *
      * @module mm.core.fileuploader
@@ -251,14 +404,15 @@ angular.module('mm.core.fileuploader')
      * @module mm.core.fileuploader
      * @ngdoc method
      * @name $mmFileUploaderHelper#selectAndUploadFile
-     * @param  {Number} [maxSize] Max size of the file to upload. If not defined or -1, no max size.
-     * @param  {String} [title]   File picker page title
-     * @param  {Array}  [filterMethods]   File picker available methods
+     * @param  {Number} [maxSize]       Max size of the file to upload. If not defined or -1, no max size.
+     * @param  {String} [title]         File picker page title
+     * @param  {Array}  [filterMethods] File picker available methods
+     * @param  {String[]} [mimetypes]   List of supported mimetypes. If undefined, all mimetypes supported.
      * @return {Promise} Promise resolved when a file is uploaded, rejected if file picker is closed without a file uploaded.
      *                   The resolve value should be the response of the upload request.
      */
-    self.selectAndUploadFile = function(maxSize, title, filterMethods) {
-        return selectFile(maxSize, false, title, filterMethods, true);
+    self.selectAndUploadFile = function(maxSize, title, filterMethods, mimetypes) {
+        return selectFile(maxSize, false, title, filterMethods, true, mimetypes);
     };
 
     /**
@@ -267,36 +421,38 @@ angular.module('mm.core.fileuploader')
      * @module mm.core.fileuploader
      * @ngdoc method
      * @name $mmFileUploaderHelper#selectFile
-     * @param  {Number} [maxSize]     Max size of the file. If not defined or -1, no max size.
-     * @param  {Boolean} allowOffline True to allow selecting in offline, false to require connection.
-     * @param  {String} [title]   File picker page title
-     * @param  {Array}  [filterMethods]   File picker available methods
+     * @param  {Number} [maxSize]       Max size of the file. If not defined or -1, no max size.
+     * @param  {Boolean} [allowOffline] True to allow selecting in offline, false to require connection.
+     * @param  {String} [title]         File picker page title
+     * @param  {Array}  [filterMethods] File picker available methodss
+     * @param  {String[]} [mimetypes]   List of supported mimetypes. If undefined, all mimetypes supported.
      * @return {Promise} Promise resolved when a file is selected, rejected if file picker is closed without selecting a file.
      *                   The resolve value should be the FileEntry of a copy of the picked file, so it can be deleted afterwards.
      */
-    self.selectFile = function(maxSize, allowOffline, title, filterMethods) {
-        return selectFile(maxSize, allowOffline, title, filterMethods, false);
+    self.selectFile = function(maxSize, allowOffline, title, filterMethods, mimetypes) {
+        return selectFile(maxSize, allowOffline, title, filterMethods, false, mimetypes);
     };
 
     /**
      * Open the view to select a file and maybe uploading it.
      *
      * @param  {Number} [maxSize]       Max size of the file. If not defined or -1, no max size.
-     * @param  {Boolean} allowOffline   True to allow selecting in offline, false to require connection.
+     * @param  {Boolean} [allowOffline] True to allow selecting in offline, false to require connection.
      * @param  {String} [title]         File picker title.
      * @param  {Array}  [filterMethods] File picker available methods.
-     * @param  {Boolean} upload         True if the file should be uploaded, false if only picked.
+     * @param  {Boolean} [upload]       True if the file should be uploaded, false if only picked.
+     * @param  {String[]} [mimetypes]   List of supported mimetypes. If undefined, all mimetypes supported.
      * @return {Promise} Promise resolved when a file is selected, rejected if file picker is closed without selecting a file.
      *                   The resolve value should be the FileEntry of a copy of the picked file, so it can be deleted afterwards.
      */
-    function selectFile(maxSize, allowOffline, title, filterMethods, upload) {
+    function selectFile(maxSize, allowOffline, title, filterMethods, upload, mimetypes) {
         var buttons = [],
             handlers;
 
         filePickerDeferred = $q.defer();
 
         // Add buttons for handlers.
-        handlers = $mmFileUploaderDelegate.getHandlers();
+        handlers = $mmFileUploaderDelegate.getHandlers(mimetypes);
         handlers.sort(function(a, b) {
             return a.priority <= b.priority ? 1 : -1;
         });
@@ -311,7 +467,8 @@ angular.module('mm.core.fileuploader')
                 text: (handler.icon ? '<i class="icon ' + handler.icon + '"></i>' : '') + $translate.instant(handler.title),
                 action: handler.action,
                 className: handler.class,
-                afterRender: handler.afterRender
+                afterRender: handler.afterRender,
+                mimetypes: handler.mimetypes
             });
         });
 
@@ -328,7 +485,7 @@ angular.module('mm.core.fileuploader')
                     }
 
                     // Execute the action and close the action sheet.
-                    buttons[index].action(maxSize, upload, allowOffline).then(function(data) {
+                    buttons[index].action(maxSize, upload, allowOffline, buttons[index].mimetypes).then(function(data) {
                         if (data.uploaded) {
                             // The handler already uploaded the file. Return the result.
                             return data.result;
@@ -376,7 +533,7 @@ angular.module('mm.core.fileuploader')
         $timeout(function() {
             angular.forEach(buttons, function(button) {
                 if (angular.isFunction(button.afterRender)) {
-                    button.afterRender(maxSize, upload, allowOffline);
+                    button.afterRender(maxSize, upload, allowOffline, button.mimetypes);
                 }
             });
         }, 500);
@@ -419,19 +576,28 @@ angular.module('mm.core.fileuploader')
      * @module mm.core.fileuploader
      * @ngdoc method
      * @name $mmFileUploaderHelper#uploadAudioOrVideo
-     * @param  {Boolean} isAudio True if uploading an audio, false if it's a video.
-     * @param  {Number} maxSize  Max size of the upload. -1 for no max size.
-     * @param  {Boolean} upload  True if the file should be uploaded, false to return the picked file.
-     * @return {Promise}         The reject contains the error message, if there is no error message
-     *                           then we can consider that this is a silent fail.
+     * @param  {Boolean} isAudio      True if uploading an audio, false if it's a video.
+     * @param  {Number} maxSize       Max size of the upload. -1 for no max size.
+     * @param  {Boolean} upload       True if the file should be uploaded, false to return the picked file.
+     * @param  {String[]} [mimetypes] List of supported mimetypes. If undefined, all mimetypes supported.
+     * @return {Promise}              The reject contains the error message, if there is no error message
+     *                                then we can consider that this is a silent fail.
      */
-    self.uploadAudioOrVideo = function(isAudio, maxSize, upload) {
+    self.uploadAudioOrVideo = function(isAudio, maxSize, upload, mimetypes) {
         $log.debug('Trying to record a video file');
         var fn = isAudio ? $cordovaCapture.captureAudio : $cordovaCapture.captureVideo;
-        return fn({limit: 1}).then(function(medias) {
+
+        // The mimetypes param is only for desktop apps, the Cordova plugin doesn't support it.
+        return fn({limit: 1, mimetypes: mimetypes}).then(function(medias) {
             // We used limit 1, we only want 1 media.
             var media = medias[0],
-                path = media.localURL;
+                path = media.localURL || media.toURL(),
+                error = self.isInvalidMimetype(mimetypes, path); // Verify that the mimetype of the file is supported.
+
+            if (error) {
+                return $q.reject(error);
+            }
+
             if (upload) {
                 return uploadFile(true, path, maxSize, true, $mmFileUploader.uploadMedia, media);
             } else {
@@ -470,13 +636,14 @@ angular.module('mm.core.fileuploader')
      * @module mm.core.fileuploader
      * @ngdoc method
      * @name $mmFileUploaderHelper#uploadImage
-     * @param  {Boolean} fromAlbum True if the image should be selected from album, false if it should be taken with camera.
-     * @param  {Number} maxSize    Max size of the upload. -1 for no max size.
-     * @param  {Boolean} upload    True if the image should be uploaded, false to return the picked file.
-     * @return {Promise}           The reject contains the error message, if there is no error message
-     *                             then we can consider that this is a silent fail.
+     * @param  {Boolean} fromAlbum    True if the image should be selected from album, false if it should be taken with camera.
+     * @param  {Number} maxSize       Max size of the upload. -1 for no max size.
+     * @param  {Boolean} upload       True if the image should be uploaded, false to return the picked file.
+     * @param  {String[]} [mimetypes] List of supported mimetypes. If undefined, all mimetypes supported.
+     * @return {Promise}              The reject contains the error message, if there is no error message
+     *                                then we can consider that this is a silent fail.
      */
-    self.uploadImage = function(fromAlbum, maxSize, upload) {
+    self.uploadImage = function(fromAlbum, maxSize, upload, mimetypes) {
         $log.debug('Trying to capture an image with camera');
         var options = {
             quality: 50,
@@ -485,16 +652,36 @@ angular.module('mm.core.fileuploader')
         };
 
         if (fromAlbum) {
+            var imageSupported = !mimetypes || $mmUtil.indexOfRegexp(mimetypes, /^image\//) > -1,
+                videoSupported = !mimetypes || $mmUtil.indexOfRegexp(mimetypes, /^video\//) > -1;
+
             options.sourceType = navigator.camera.PictureSourceType.PHOTOLIBRARY;
             options.popoverOptions = new CameraPopoverOptions(10, 10, $window.innerWidth  - 200, $window.innerHeight - 200,
                                             Camera.PopoverArrowDirection.ARROW_ANY);
-            if (ionic.Platform.isIOS()) {
+
+            // Determine the mediaType based on the mimetypes.
+            if (imageSupported && !videoSupported) {
+                options.mediaType = Camera.MediaType.PICTURE;
+            } else if (!imageSupported && videoSupported) {
+                options.mediaType = Camera.MediaType.VIDEO;
+            } else if (ionic.Platform.isIOS()) {
                 // Only get all media in iOS because in Android using this option allows uploading any kind of file.
                 options.mediaType = Camera.MediaType.ALLMEDIA;
+            }
+        } else if (mimetypes) {
+            if (mimetypes.indexOf('image/jpeg') > -1) {
+                options.encodingType = Camera.EncodingType.JPEG;
+            } else if (mimetypes.indexOf('image/png') > -1) {
+                options.encodingType = Camera.EncodingType.PNG;
             }
         }
 
         return $cordovaCamera.getPicture(options).then(function(path) {
+            var error = self.isInvalidMimetype(mimetypes, path); // Verify that the mimetype of the file is supported.
+            if (error) {
+                return $q.reject(error);
+            }
+
             if (upload) {
                 return uploadFile(!fromAlbum, path, maxSize, true, $mmFileUploader.uploadImage, path, fromAlbum);
             } else {
@@ -518,11 +705,12 @@ angular.module('mm.core.fileuploader')
      * @param  {Number} [maxSize]     Max size of the file. If not defined or -1, no max size.
      * @param  {Boolean} upload       True if the file should be uploaded, false to return the picked file.
      * @param  {Boolean} allowOffline True to allow selecting in offline, false to require connection.
+     * @param  {String}  [name]       Name to use when uploading the file. If not defined, use the file's name.
      * @return {Promise}              Promise resolved when done.
      */
-    self.uploadFileEntry = function(fileEntry, deleteAfter, maxSize, upload, allowOffline) {
+    self.uploadFileEntry = function(fileEntry, deleteAfter, maxSize, upload, allowOffline, name) {
         return $mmFS.getFileObjectFromFileEntry(fileEntry).then(function(file) {
-            return self.uploadFileObject(file, maxSize, upload, allowOffline).then(function(result) {
+            return self.uploadFileObject(file, maxSize, upload, allowOffline, name).then(function(result) {
                 if (deleteAfter) {
                     // We have uploaded and deleted a copy of the file. Now delete the original one.
                     $mmFS.removeFileByFileEntry(fileEntry);
@@ -542,16 +730,17 @@ angular.module('mm.core.fileuploader')
      * @param  {Number} [maxSize]     Max size of the file. If not defined or -1, no max size.
      * @param  {Boolean} upload       True if the file should be uploaded, false to return the picked file.
      * @param  {Boolean} allowOffline True to allow selecting in offline, false to require connection.
+     * @param  {String}  [name]       Name to use when uploading the file. If not defined, use the file's name.
      * @return {Promise}              Promise resolved when done.
      */
-    self.uploadFileObject = function(file, maxSize, upload, allowOffline) {
+    self.uploadFileObject = function(file, maxSize, upload, allowOffline, name) {
         if (maxSize != -1 && file.size > maxSize) {
             return self.errorMaxBytes(maxSize, file.name);
         }
 
         return self.confirmUploadFile(file.size, false, allowOffline).then(function() {
             // We have the data of the file to be uploaded, but not its URL (needed). Create a copy of the file to upload it.
-            return self.copyAndUploadFile(file, upload);
+            return self.copyAndUploadFile(file, upload, name);
         });
     };
 
@@ -756,9 +945,7 @@ angular.module('mm.core.fileuploader')
             }, function() {
                 // User cancelled. Delete the file if needed.
                 if (deleteAfterUpload) {
-                    angular.forEach(paths, function(path) {
-                        $mmFS.removeExternalFile(path);
-                    });
+                    $mmFS.removeExternalFile(path);
                 }
                 return $q.reject();
             });

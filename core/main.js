@@ -25,6 +25,7 @@ angular.module('mm.core', ['pascalprecht.translate'])
 .constant('mmCoreSecondsHour', 3600)
 .constant('mmCoreSecondsMinute', 60)
 .constant('mmCoreDontShowError', 'mmCoreDontShowError') // Pass it to reject functions to indicate that no error should be shown.
+.constant('mmCoreNoSiteId', 'NoSite')
 
 // States for downloading files/modules.
 .constant('mmCoreDownloaded', 'downloaded')
@@ -96,19 +97,24 @@ angular.module('mm.core', ['pascalprecht.translate'])
             cache: false,
             template: '<ion-view><ion-content mm-state-class><mm-loading class="mm-loading-center"></mm-loading></ion-content></ion-view>',
             controller: function($scope, $state, $stateParams, $mmSite, $mmSitesManager, $ionicHistory, $mmAddonManager, $mmApp,
-                        $mmLoginHelper) {
+                        $mmLoginHelper, mmCoreNoSiteId) {
 
                 $ionicHistory.nextViewOptions({disableBack: true});
 
                 function loadSiteAndGo() {
-                    $mmSitesManager.loadSite($stateParams.siteid).then(function() {
-                        if (!$mmLoginHelper.isSiteLoggedOut($stateParams.state, $stateParams.params)) {
-                            $state.go($stateParams.state, $stateParams.params);
-                        }
-                    }, function() {
-                        // Site doesn't exist.
-                        $state.go('mm_login.sites');
-                    });
+                    if ($stateParams.siteid == mmCoreNoSiteId) {
+                        // No site to load, just go to the state.
+                        $state.go($stateParams.state, $stateParams.params);
+                    } else {
+                        $mmSitesManager.loadSite($stateParams.siteid).then(function() {
+                            if (!$mmLoginHelper.isSiteLoggedOut($stateParams.state, $stateParams.params)) {
+                                $state.go($stateParams.state, $stateParams.params);
+                            }
+                        }, function() {
+                            // Site doesn't exist.
+                            $state.go('mm_login.sites');
+                        });
+                    }
                 }
 
                 $scope.$on('$ionicView.enter', function() {
@@ -277,6 +283,7 @@ angular.module('mm.core', ['pascalprecht.translate'])
                 }
             }
         });
+
         $window.addEventListener('native.keyboardhide', function(e) {
             $mmEvents.trigger(mmCoreEventKeyboardHide, e);
 
@@ -285,6 +292,17 @@ angular.module('mm.core', ['pascalprecht.translate'])
                 ionic.trigger('resize');
             }
         });
+
+        // In desktop, re-define getParentOrSelfWithClass to allow scrolling with trackpad when hovering deep elements.
+        // In iOS, re-define getParentWithClass to prevent the keyboard to hide deep input elements.
+        var fnName = !$mmApp.isDevice() ? 'getParentOrSelfWithClass' : (ionic.Platform.isIOS() ? 'getParentWithClass' : '');
+        if (fnName) {
+            var originalFunction = ionic.DomUtil[fnName];
+            ionic.DomUtil[fnName] = function(e, className, depth) {
+                depth = depth || 20;
+                return originalFunction(e, className, depth);
+            };
+        }
     });
 
     // Send event when device goes online.

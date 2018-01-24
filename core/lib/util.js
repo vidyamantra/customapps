@@ -200,6 +200,19 @@ angular.module('mm.core')
         };
 
         /**
+         * Returns if a URL has any protocol, if not is a relative URL.
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#isAbsoluteURL
+         * @param {String} url The url to test against the pattern
+         * @return {Boolean}   TRUE if the url is absolute. FALSE if it is relative.
+         */
+        self.isAbsoluteURL = function(url) {
+            return /^[^:]{2,}:\/\//i.test(url) || /^(tel:|mailto:|geo:)/.test(url);
+        };
+
+        /**
          * Returns if a URL is a theme image URL.
          *
          * @module mm.core
@@ -292,7 +305,16 @@ angular.module('mm.core')
         self.openFile = function(path) {
             var deferred = $q.defer();
 
-            if (window.plugins) {
+            if ($mmApp.isDesktop()) {
+                // It's a desktop app, send an event so the file is opened. It has to be done with an event
+                // because opening the file from here (renderer process) doesn't focus the opened app.
+                // Use sendSync so we can receive the result.
+                if (require('electron').ipcRenderer.sendSync('openItem', path)) {
+                    deferred.resolve();
+                } else {
+                    $mmLang.translateAndRejectDeferred(deferred, 'mm.core.erroropenfilenoapp');
+                }
+            } else if (window.plugins) {
                 var extension = $mmFS.getFileExtension(path),
                     mimetype = $mmFS.getMimeType(extension);
 
@@ -378,7 +400,16 @@ angular.module('mm.core')
          * @return {Void}
          */
         self.openInBrowser = function(url) {
-            window.open(url, '_system');
+            if ($mmApp.isDesktop()) {
+                // It's a desktop app, use Electron shell library to open the browser.
+                var shell = require('electron').shell;
+                if (!shell.openExternal(url)) {
+                    // Open browser failed, open a new window in the app.
+                    window.open(url, '_system');
+                }
+            } else {
+                window.open(url, '_system');
+            }
         };
 
         /**
@@ -419,10 +450,17 @@ angular.module('mm.core')
          * @module mm.core
          * @ngdoc method
          * @name $mmUtil#closeInAppBrowser
+         * @param  {Boolean} [closeAll] Desktop only. True to close all secondary windows, false to close only the "current" one.
          * @return {Void}
          */
-        self.closeInAppBrowser = function() {
-            $cordovaInAppBrowser.close();
+        self.closeInAppBrowser = function(closeAll) {
+            // Use try/catch because it will fail if there is no opened InAppBrowser.
+            try {
+                $cordovaInAppBrowser.close();
+                if (closeAll && $mmApp.isDesktop()) {
+                    require('electron').ipcRenderer.send('closeSecondaryWindows');
+                }
+            } catch(ex) {}
         };
 
         /**
@@ -717,7 +755,8 @@ angular.module('mm.core')
         };
 
         function getErrorTitle(message) {
-            if (message == $translate.instant('mm.core.networkerrormsg')) {
+            if (message == $translate.instant('mm.core.networkerrormsg') ||
+                    message == $translate.instant('mm.fileuploader.errormustbeonlinetoupload')) {
                 return '<span class="mm-icon-with-badge"><i class="icon ion-wifi"></i>\
                     <i class="icon ion-alert-circled mm-icon-badge"></i></span>';
             }
@@ -1575,6 +1614,20 @@ angular.module('mm.core')
         };
 
         /**
+         * Remove the parameters from a URL, returning the URL without them.
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#removeUrlParams
+         * @param  {String} url URL to treat.
+         * @return {String}     URL without params.
+         */
+        self.removeUrlParams = function(url) {
+            var matches = url.match(/^[^\?]+/);
+            return matches && matches[0];
+        };
+
+        /**
          * Given an HTML, searched all links and media and tries to restore original sources using the paths object.
          *
          * @module mm.core
@@ -1941,6 +1994,40 @@ angular.module('mm.core')
                     fileurl: url
                 };
             });
+        };
+
+        /**
+         * Given a list (eg a,b,c,d,e) this function returns an array of 1->a, 2->b, 3->c etc.
+         *
+         * Taken from make_menu_from_list on moodlelib.php (not the same but similar).
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#makeMenuFromList
+         * @param  {String} list            The string to explode into array bits
+         * @param  {String} [defaultLabel]  Element that will become default option, if not defined, it won't be added.
+         * @param  {String} [separator]     The separator used within the list string. Default ','.
+         * @param  {Mixed}  [defaultValue]  Element that will become default option value. Default 0.
+         * @return {Arrray}                 The now assembled array
+         */
+        self.makeMenuFromList = function(list, defaultLabel, separator, defaultValue) {
+            separator = separator || ',';
+            list = list.split(separator);
+
+            list = list.map(function (label, index) {
+                return {
+                    label: label.trim(),
+                    value: index + 1
+                };
+            });
+
+            if (defaultLabel) {
+                list.unshift({
+                    label: defaultLabel,
+                    value: defaultValue || 0
+                });
+            }
+            return list;
         };
 
         /**
@@ -2518,6 +2605,129 @@ angular.module('mm.core')
                 }
             }
             return measure;
+        };
+
+        /**
+         * Gets the index of the first string that matches a regular expression.
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#indexOfRegexp
+         * @param  {String[]} array Array to search.
+         * @param  {RegExp} regex   RegExp to apply to each string.
+         * @return {Number}         Index of the first string that matches the RegExp. -1 if not found.
+         */
+        self.indexOfRegexp = function(array, regex) {
+            if (!array || !array.length) {
+                return -1;
+            }
+
+            for (var i = 0; i < array.length; i++) {
+                var entry = array[i],
+                    matches = entry.match(regex);
+
+                if (matches && matches.length) {
+                    return i;
+                }
+            }
+
+            return -1;
+        };
+
+        /**
+         * Given an array of strings, return only the ones that match a regular expression.
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#filterByRegexp
+         * @param  {String[]} array Array to filter.
+         * @param  {RegExp} regex   RegExp to apply to each string.
+         * @return {String[]}       Filtered array.
+         */
+        self.filterByRegexp = function(array, regex) {
+            if (!array || !array.length) {
+                return [];
+            }
+
+            return array.filter(function(entry) {
+                var matches = entry.match(regex);
+                return matches && matches.length;
+            });
+        };
+
+        /**
+         * Filters the undefined items that can be in an array.
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#filterUndefinedItemsInArray
+         * @param  {Array} items  With all the items.
+         * @return {Array}        Only with the defined items,
+         */
+        self.filterUndefinedItemsInArray = function(items) {
+            return items.filter(function(item) {
+                return typeof item != "undefined";
+            });
+        };
+
+        /**
+         * Retrieve the information entered in a form.
+         * We don't use ng-model because it doesn't detect changes done by JavaScript.
+         *
+         * @module mm.core
+         * @ngdoc method
+         * @name $mmUtil#getInfoValuesFromForm
+         * @param  {Object} form Form (DOM element).
+         * @return {Object}      Object with the info values.
+         */
+        self.getInfoValuesFromForm = function(form) {
+            if (!form || !form.elements) {
+                return {};
+            }
+
+            var formData = {},
+                simpleCheckboxes = {};
+
+            angular.forEach(form.elements, function(element) {
+                var name = element.name || '';
+                // Ignore submit inputs.
+                if (element.type == 'submit' || element.tagName == 'BUTTON') {
+                    return;
+                }
+                if (!name) {
+                    $log.debug('Form element without name.', element);
+                    return;
+                }
+
+                // Get the value.
+                switch (element.type) {
+                    case 'checkbox':
+                        if (typeof simpleCheckboxes[name] == "undefined") {
+                           simpleCheckboxes[name] = {};
+                        }
+                        simpleCheckboxes[name][element.value] = !!element.checked;
+                        break;
+                    case 'radio':
+                        if (element.checked) {
+                            formData[name] = element.value;
+                        }
+                        break;
+                    default:
+                        formData[name] = element.value;
+                }
+            });
+
+            angular.forEach(simpleCheckboxes, function(checkbox, name) {
+                var keys = Object.keys(checkbox);
+                // Single standard checkbox without real value.
+                if (keys.length == 1 && keys[0] == "on") {
+                    formData[name] = checkbox.on;
+                } else {
+                    formData[name] = checkbox;
+                }
+            });
+
+            return formData;
         };
 
         return self;

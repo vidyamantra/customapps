@@ -4,7 +4,7 @@
     "contact": "Kontakt",
     "country": "Land",
     "description": "Introduktionstekst",
-    "details": "Følg detaljer",
+    "details": "Detaljer",
     "detailsnotavailable": "Denne brugers data er ikke tilgængelige for dig.",
     "editingteacher": "Lærer",
     "email": "E-mailadresse",
@@ -18,8 +18,9 @@
     "phone1": "Telefon",
     "phone2": "Mobil",
     "roles": "Roller",
+    "sendemail": "E-mail",
     "student": "Studerende",
     "teacher": "Medlærer",
-    "viewprofile": "Vis Profil",
+    "viewprofile": "Vis profil",
     "webpage": "Webside"
 }

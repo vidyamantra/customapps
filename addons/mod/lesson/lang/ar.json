@@ -1,5 +1,6 @@
 {
     "answer": "أجب",
+    "attempt": "محاولة:  {{$a}}",
     "averagescore": "متوسط الدرجة",
     "averagetime": "متوسط الوقت",
     "branchtable": "محتوى",

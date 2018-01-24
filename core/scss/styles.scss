@@ -48,12 +48,15 @@ $mm-input-required-asterisk-color: $red !default;
 // Item padding.
 $item-input-padding: 16px !default;
 
+$mm-progress-bar-height: 5px !default;
+
 /**
  * App Branding
  */
 .mm-bglogo {
-  background: $orange; /* Change this to add a bg image or change color */
-
+  background-color: $mm-color-init-screen; /* Change this to add a bg image or change color */
+  background: -webkit-radial-gradient($mm-color-init-screen-alt, $mm-color-init-screen);
+  background: radial-gradient($mm-color-init-screen-alt, $mm-color-init-screen);
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
@@ -72,17 +75,17 @@ $item-input-padding: 16px !default;
   }
 
   img {
-    width: 60%;
-    max-width: 300px;
+    width: $mm-init-screen-logo-width;
+    max-width: $mm-init-screen-logo-max-width;
     display: block;
     margin: 0 auto;
     margin-bottom: 30px;
   }
 
   .spinner {
-    color: white;
-    stroke: white;
-    fill: white;
+    color: $mm-init-screen-spinner-color;
+    stroke: $mm-init-screen-spinner-color;
+    fill: $mm-init-screen-spinner-color;
   }
 }
 
@@ -167,6 +170,11 @@ p.item-text-wrap {
   width: 40%;
 }
 
+.item-avatar > img:first-child {
+  text-indent: -99999px;
+  background-color: $gray-light;
+}
+
 // Media item, ideal for icons.
 .item-media {
   @extend .item-avatar;
@@ -176,6 +184,7 @@ p.item-text-wrap {
     max-width: $item-media-width;
     max-height: $item-media-height;
     border-radius: 0;
+    background-color: transparent;
   }
   p {
     margin: 0px;
@@ -352,6 +361,13 @@ p.item-text-wrap {
     height: 100%;
     border-radius: 50%;
 }
+.avatar-round {
+  max-width: 40px;
+  max-height: 40px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
 
 // Split pane.
 .mm-split-pane {
@@ -437,6 +453,20 @@ button.item.item-button-right {
   &.icon-left:before,
   &.icon-right:before {
     line-height: 28px;
+  }
+}
+
+.item-icon-right .item-note .icon {
+  display: inline;
+  align-items: normal;
+  position: relative;
+  top: auto;
+  right: auto;
+  height: auto;
+  font-size: 14px;
+  &:before {
+    display: inline;
+    width: auto;
   }
 }
 
@@ -709,6 +739,13 @@ mm-navigation-bar {
   }
 }
 
+.item-icon-left, .item-icon-right {
+  &.item-icon-top .icon {
+    align-items: flex-start;
+    top: 11px;
+  }
+}
+
 // These will need item-icon-left as well.
 @mixin mm-message-item($color) {
   border-bottom: 3px solid $color !important;
@@ -943,6 +980,28 @@ mm-timer {
   }
 }
 
+.item-select.mm-full-width {
+  margin-top: ($item-input-padding / 2);
+  margin-bottom: $item-input-padding - 1;
+  border: 0;
+
+  select {
+    max-width: 100%;
+    width: 100%;
+    background: transparent;
+    text-indent: 0;
+    line-height: $font-size-base + 2;
+    border: 0;
+    position: relative;
+  }
+
+  &.select-align-left {
+    select {
+      direction: ltr;
+    }
+  }
+}
+
 .item-select .mm-select-fix {
   // Taken from .item-select select.
   position: absolute;
@@ -969,6 +1028,23 @@ mm-timer {
 .item-input .item-input-wrapper input {
   width: 100%;
   background: transparent;
+}
+
+mm-multiple-select {
+  cursor: pointer;
+
+  .item-stacked-label {
+    ion-label.input-label, p {
+      padding-right: 30px;
+      white-space: normal;
+    }
+  }
+  .icon.ion-android-arrow-dropdown {
+    font-size: 21px;
+    color: #999999;
+    right: 5px;
+  }
+
 }
 
 .button.mm-button-icon-small {
@@ -1010,6 +1086,53 @@ mm-timer {
 .checkbox input:before, .checkbox-icon:before {
   border-radius: 0;
 }
+
+.item-radio .radio-icon {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  top: 14px;
+  right: 14px;
+  visibility: visible;
+
+  &:before {
+    border: 1px solid #ddd;
+    display: table;
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    background: white;
+    -webkit-transition: background-color 20ms ease-in-out;
+    transition: background-color 20ms ease-in-out;
+    content: ' ';
+  }
+
+  &:after {
+    @include transition(opacity .05s ease-in-out);
+    @include rotate(-45deg);
+    position: absolute;
+    top: 33%;
+    left: 25%;
+    display: table;
+    width: ($checkbox-width / 2);
+    height: ($checkbox-width / 4) - 1;
+    border: $checkbox-check-width solid $checkbox-check-color;
+    border-top: 0;
+    border-right: 0;
+    content: ' ';
+  }
+}
+
+.item-radio input:checked + .radio-content .radio-icon:before {
+    background: $checkbox-on-bg-positive;
+    border-color: $checkbox-off-border-positive;
+}
+
 
 input[type="radio"].mm-radio {
   position: relative;
@@ -1552,22 +1675,36 @@ i, cite, em, var, address, dfn {
 progress {
   -webkit-appearance: none;
   appearance: none;
-  height: 5px;
+  height: $mm-progress-bar-height;
   margin: 15px 0;
   padding: 0;
+  display: block;
 
+  .progress-bar-fallback,
   &[value]::-webkit-progress-bar {
     background-color: $gray-light;
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
   }
 
+  .progress-bar-fallback span,
   &[value]::-webkit-progress-value {
     background-color: $mm-color-light;
     border-radius: 2px;
   }
-}
 
+  .progress-bar-fallback {
+      width: 100%;
+      height: $mm-progress-bar-height;
+      display: block;
+      position: relative;
+
+      span {
+          height: $mm-progress-bar-height;
+          display: block;
+      }
+  }
+}
 
 mm-progress-bar {
   padding-right: 55px;
@@ -1631,4 +1768,55 @@ h2.invert {
   &.ng-leave.ng-leave-active {
     opacity: 0;
   }
+}
+
+// Textarea to copy text in browser or desktop. Don't use display none because otherwise it can't be selected.
+.mm-browser-copy-area {
+  position: absolute;
+  left: -10000px;
+}
+
+// Full screen modal.
+.modal-wrapper .modal.mm-fullscreen-modal {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0
+}
+
+// Buttons in header in modals.
+.modal .bar-header .button {
+  border-color: transparent;
+  background: none;
+}
+
+::-webkit-calendar-picker-indicator, ::-webkit-inner-spin-button, ::-webkit-clear-button {
+  display: none;
+}
+
+*[ng-click] {
+  cursor: pointer;
+}
+
+::-webkit-media-controls {
+  max-width: 100%;
+}
+
+ol.list-with-style, ul.list-with-style {
+  list-style: initial;
+  padding-left: 40px;
+}
+
+.no-padding-bottom, .padding.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.text-success {
+  color: $mm-success-color;
+}
+
+.text-danger {
+  color: $mm-error-color;
 }

@@ -5,7 +5,7 @@
     "correct": "Правильно",
     "errorattachmentsnotsupported": "Додаток не підтримує прикріплення файлів відповідей",
     "errorinlinefilesnotsupported": "Додаток ще не підтримує редагування вбудованих файлів.",
-    "errorquestionnotsupported": "Цей тип питання не підтримує додатком: {{$a}}.",
+    "errorquestionnotsupported": "Цей тип питання не підтримується додатком: {{$a}}.",
     "feedback": "Відгук",
     "howtodraganddrop": "Натисніть, щоб вибрати і перемістить.",
     "incorrect": "Неправильно",
@@ -17,5 +17,5 @@
     "questionmessage": "Питання {{$a}}: {{$b}}",
     "questionno": "Питання {{$a}}",
     "requiresgrading": "Потрібно оцінити",
-    "unknown": "Неможливо визначити статус"
+    "unknown": "Невідоме"
 }

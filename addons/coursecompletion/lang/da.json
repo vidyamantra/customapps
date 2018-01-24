@@ -8,7 +8,7 @@
     "criteria": "Kriterie",
     "criteriagroup": "Kriteriegruppe",
     "criteriarequiredall": "Alle kriterier herunder er påkrævet",
-    "criteriarequiredany": "Ethvert kriterium herunder er påkrævet",
+    "criteriarequiredany": "Et af kriterierne herunder er påkrævet",
     "inprogress": "Igangværende",
     "manualselfcompletion": "Manuel selvregistrering af gennemførelse",
     "notyetstarted": "Ikke begyndt endnu",
@@ -16,6 +16,6 @@
     "required": "Påkrævet",
     "requiredcriteria": "Påkrævede kriterier",
     "requirement": "Krav",
-    "status": "Status",
-    "viewcoursereport": "Se kursusrapport"
+    "status": "Badgestatus",
+    "viewcoursereport": "Vis kursusrapport"
 }

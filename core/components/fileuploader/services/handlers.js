@@ -21,7 +21,7 @@ angular.module('mm.core.fileuploader')
  * @ngdoc service
  * @name $mmFileUploaderHandlers
  */
-.factory('$mmFileUploaderHandlers', function($mmFileUploaderHelper, $rootScope, $compile, $mmUtil, $mmApp) {
+.factory('$mmFileUploaderHandlers', function($mmFileUploaderHelper, $rootScope, $compile, $mmUtil, $mmApp, $translate, $mmFS) {
 
     var self = {};
 
@@ -42,7 +42,7 @@ angular.module('mm.core.fileuploader')
          * @return {Boolean} True if handler is enabled, false otherwise.
          */
         self.isEnabled = function() {
-            return true;
+            return $mmApp.isDevice();
         };
 
         /**
@@ -56,8 +56,8 @@ angular.module('mm.core.fileuploader')
                 title: 'mm.fileuploader.photoalbums',
                 class: 'mm-fileuploader-album-handler',
                 icon: 'ion-images',
-                action: function(maxSize, upload, allowOffline) {
-                    return $mmFileUploaderHelper.uploadImage(true, maxSize, upload).then(function(result) {
+                action: function(maxSize, upload, allowOffline, mimetypes) {
+                    return $mmFileUploaderHelper.uploadImage(true, maxSize, upload, mimetypes).then(function(result) {
                         return {
                             uploaded: true,
                             result: result
@@ -65,6 +65,17 @@ angular.module('mm.core.fileuploader')
                     });
                 }
             };
+        };
+
+        /**
+         * Given a list of mimetypes, return the ones supported by this handler.
+         *
+         * @param  {String[]} mimetypes List of mimetypes.
+         * @return {String[]}           Supported mimetypes.
+         */
+        self.getSupportedMimeTypes = function(mimetypes) {
+            // Album allows picking images and videos.
+            return $mmUtil.filterByRegexp(mimetypes, /^(image|video)\//);
         };
 
         return self;
@@ -87,7 +98,7 @@ angular.module('mm.core.fileuploader')
          * @return {Boolean} True if handler is enabled, false otherwise.
          */
         self.isEnabled = function() {
-            return true;
+            return $mmApp.isDevice() || $mmApp.canGetUserMedia();
         };
 
         /**
@@ -101,8 +112,8 @@ angular.module('mm.core.fileuploader')
                 title: 'mm.fileuploader.camera',
                 class: 'mm-fileuploader-camera-handler',
                 icon: 'ion-camera',
-                action: function(maxSize, upload, allowOffline) {
-                    return $mmFileUploaderHelper.uploadImage(false, maxSize, upload).then(function(result) {
+                action: function(maxSize, upload, allowOffline, mimetypes) {
+                    return $mmFileUploaderHelper.uploadImage(false, maxSize, upload, mimetypes).then(function(result) {
                         return {
                             uploaded: true,
                             result: result
@@ -110,6 +121,17 @@ angular.module('mm.core.fileuploader')
                     });
                 }
             };
+        };
+
+        /**
+         * Given a list of mimetypes, return the ones supported by this handler.
+         *
+         * @param  {String[]} mimetypes List of mimetypes.
+         * @return {String[]}           Supported mimetypes.
+         */
+        self.getSupportedMimeTypes = function(mimetypes) {
+            // Camera only supports JPEG and PNG.
+            return $mmUtil.filterByRegexp(mimetypes, /^image\/(jpeg|png)$/);
         };
 
         return self;
@@ -132,7 +154,7 @@ angular.module('mm.core.fileuploader')
          * @return {Boolean} True if handler is enabled, false otherwise.
          */
         self.isEnabled = function() {
-            return true;
+            return $mmApp.isDevice() || ($mmApp.canGetUserMedia() && $mmApp.canRecordMedia());
         };
 
         /**
@@ -146,8 +168,8 @@ angular.module('mm.core.fileuploader')
                 title: 'mm.fileuploader.audio',
                 class: 'mm-fileuploader-audio-handler',
                 icon: 'ion-mic-a',
-                action: function(maxSize, upload, allowOffline) {
-                    return $mmFileUploaderHelper.uploadAudioOrVideo(true, maxSize, upload).then(function(result) {
+                action: function(maxSize, upload, allowOffline, mimetypes) {
+                    return $mmFileUploaderHelper.uploadAudioOrVideo(true, maxSize, upload, mimetypes).then(function(result) {
                         return {
                             uploaded: true,
                             result: result
@@ -155,6 +177,32 @@ angular.module('mm.core.fileuploader')
                     });
                 }
             };
+        };
+
+        /**
+         * Given a list of mimetypes, return the ones supported by this handler.
+         *
+         * @param  {String[]} mimetypes List of mimetypes.
+         * @return {String[]}           Supported mimetypes.
+         */
+        self.getSupportedMimeTypes = function(mimetypes) {
+            if (ionic.Platform.isIOS()) {
+                // iOS records as WAV.
+                return $mmUtil.filterByRegexp(mimetypes, /^audio\/wav$/);
+            } else if (ionic.Platform.isAndroid()) {
+                // In Android we don't know the format the audio will be recorded, so accept any audio mimetype.
+                return $mmUtil.filterByRegexp(mimetypes, /^audio\//);
+            } else {
+                // In desktop, support audio formats that are supported by MediaRecorder.
+                if (MediaRecorder) {
+                    return mimetypes.filter(function(type) {
+                        var matches = type.match(/^audio\//);
+                        return matches && matches.length && MediaRecorder.isTypeSupported(type);
+                    });
+                }
+            }
+
+            return [];
         };
 
         return self;
@@ -177,7 +225,7 @@ angular.module('mm.core.fileuploader')
          * @return {Boolean} True if handler is enabled, false otherwise.
          */
         self.isEnabled = function() {
-            return true;
+            return $mmApp.isDevice() || ($mmApp.canGetUserMedia() && $mmApp.canRecordMedia());
         };
 
         /**
@@ -191,8 +239,8 @@ angular.module('mm.core.fileuploader')
                 title: 'mm.fileuploader.video',
                 class: 'mm-fileuploader-video-handler',
                 icon: 'ion-ios-videocam',
-                action: function(maxSize, upload, allowOffline) {
-                    return $mmFileUploaderHelper.uploadAudioOrVideo(false, maxSize, upload).then(function(result) {
+                action: function(maxSize, upload, allowOffline, mimetypes) {
+                    return $mmFileUploaderHelper.uploadAudioOrVideo(false, maxSize, upload, mimetypes).then(function(result) {
                         return {
                             uploaded: true,
                             result: result
@@ -200,6 +248,32 @@ angular.module('mm.core.fileuploader')
                     });
                 }
             };
+        };
+
+        /**
+         * Given a list of mimetypes, return the ones supported by this handler.
+         *
+         * @param  {String[]} mimetypes List of mimetypes.
+         * @return {String[]}           Supported mimetypes.
+         */
+        self.getSupportedMimeTypes = function(mimetypes) {
+            if (ionic.Platform.isIOS()) {
+                // iOS records as MOV.
+                return $mmUtil.filterByRegexp(mimetypes, /^video\/quicktime$/);
+            } else if (ionic.Platform.isAndroid()) {
+                // In Android we don't know the format the video will be recorded, so accept any video mimetype.
+                return $mmUtil.filterByRegexp(mimetypes, /^video\//);
+            } else {
+                // In desktop, support video formats that are supported by MediaRecorder.
+                if (MediaRecorder) {
+                    return mimetypes.filter(function(type) {
+                        var matches = type.match(/^video\//);
+                        return matches && matches.length && MediaRecorder.isTypeSupported(type);
+                    });
+                }
+            }
+
+            return [];
         };
 
         return self;
@@ -223,7 +297,8 @@ angular.module('mm.core.fileuploader')
          * @return {Boolean} True if handler is enabled, false otherwise.
          */
         self.isEnabled = function() {
-            return ionic.Platform.isAndroid();
+            return ionic.Platform.isAndroid() || !$mmApp.isDevice() ||
+                    (ionic.Platform.isIOS() && parseInt(ionic.Platform.version(), 10) >= 9);
         };
 
         /**
@@ -232,40 +307,64 @@ angular.module('mm.core.fileuploader')
          * @return {Object} Data.
          */
         self.getData = function() {
+            var isIOS = ionic.Platform.isIOS();
+
             return {
                 name: 'file',
-                title: 'mm.fileuploader.file',
+                title: isIOS ? 'mm.fileuploader.more' : 'mm.fileuploader.file',
                 class: 'mm-fileuploader-file-handler',
-                icon: 'ion-folder',
-                afterRender: function(maxSize, upload, allowOffline) {
+                icon: isIOS ? 'ion-more' : 'ion-folder',
+                afterRender: function(maxSize, upload, allowOffline, mimetypes) {
                     // Add an invisible file input in the file handler.
                     // It needs to be done like this because button text doesn't accept inputs.
                     var element = document.querySelector('.mm-fileuploader-file-handler');
                     if (element) {
                         var input = angular.element('<input type="file" mm-file-uploader-on-change="filePicked">');
+                        if (mimetypes && mimetypes.length && (!ionic.Platform.isAndroid() || mimetypes.length === 1)) {
+                            // Don't use accept attribute in Android with several mimetypes, it's not supported.
+                            input.attr('accept', mimetypes.join(', '));
+                        }
 
                         if (!uploadFileScope) {
                             // Create a scope for the on change directive.
                             uploadFileScope = $rootScope.$new();
-
-                            uploadFileScope.filePicked = function(evt) {
-                                var input = evt.srcElement;
-                                var file = input.files[0];
-                                input.value = ''; // Unset input.
-                                if (!file) {
-                                    return;
-                                }
-
-                                // Upload the picked file.
-                                $mmFileUploaderHelper.uploadFileObject(file, maxSize, upload, allowOffline).then(function(result) {
-                                    $mmFileUploaderHelper.fileUploaded(result);
-                                }).catch(function(error) {
-                                    if (error) {
-                                        $mmUtil.showErrorModal(error);
-                                    }
-                                });
-                            };
                         }
+
+                        uploadFileScope.filePicked = function(evt) {
+                            var input = evt.srcElement,
+                                file = input.files[0],
+                                fileName;
+                            input.value = ''; // Unset input.
+                            if (!file) {
+                                return;
+                            }
+
+                            // Verify that the mimetype of the file is supported, in case the accept attribute isn't supported.
+                            var error = $mmFileUploaderHelper.isInvalidMimetype(mimetypes, file.name, file.type);
+                            if (error) {
+                                $mmUtil.showErrorModal(error);
+                                return;
+                            }
+
+                            fileName = file.name;
+                            if (isIOS) {
+                                // Check the name of the file and add a timestamp if needed (take picture).
+                                var matches = fileName.match(/image\.(jpe?g|png)/);
+                                if (matches) {
+                                    fileName = 'image_' + $mmUtil.readableTimestamp() + '.' + matches[1];
+                                }
+                            }
+
+                            // Upload the picked file.
+                            $mmFileUploaderHelper.uploadFileObject(file, maxSize, upload, allowOffline, fileName)
+                                    .then(function(result) {
+                                $mmFileUploaderHelper.fileUploaded(result);
+                            }).catch(function(error) {
+                                if (error) {
+                                    $mmUtil.showErrorModal(error);
+                                }
+                            });
+                        };
 
                         $compile(input)(uploadFileScope);
 
@@ -273,6 +372,16 @@ angular.module('mm.core.fileuploader')
                     }
                 }
             };
+        };
+
+        /**
+         * Given a list of mimetypes, return the ones supported by this handler.
+         *
+         * @param  {String[]} mimetypes List of mimetypes.
+         * @return {String[]}           Supported mimetypes.
+         */
+        self.getSupportedMimeTypes = function(mimetypes) {
+            return mimetypes;
         };
 
         return self;
