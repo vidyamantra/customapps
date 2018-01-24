@@ -54,9 +54,9 @@ $mm-progress-bar-height: 5px !default;
  * App Branding
  */
 .mm-bglogo {
-  background-color: $mm-color-init-screen; /* Change this to add a bg image or change color */
-  background: -webkit-radial-gradient($mm-color-init-screen-alt, $mm-color-init-screen);
-  background: radial-gradient($mm-color-init-screen-alt, $mm-color-init-screen);
+
+  background: $orange;
+  
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
