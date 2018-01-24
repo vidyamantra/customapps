@@ -2388,20 +2388,6 @@ mm-course-list-item .item-icon-left {
   max-height: 34px;
 }
 
-.mm-fileuploader-file-handler {
-    input {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        z-index: 100;
-        cursor: pointer;
-    }
-}
-
 .mm-capture-media-modal {
     background-color: $gray-light;
 
@@ -2481,6 +2467,20 @@ mm-course-list-item .item-icon-left {
                 color: $red;
             }
         }
+    }
+}
+
+.mm-fileuploader-file-handler {
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        opacity: 0;
+        outline: none;
+        z-index: 100;
+        cursor: pointer;
     }
 }
 
