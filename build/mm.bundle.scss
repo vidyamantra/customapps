@@ -2388,6 +2388,20 @@ mm-course-list-item .item-icon-left {
   max-height: 34px;
 }
 
+.mm-fileuploader-file-handler {
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        opacity: 0;
+        outline: none;
+        z-index: 100;
+        cursor: pointer;
+    }
+}
+
 .mm-capture-media-modal {
     background-color: $gray-light;
 
@@ -2467,20 +2481,6 @@ mm-course-list-item .item-icon-left {
                 color: $red;
             }
         }
-    }
-}
-
-.mm-fileuploader-file-handler {
-    input {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        z-index: 100;
-        cursor: pointer;
     }
 }
 
@@ -2660,10 +2660,6 @@ mm-course-list-item .item-icon-left {
 }
 
 
-#mm-settings-languagelabel {
-  color: $base-color;
-}
-
 
 $mm-question-correct-color:         $green-dark !default;
 $mm-question-correct-color-bg:      $green-light !default;
@@ -2802,6 +2798,10 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px;
 }
+#mm-settings-languagelabel {
+  color: $base-color;
+}
+
 // Bar styles
 .bar-side-menu {
   @include bar-style($bar-side-menu-color, $bar-side-menu-border-color, $bar-side-menu-text-color);
