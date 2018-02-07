@@ -2388,6 +2388,20 @@ mm-course-list-item .item-icon-left {
   max-height: 34px;
 }
 
+.mm-fileuploader-file-handler {
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        opacity: 0;
+        outline: none;
+        z-index: 100;
+        cursor: pointer;
+    }
+}
+
 .mm-capture-media-modal {
     background-color: $gray-light;
 
@@ -2467,20 +2481,6 @@ mm-course-list-item .item-icon-left {
                 color: $red;
             }
         }
-    }
-}
-
-.mm-fileuploader-file-handler {
-    input {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        z-index: 100;
-        cursor: pointer;
     }
 }
 
@@ -2588,6 +2588,77 @@ mm-course-list-item .item-icon-left {
     border-bottom: 1px solid $item-light-border;
   }
 }
+
+
+.mm-mm_login_sites {
+  .item-thumbnail-left .item-content {
+    padding-top: $item-padding;
+    padding-right: $item-padding;
+  }
+
+  .list-left-editing .item-thumbnail-left .item-content {
+    padding-right: (ceil( ($item-padding * 3) + ($item-padding / 3) ) - 5);
+  }
+
+  .avatar {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius : 50%;
+    padding: 4px;
+    border: 1px solid #ddd;
+    text-indent: -99999px;
+  }
+}
+
+.mm-login-sitepolicy-iframe {
+  height: 300px;
+}
+
+.mm-oauth-icon, .item.mm-oauth-icon {
+  padding: ($item-padding / 2);
+
+  > img, > span {
+    max-height: $item-icon-font-size;
+    max-width: $item-icon-font-size;
+    vertical-align: middle;
+  }
+  > span {
+    margin-left: 5px;
+    color: $gray-darker;
+  }
+}
+
+.mm-mm_login_credentials, .mm-mm_login_reconnect, .mm-mm_login_site {
+  .mm-ioninput-password {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  background: -webkit-radial-gradient(white, $gray-light);
+  background: radial-gradient(white, $gray-light);
+
+  img {
+    max-width: 100%;
+  }
+
+  img.moodle-logo {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .box {
+    padding: 16px;
+    background: $white;
+    border: 1px solid $item-default-border;
+  }
+
+  .mm-sitename, .mm-siteurl {
+    @if $mm-fixed-url { display: none; }
+  }
+}
+
 
 
 $mm-question-correct-color:         $green-dark !default;
@@ -2727,81 +2798,6 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px;
 }
-
-.mm-mm_login_sites {
-  .item-thumbnail-left .item-content {
-    padding-top: $item-padding;
-    padding-right: $item-padding;
-  }
-
-  .list-left-editing .item-thumbnail-left .item-content {
-    padding-right: (ceil( ($item-padding * 3) + ($item-padding / 3) ) - 5);
-  }
-
-  .avatar {
-    margin: 0;
-    width: 80px;
-    height: 80px;
-    max-width: 80px;
-    max-height: 80px;
-    border-radius : 50%;
-    padding: 4px;
-    border: 1px solid #ddd;
-    text-indent: -99999px;
-  }
-}
-
-.mm-login-sitepolicy-iframe {
-  height: 300px;
-}
-
-.mm-oauth-icon, .item.mm-oauth-icon {
-  padding: ($item-padding / 2);
-
-  > img, > span {
-    max-height: $item-icon-font-size;
-    max-width: $item-icon-font-size;
-    vertical-align: middle;
-  }
-  > span {
-    margin-left: 5px;
-    color: $gray-darker;
-  }
-}
-
-.mm-mm_login_credentials, .mm-mm_login_reconnect, .mm-mm_login_site {
-  .mm-ioninput-password {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  background: -webkit-radial-gradient(white, $gray-light);
-  background: radial-gradient(white, $gray-light);
-
-  img {
-    max-width: 100%;
-  }
-
-  img.moodle-logo {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .box {
-    padding: 16px;
-    background: $white;
-    border: 1px solid $item-default-border;
-  }
-
-  .mm-sitename, .mm-siteurl {
-    @if $mm-fixed-url { display: none; }
-  }
-}
-
-
-#mm-settings-languagelabel {
-  color: $base-color;
-}
-
 // Bar styles
 .bar-side-menu {
   @include bar-style($bar-side-menu-color, $bar-side-menu-border-color, $bar-side-menu-text-color);
@@ -2844,6 +2840,10 @@ ion-side-menu li.item {
 ion-side-menu li.item.item-divider {
   background-color: $bar-side-menu-item-divider-color;
 }
+#mm-settings-languagelabel {
+  color: $base-color;
+}
+
 
 .foreground-ion-edit.ion-edit:before {
     position: relative;
@@ -3367,6 +3367,27 @@ $mma-chat-notice-badge: "stable" !default;
     }
   }
 }
+.mm-site_mod_choice {
+  .chart {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 767px) {
+    .col {
+      border-left: $item-border-width solid $item-default-border;
+
+      &.item, .chart-item {
+        margin-top: 0;
+        border-top: 0;
+      }
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+}
 
 .mm-site_mod_data {
   .recordcheckbox {
@@ -3503,27 +3524,6 @@ $mma-chat-notice-badge: "stable" !default;
 
   .mm-item-has-rich-text-editor {
     margin-right: 1px;
-  }
-}
-.mm-site_mod_choice {
-  .chart {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 767px) {
-    .col {
-      border-left: $item-border-width solid $item-default-border;
-
-      &.item, .chart-item {
-        margin-top: 0;
-        border-top: 0;
-      }
-
-      &:first-child {
-        border-left: 0;
-      }
-    }
   }
 }
 .mm-site_mod_feedback {
