@@ -3388,6 +3388,31 @@ $mma-chat-notice-badge: "stable" !default;
     }
   }
 }
+.mm-site_mod_feedback {
+  .mm-analysis {
+    ul {
+      font-size: $font-size-base;
+    }
+    .item .chart {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.mm-site_mod_feedback-form {
+  .item-select select {
+      position: relative;
+      padding: $item-padding / 2;
+      max-width: 100%;
+      width: 100%;
+      direction: ltr;
+  }
+  input, textarea {
+    background: transparent;
+  }
+}
+
 
 .mm-site_mod_data {
   .recordcheckbox {
@@ -3526,31 +3551,6 @@ $mma-chat-notice-badge: "stable" !default;
     margin-right: 1px;
   }
 }
-.mm-site_mod_feedback {
-  .mm-analysis {
-    ul {
-      font-size: $font-size-base;
-    }
-    .item .chart {
-      max-width: 500px;
-      margin: 0 auto;
-    }
-  }
-}
-
-.mm-site_mod_feedback-form {
-  .item-select select {
-      position: relative;
-      padding: $item-padding / 2;
-      max-width: 100%;
-      width: 100%;
-      direction: ltr;
-  }
-  input, textarea {
-    background: transparent;
-  }
-}
-
 
 .mma-forum-discussion-link {
     text-decoration: none;
@@ -3831,36 +3831,6 @@ ion-popover-view {
   padding-bottom: 10px;
 }
 
-.mm-site_mod_survey {
-  .row, .input-label {
-    font-size: $font-size-base;
-  }
-
-  .mma-mod_survey-darkbg {
-    background-color: $item-divider-bg;
-  }
-
-  .mma-mod_survey-padding-top {
-    padding-top: 20px;
-  }
-
-  textarea.mma-mod_survey-textarea {
-    height: 100px;
-    border: 1px solid $item-default-border;
-  }
-
-  select.mma-mod_survey-select {
-    background-color: transparent;
-    padding-left: 0px;
-    padding-right: $item-padding * 2;
-    max-width: 100%;
-
-    .mma-mod_survey-defaultoption {
-      display: none;
-    }
-  }
-}
-
 $mma-mod-wiki-toc-level-padding:    12px !default;
 $mma-mod-wiki-newentry-link-color:  $red !default;
 $mma-mod-wiki-toc-title-color:      $gray-darker !default;
@@ -3918,6 +3888,36 @@ $mma-mod-wiki-subwiki-selected-background-color:   $gray-light !default;
 
   .mma-mod_wiki-subwiki-picker .item.item-selected .icon {
     font-size: 24px;
+  }
+}
+
+.mm-site_mod_survey {
+  .row, .input-label {
+    font-size: $font-size-base;
+  }
+
+  .mma-mod_survey-darkbg {
+    background-color: $item-divider-bg;
+  }
+
+  .mma-mod_survey-padding-top {
+    padding-top: 20px;
+  }
+
+  textarea.mma-mod_survey-textarea {
+    height: 100px;
+    border: 1px solid $item-default-border;
+  }
+
+  select.mma-mod_survey-select {
+    background-color: transparent;
+    padding-left: 0px;
+    padding-right: $item-padding * 2;
+    max-width: 100%;
+
+    .mma-mod_survey-defaultoption {
+      display: none;
+    }
   }
 }
 
