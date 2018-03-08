@@ -1,0 +1,21 @@
+{
+    "complete": "Completada",
+    "completecourse": "Curso completo",
+    "completed": "Completado",
+    "completiondate": "Fecha de terminación",
+    "couldnotloadreport": "No pudo cargarse el reporte de finalización del curso. Por favor inténtelo más tarde.",
+    "coursecompletion": "Finalización del curso",
+    "criteria": "Criterios",
+    "criteriagroup": "Grupo de criterios",
+    "criteriarequiredall": "Son necesarios todos los criterios que aparecen más abajo",
+    "criteriarequiredany": "Es necesario cualquiera de los criterios que aparecen más abajo",
+    "inprogress": "En progreso",
+    "manualselfcompletion": "Auto-finalizar manualmente",
+    "notyetstarted": "Aún no ha comenzado",
+    "pending": "Pendiente",
+    "required": "Requerido",
+    "requiredcriteria": "Criterios necesarios",
+    "requirement": "Requisito",
+    "status": "Estatus",
+    "viewcoursereport": "Ver reporte del curso"
+}
