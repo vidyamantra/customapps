@@ -2856,6 +2856,9 @@ ion-side-menu li.item.item-divider {
     padding-bottom: 16px;
 }
 
+.mm-site_coursesgrades .item .badge {
+  right: 16px;
+}
 .mm-site_frontpage {
     .mma-frontpage-item-container .item-media {
         min-height: 55px;
@@ -2882,9 +2885,6 @@ ion-side-menu li.item.item-divider {
             height: 22px;
         }
     }
-}
-.mm-site_coursesgrades .item .badge {
-  right: 16px;
 }
 $mma-messages-date-badge: "stable" !default;
 
