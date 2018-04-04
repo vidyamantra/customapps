@@ -13250,9 +13250,6 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px; }
 
-#mm-settings-languagelabel {
-  color: #3a3a3a; }
-
 .bar-side-menu {
   border-color: transparent;
   background-color: #d81e00;
@@ -13304,6 +13301,9 @@ ion-side-menu li.itemcenter {
 
 ion-side-menu li.item.item-divider, ion-side-menu .mm-grades-table li.item-divider.itemcenter, .mm-grades-table ion-side-menu li.item-divider.itemcenter {
   background-color: #f5f5f5; }
+
+#mm-settings-languagelabel {
+  color: #3a3a3a; }
 
 .foreground-ion-edit.ion-edit:before {
   position: relative;

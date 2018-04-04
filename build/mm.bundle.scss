@@ -2822,10 +2822,6 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px;
 }
-#mm-settings-languagelabel {
-  color: $base-color;
-}
-
 // Bar styles
 .bar-side-menu {
   @include bar-style($bar-side-menu-color, $bar-side-menu-border-color, $bar-side-menu-text-color);
@@ -2868,6 +2864,10 @@ ion-side-menu li.item {
 ion-side-menu li.item.item-divider {
   background-color: $bar-side-menu-item-divider-color;
 }
+#mm-settings-languagelabel {
+  color: $base-color;
+}
+
 
 .foreground-ion-edit.ion-edit:before {
     position: relative;
