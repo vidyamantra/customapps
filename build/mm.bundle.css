@@ -14163,6 +14163,17 @@ ion-popover-view {
   .mm-site_mod_survey select.mma-mod_survey-select .mma-mod_survey-defaultoption {
     display: none; }
 
+.mm-site_mod_workshop p.mm-overriden-grade,
+.mm-site_mod_workshop-submission p.mm-overriden-grade,
+.mm-site_mod_workshop-assessment p.mm-overriden-grade {
+  color: #5e8100; }
+
+.mm-site_mod_workshop p.mm-has-overriden-grade,
+.mm-site_mod_workshop-submission p.mm-has-overriden-grade,
+.mm-site_mod_workshop-assessment p.mm-has-overriden-grade {
+  color: #cb3d4d;
+  text-decoration: line-through; }
+
 .mm-site_mod_wiki {
   background-color: white;
   /* Hide edit section links */ }
@@ -14194,17 +14205,6 @@ ion-popover-view {
     background-color: #eeeeee; }
   .mm-site_mod_wiki .mma-mod_wiki-subwiki-picker .item.item-selected .icon, .mm-site_mod_wiki .mma-mod_wiki-subwiki-picker .mm-grades-table .item-selected.itemcenter .icon, .mm-grades-table .mm-site_mod_wiki .mma-mod_wiki-subwiki-picker .item-selected.itemcenter .icon {
     font-size: 24px; }
-
-.mm-site_mod_workshop p.mm-overriden-grade,
-.mm-site_mod_workshop-submission p.mm-overriden-grade,
-.mm-site_mod_workshop-assessment p.mm-overriden-grade {
-  color: #5e8100; }
-
-.mm-site_mod_workshop p.mm-has-overriden-grade,
-.mm-site_mod_workshop-submission p.mm-has-overriden-grade,
-.mm-site_mod_workshop-assessment p.mm-has-overriden-grade {
-  color: #cb3d4d;
-  text-decoration: line-through; }
 
 .qbehaviour_deferredcbm_actual_percentage {
   font-weight: bold; }
