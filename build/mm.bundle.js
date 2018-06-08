@@ -24031,6 +24031,49 @@ angular.module('mm.core.textviewer')
     }
 }]);
 
+angular.module('mm.core')
+.directive('mmUserLink', ["$state", "mmUserProfileState", function($state, mmUserProfileState) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            element.on('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                $state.go(mmUserProfileState, {courseid: attrs.courseid, userid: attrs.userid});
+            });
+        }
+    };
+}]);
+
+angular.module('mm.core.user')
+.directive('mmUserProfileField', ["$mmUserProfileFieldsDelegate", "$compile", function($mmUserProfileFieldsDelegate, $compile) {
+    return {
+        restrict: 'E',
+        scope: {
+            field: '=',
+            signup: '@?',
+            edit: '@?',
+            model: '=?',
+            registerAuth: '@?',
+            scrollHandle: '@?',
+        },
+        templateUrl: 'core/components/user/templates/userprofilefield.html',
+        link: function(scope, element) {
+            var field = scope.field,
+                fieldContainer = element[0].querySelector('.mm-userprofilefield-container');
+            scope.signup = scope.signup && scope.signup !== 'false';
+            scope.edit = scope.edit && scope.edit !== 'false';
+            if (field && fieldContainer) {
+                var directive = $mmUserProfileFieldsDelegate.getDirectiveForField(field, scope.signup, scope.registerAuth);
+                if (directive) {
+                    fieldContainer.setAttribute(directive, '');
+                    $compile(fieldContainer)(scope);
+                }
+            }
+        }
+    };
+}]);
+
 angular.module('mm.core.user')
 .controller('mmUserAboutCtrl', ["$scope", "$stateParams", "$mmUtil", "$mmUser", "$q", "$mmEvents", "$mmCourses", "mmUserEventProfileRefreshed", function($scope, $stateParams, $mmUtil, $mmUser, $q, $mmEvents, $mmCourses,
             mmUserEventProfileRefreshed) {
@@ -24168,49 +24211,6 @@ angular.module('mm.core.user')
     $scope.$on('$destroy', function() {
         obsRefreshed && obsRefreshed.off && obsRefreshed.off();
     });
-}]);
-
-angular.module('mm.core')
-.directive('mmUserLink', ["$state", "mmUserProfileState", function($state, mmUserProfileState) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            element.on('click', function(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                $state.go(mmUserProfileState, {courseid: attrs.courseid, userid: attrs.userid});
-            });
-        }
-    };
-}]);
-
-angular.module('mm.core.user')
-.directive('mmUserProfileField', ["$mmUserProfileFieldsDelegate", "$compile", function($mmUserProfileFieldsDelegate, $compile) {
-    return {
-        restrict: 'E',
-        scope: {
-            field: '=',
-            signup: '@?',
-            edit: '@?',
-            model: '=?',
-            registerAuth: '@?',
-            scrollHandle: '@?',
-        },
-        templateUrl: 'core/components/user/templates/userprofilefield.html',
-        link: function(scope, element) {
-            var field = scope.field,
-                fieldContainer = element[0].querySelector('.mm-userprofilefield-container');
-            scope.signup = scope.signup && scope.signup !== 'false';
-            scope.edit = scope.edit && scope.edit !== 'false';
-            if (field && fieldContainer) {
-                var directive = $mmUserProfileFieldsDelegate.getDirectiveForField(field, scope.signup, scope.registerAuth);
-                if (directive) {
-                    fieldContainer.setAttribute(directive, '');
-                    $compile(fieldContainer)(scope);
-                }
-            }
-        }
-    };
 }]);
 
 angular.module('mm.core.user')
@@ -27232,6 +27232,107 @@ angular.module('mm.addons.mod_assign')
 }]);
 
 angular.module('mm.addons.mod_data')
+.filter('mmaModDataFieldCheckboxFormat', function() {
+    return function(text) {
+        return text.split("##").join("<br>");
+    };
+})
+.directive('mmaModDataFieldCheckbox', function() {
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/mod/data/fields/checkbox/template.html',
+        link: function(scope) {
+            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
+            if (scope.mode == 'show') {
+                return;
+            }
+            scope.options = scope.field.param1.split("\n");
+            if (scope.mode == 'edit' && scope.value) {
+                scope.values = {};
+                angular.forEach(scope.value.content.split("##"), function(value) {
+                    scope.values[value] = true;
+                });
+            }
+        }
+    };
+});
+
+angular.module('mm.addons.mod_data')
+.factory('$mmaModDataFieldCheckboxHandler', ["$translate", function($translate) {
+    var self = {};
+    self.getFieldSearchData = function(field, inputData) {
+        var fieldName = 'f_' + field.id,
+            reqName = 'f_' + field.id + '_allreq';
+        var checkboxes = [],
+            values = [];
+        angular.forEach(inputData[fieldName], function(value, option) {
+            if (value) {
+                checkboxes.push(option);
+            }
+        });
+        if (checkboxes.length > 0) {
+            values.push({
+                name: fieldName,
+                value: checkboxes
+            });
+            if (inputData[reqName]['1']) {
+                values.push({
+                    name: reqName,
+                    value: true
+                });
+            }
+            return values;
+        }
+        return false;
+    };
+    self.getFieldEditData = function(field, inputData) {
+        var fieldName = 'f_' + field.id;
+        var checkboxes = [];
+        angular.forEach(inputData[fieldName], function(value, option) {
+            if (value) {
+                checkboxes.push(option);
+            }
+        });
+        if (checkboxes.length > 0) {
+            return [{
+                fieldid: field.id,
+                value: checkboxes
+            }];
+        }
+        return false;
+    };
+    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
+        var fieldName = 'f_' + field.id,
+            checkboxes = [];
+        angular.forEach(inputData[fieldName], function(value, option) {
+            if (value) {
+                checkboxes.push(option);
+            }
+        });
+        originalFieldData = (originalFieldData && originalFieldData.content) || "";
+        return checkboxes.join("##") != originalFieldData;
+    };
+    self.getFieldsNotifications = function(field, inputData) {
+        if (field.required && (!inputData || !inputData.length || !inputData[0].value)) {
+            return $translate.instant('mma.mod_data.errormustsupplyvalue');
+        }
+        return false;
+    };
+    self.overrideData = function(originalContent, offlineContent) {
+        originalContent.content = (offlineContent[''] && offlineContent[''].join("##")) || "";
+        return originalContent;
+    };
+    return self;
+}])
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
+    if ($mmaModDataFieldsDelegate) {
+        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldCheckbox', 'checkbox', '$mmaModDataFieldCheckboxHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_data')
 .filter('mmaModDataFieldDateFormat', function() {
     return function(text) {
         return text * 1000;
@@ -27346,107 +27447,6 @@ angular.module('mm.addons.mod_data')
     var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
     if ($mmaModDataFieldsDelegate) {
         $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldDate', 'date', '$mmaModDataFieldDateHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_data')
-.filter('mmaModDataFieldCheckboxFormat', function() {
-    return function(text) {
-        return text.split("##").join("<br>");
-    };
-})
-.directive('mmaModDataFieldCheckbox', function() {
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/mod/data/fields/checkbox/template.html',
-        link: function(scope) {
-            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
-            if (scope.mode == 'show') {
-                return;
-            }
-            scope.options = scope.field.param1.split("\n");
-            if (scope.mode == 'edit' && scope.value) {
-                scope.values = {};
-                angular.forEach(scope.value.content.split("##"), function(value) {
-                    scope.values[value] = true;
-                });
-            }
-        }
-    };
-});
-
-angular.module('mm.addons.mod_data')
-.factory('$mmaModDataFieldCheckboxHandler', ["$translate", function($translate) {
-    var self = {};
-    self.getFieldSearchData = function(field, inputData) {
-        var fieldName = 'f_' + field.id,
-            reqName = 'f_' + field.id + '_allreq';
-        var checkboxes = [],
-            values = [];
-        angular.forEach(inputData[fieldName], function(value, option) {
-            if (value) {
-                checkboxes.push(option);
-            }
-        });
-        if (checkboxes.length > 0) {
-            values.push({
-                name: fieldName,
-                value: checkboxes
-            });
-            if (inputData[reqName]['1']) {
-                values.push({
-                    name: reqName,
-                    value: true
-                });
-            }
-            return values;
-        }
-        return false;
-    };
-    self.getFieldEditData = function(field, inputData) {
-        var fieldName = 'f_' + field.id;
-        var checkboxes = [];
-        angular.forEach(inputData[fieldName], function(value, option) {
-            if (value) {
-                checkboxes.push(option);
-            }
-        });
-        if (checkboxes.length > 0) {
-            return [{
-                fieldid: field.id,
-                value: checkboxes
-            }];
-        }
-        return false;
-    };
-    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
-        var fieldName = 'f_' + field.id,
-            checkboxes = [];
-        angular.forEach(inputData[fieldName], function(value, option) {
-            if (value) {
-                checkboxes.push(option);
-            }
-        });
-        originalFieldData = (originalFieldData && originalFieldData.content) || "";
-        return checkboxes.join("##") != originalFieldData;
-    };
-    self.getFieldsNotifications = function(field, inputData) {
-        if (field.required && (!inputData || !inputData.length || !inputData[0].value)) {
-            return $translate.instant('mma.mod_data.errormustsupplyvalue');
-        }
-        return false;
-    };
-    self.overrideData = function(originalContent, offlineContent) {
-        originalContent.content = (offlineContent[''] && offlineContent[''].join("##")) || "";
-        return originalContent;
-    };
-    return self;
-}])
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
-    if ($mmaModDataFieldsDelegate) {
-        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldCheckbox', 'checkbox', '$mmaModDataFieldCheckboxHandler');
     }
 }]);
 
@@ -27711,6 +27711,69 @@ angular.module('mm.addons.mod_data')
 }]);
 
 angular.module('mm.addons.mod_data')
+.directive('mmaModDataFieldNumber', function() {
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/mod/data/fields/number/template.html',
+        link: function(scope) {
+            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
+            if (scope.mode == 'edit' && scope.value) {
+                scope.val = scope.value && parseFloat(scope.value.content);
+            }
+        }
+    };
+});
+
+angular.module('mm.addons.mod_data')
+.factory('$mmaModDataFieldNumberHandler', ["$translate", function($translate) {
+    var self = {};
+    self.getFieldSearchData = function(field, inputData) {
+        var fieldName = 'f_' + field.id;
+        if (inputData[fieldName]) {
+            return [{
+                name: fieldName,
+                value: inputData[fieldName]
+            }];
+        }
+        return false;
+    };
+    self.getFieldEditData = function(field, inputData) {
+        var fieldName = 'f_' + field.id;
+        if (inputData[fieldName]) {
+            return [{
+                fieldid: field.id,
+                value: inputData[fieldName]
+            }];
+        }
+        return false;
+    };
+    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
+        var fieldName = 'f_' + field.id,
+            input = inputData[fieldName] || "";
+        originalFieldData = (originalFieldData && originalFieldData.content) || "";
+        return input != originalFieldData;
+    };
+    self.getFieldsNotifications = function(field, inputData) {
+        if (field.required && (!inputData || !inputData.length || inputData[0].value == "")) {
+            return $translate.instant('mma.mod_data.errormustsupplyvalue');
+        }
+        return false;
+    };
+    self.overrideData = function(originalContent, offlineContent) {
+        originalContent.content = offlineContent[''] || "";
+        return originalContent;
+    };
+    return self;
+}])
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
+    if ($mmaModDataFieldsDelegate) {
+        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldNumber', 'number', '$mmaModDataFieldNumberHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_data')
 .filter('mmaModDataFieldMultimenuFormat', function() {
     return function(text) {
         return text.split("##").join("<br>");
@@ -27803,69 +27866,6 @@ angular.module('mm.addons.mod_data')
     var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
     if ($mmaModDataFieldsDelegate) {
         $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldMultimenu', 'multimenu', '$mmaModDataFieldMultimenuHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_data')
-.directive('mmaModDataFieldNumber', function() {
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/mod/data/fields/number/template.html',
-        link: function(scope) {
-            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
-            if (scope.mode == 'edit' && scope.value) {
-                scope.val = scope.value && parseFloat(scope.value.content);
-            }
-        }
-    };
-});
-
-angular.module('mm.addons.mod_data')
-.factory('$mmaModDataFieldNumberHandler', ["$translate", function($translate) {
-    var self = {};
-    self.getFieldSearchData = function(field, inputData) {
-        var fieldName = 'f_' + field.id;
-        if (inputData[fieldName]) {
-            return [{
-                name: fieldName,
-                value: inputData[fieldName]
-            }];
-        }
-        return false;
-    };
-    self.getFieldEditData = function(field, inputData) {
-        var fieldName = 'f_' + field.id;
-        if (inputData[fieldName]) {
-            return [{
-                fieldid: field.id,
-                value: inputData[fieldName]
-            }];
-        }
-        return false;
-    };
-    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
-        var fieldName = 'f_' + field.id,
-            input = inputData[fieldName] || "";
-        originalFieldData = (originalFieldData && originalFieldData.content) || "";
-        return input != originalFieldData;
-    };
-    self.getFieldsNotifications = function(field, inputData) {
-        if (field.required && (!inputData || !inputData.length || inputData[0].value == "")) {
-            return $translate.instant('mma.mod_data.errormustsupplyvalue');
-        }
-        return false;
-    };
-    self.overrideData = function(originalContent, offlineContent) {
-        originalContent.content = offlineContent[''] || "";
-        return originalContent;
-    };
-    return self;
-}])
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
-    if ($mmaModDataFieldsDelegate) {
-        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldNumber', 'number', '$mmaModDataFieldNumberHandler');
     }
 }]);
 
@@ -28557,25 +28557,6 @@ angular.module('mm.addons.mod_quiz')
 }]);
 
 angular.module('mm.addons.mod_quiz')
-.factory('$mmaQuizAccessSecureWindowHandler', function() {
-    var self = {};
-    self.isEnabled = function() {
-        return true;
-    };
-    self.isPreflightCheckRequired = function(quiz, attempt, prefetch, siteId) {
-        return false;
-    };
-    return self;
-})
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModQuizAccessRulesDelegate = $mmAddonManager.get('$mmaModQuizAccessRulesDelegate');
-    if ($mmaModQuizAccessRulesDelegate) {
-        $mmaModQuizAccessRulesDelegate.registerHandler('mmaQuizAccessSecureWindow', 'quizaccess_securewindow',
-                                '$mmaQuizAccessSecureWindowHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_quiz')
 .factory('$mmaQuizAccessSafeBrowserHandler', function() {
     var self = {};
     self.isEnabled = function() {
@@ -28591,6 +28572,25 @@ angular.module('mm.addons.mod_quiz')
     if ($mmaModQuizAccessRulesDelegate) {
         $mmaModQuizAccessRulesDelegate.registerHandler('mmaQuizAccessSafeBrowser', 'quizaccess_safebrowser',
                                 '$mmaQuizAccessSafeBrowserHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_quiz')
+.factory('$mmaQuizAccessSecureWindowHandler', function() {
+    var self = {};
+    self.isEnabled = function() {
+        return true;
+    };
+    self.isPreflightCheckRequired = function(quiz, attempt, prefetch, siteId) {
+        return false;
+    };
+    return self;
+})
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModQuizAccessRulesDelegate = $mmAddonManager.get('$mmaModQuizAccessRulesDelegate');
+    if ($mmaModQuizAccessRulesDelegate) {
+        $mmaModQuizAccessRulesDelegate.registerHandler('mmaQuizAccessSecureWindow', 'quizaccess_securewindow',
+                                '$mmaQuizAccessSecureWindowHandler');
     }
 }]);
 
@@ -38286,6 +38286,40 @@ angular.module('mm.addons.qtype_multichoice')
     return self;
 }]);
 
+angular.module('mm.addons.qtype_randomsamatch')
+.directive('mmaQtypeRandomSaMatch', ["$log", "$mmQuestionHelper", function($log, $mmQuestionHelper) {
+	$log = $log.getInstance('mmaQtypeRandomSaMatch');
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/qtype/match/template.html',
+        link: function(scope) {
+            $mmQuestionHelper.matchingDirective(scope, $log);
+        }
+    };
+}]);
+
+angular.module('mm.addons.qtype_randomsamatch')
+.factory('$mmaQtypeRandomSaMatchHandler', ["$mmaQtypeMatchHandler", function($mmaQtypeMatchHandler) {
+    var self = {};
+    self.isCompleteResponse = function(question, answers) {
+        return $mmaQtypeMatchHandler.isCompleteResponse(question, answers);
+    };
+    self.isEnabled = function() {
+        return true;
+    };
+    self.isGradableResponse = function(question, answers) {
+        return $mmaQtypeMatchHandler.isGradableResponse(question, answers);
+    };
+    self.isSameResponse = function(question, prevAnswers, newAnswers) {
+        return $mmaQtypeMatchHandler.isSameResponse(question, prevAnswers, newAnswers);
+    };
+    self.getDirectiveName = function(question) {
+        return 'mma-qtype-random-sa-match';
+    };
+    return self;
+}]);
+
 angular.module('mm.addons.qtype_numerical')
 .directive('mmaQtypeNumerical', ["$log", "$mmQuestionHelper", function($log, $mmQuestionHelper) {
 	$log = $log.getInstance('mmaQtypeNumerical');
@@ -38336,40 +38370,6 @@ angular.module('mm.addons.qtype_numerical')
             return false;
         }
         return true;
-    };
-    return self;
-}]);
-
-angular.module('mm.addons.qtype_randomsamatch')
-.directive('mmaQtypeRandomSaMatch', ["$log", "$mmQuestionHelper", function($log, $mmQuestionHelper) {
-	$log = $log.getInstance('mmaQtypeRandomSaMatch');
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/qtype/match/template.html',
-        link: function(scope) {
-            $mmQuestionHelper.matchingDirective(scope, $log);
-        }
-    };
-}]);
-
-angular.module('mm.addons.qtype_randomsamatch')
-.factory('$mmaQtypeRandomSaMatchHandler', ["$mmaQtypeMatchHandler", function($mmaQtypeMatchHandler) {
-    var self = {};
-    self.isCompleteResponse = function(question, answers) {
-        return $mmaQtypeMatchHandler.isCompleteResponse(question, answers);
-    };
-    self.isEnabled = function() {
-        return true;
-    };
-    self.isGradableResponse = function(question, answers) {
-        return $mmaQtypeMatchHandler.isGradableResponse(question, answers);
-    };
-    self.isSameResponse = function(question, prevAnswers, newAnswers) {
-        return $mmaQtypeMatchHandler.isSameResponse(question, prevAnswers, newAnswers);
-    };
-    self.getDirectiveName = function(question) {
-        return 'mma-qtype-random-sa-match';
     };
     return self;
 }]);
