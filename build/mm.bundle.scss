@@ -2494,6 +2494,20 @@ mm-course-list-item .item-icon-left {
     }
 }
 
+.mm-fileuploader-file-handler {
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        opacity: 0;
+        outline: none;
+        z-index: 100;
+        cursor: pointer;
+    }
+}
+
 /* - User grades table (most of it extracted from MM1)
 -------------------------------------------------------------------------- */
 .mm-grades-container {
@@ -2599,20 +2613,6 @@ mm-course-list-item .item-icon-left {
   }
 }
 
-.mm-fileuploader-file-handler {
-    input {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        z-index: 100;
-        cursor: pointer;
-    }
-}
-
 
 .mm-mm_login_sites {
   .item-thumbnail-left .item-content {
@@ -2683,10 +2683,6 @@ mm-course-list-item .item-icon-left {
   }
 }
 
-
-#mm-settings-languagelabel {
-  color: $base-color;
-}
 
 
 $mm-question-correct-color:         $green-dark !default;
@@ -2826,6 +2822,10 @@ li.mm-question-answer-incorrect,
 .questioncorrectnessicon {
   font-size: 20px;
 }
+#mm-settings-languagelabel {
+  color: $base-color;
+}
+
 // Bar styles
 .bar-side-menu {
   @include bar-style($bar-side-menu-color, $bar-side-menu-border-color, $bar-side-menu-text-color);
