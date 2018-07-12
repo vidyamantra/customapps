@@ -11,7 +11,9 @@
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
         <string>3.4.2</string>
     </gap:config-file>
-
+    <gap:config-file platform="ios" parent="CFBundleVersion">
+         <string>3.4.3</string>
+    </gap:config-file>
     <gap:platform name="ios"/>
     <gap:platform name="android"/>
 
