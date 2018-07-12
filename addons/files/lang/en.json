@@ -1,0 +1,13 @@
+{
+    "admindisableddownload": "The site administrator has disabled file downloads. You may browse through the files but not download them.",
+    "clicktoupload": "Click the button below to upload files to your private files.",
+    "couldnotloadfiles": "The list of files could not be loaded.",
+    "emptyfilelist": "There are no files to show.",
+    "erroruploadnotworking": "Unfortunately it is currently not possible to upload files to your site.",
+    "files": "My files",
+    "myprivatefilesdesc": "Files that only you can access.",
+    "privatefiles": "Private files",
+    "sitefiles": "Site files",
+    "sitefilesdesc": "Other files that are available to you on this site.",
+    "uploadfiles": "Upload files"
+}
