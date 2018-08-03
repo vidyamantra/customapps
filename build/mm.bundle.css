@@ -3985,14 +3985,14 @@ a.subdued {
     .bar.bar-energized.bar-footer {
       background-image: linear-gradient(180deg, #f7a304, #f7a304 50%, transparent 50%); }
   .bar.bar-royal {
-    border-color: #a30000;
-    background-color: #cc0000;
-    background-image: linear-gradient(0deg, #a30000, #a30000 50%, transparent 50%);
+    border-color: #cacaca;
+    background-color: #dedede;
+    background-image: linear-gradient(0deg, #cacaca, #cacaca 50%, transparent 50%);
     color: #fff; }
     .bar.bar-royal .title {
       color: #fff; }
     .bar.bar-royal.bar-footer {
-      background-image: linear-gradient(180deg, #a30000, #a30000 50%, transparent 50%); }
+      background-image: linear-gradient(180deg, #cacaca, #cacaca 50%, transparent 50%); }
   .bar.bar-dark {
     border-color: #111;
     background-color: #3a3a3a;
@@ -4242,15 +4242,15 @@ a.subdued {
     background: none; }
 
 .bar-royal .button {
-  border-color: #a30000;
-  background-color: #cc0000;
+  border-color: #cacaca;
+  background-color: #dedede;
   color: #fff; }
   .bar-royal .button:hover {
     color: #fff;
     text-decoration: none; }
   .bar-royal .button.active, .bar-royal .button.activated {
-    border-color: #a30000;
-    background-color: #a30000; }
+    border-color: #cacaca;
+    background-color: #cacaca; }
   .bar-royal .button.button-clear {
     border-color: transparent;
     background: none;
@@ -4538,9 +4538,9 @@ a.subdued {
 
 .tabs-royal > .tabs,
 .tabs.tabs-royal {
-  border-color: #a30000;
-  background-color: #cc0000;
-  background-image: linear-gradient(0deg, #a30000, #a30000 50%, transparent 50%);
+  border-color: #cacaca;
+  background-color: #dedede;
+  background-image: linear-gradient(0deg, #cacaca, #cacaca 50%, transparent 50%);
   color: #fff; }
   .tabs-royal > .tabs .tab-item .badge, .tabs-royal > .tabs .tab-item .mma-messages-date span, .mma-messages-date .tabs-royal > .tabs .tab-item span, .tabs-royal > .tabs .tab-item
   .mma-messages-unreadfrom span,
@@ -4555,7 +4555,7 @@ a.subdued {
   .tabs.tabs-royal .tab-item .mma-chat-notice span, .mma-chat-notice
   .tabs.tabs-royal .tab-item span {
     background-color: #fff;
-    color: #cc0000; }
+    color: #dedede; }
 
 .tabs-dark > .tabs,
 .tabs.tabs-dark {
@@ -4783,7 +4783,7 @@ a.subdued {
   top: 4%; }
 
 .tabs-striped.tabs-royal .tabs {
-  background-color: #cc0000; }
+  background-color: #dedede; }
 
 .tabs-striped.tabs-royal .tab-item {
   color: rgba(255, 255, 255, 0.6);
@@ -4863,7 +4863,7 @@ a.subdued {
   background-image: none; }
 
 .tabs-striped.tabs-background-royal .tabs {
-  background-color: #cc0000;
+  background-color: #dedede;
   background-image: none; }
 
 .tabs-striped.tabs-background-dark .tabs {
@@ -5025,7 +5025,7 @@ a.subdued {
       opacity: 1; }
 
 .tabs-striped.tabs-color-royal .tab-item {
-  color: rgba(204, 0, 0, 0.6);
+  color: rgba(222, 222, 222, 0.6);
   opacity: 1; }
   .tabs-striped.tabs-color-royal .tab-item .badge, .tabs-striped.tabs-color-royal .tab-item .mma-messages-date span, .mma-messages-date .tabs-striped.tabs-color-royal .tab-item span, .tabs-striped.tabs-color-royal .tab-item
   .mma-messages-unreadfrom span,
@@ -5033,8 +5033,8 @@ a.subdued {
     opacity: 0.6; }
   .tabs-striped.tabs-color-royal .tab-item.tab-item-active, .tabs-striped.tabs-color-royal .tab-item.active, .tabs-striped.tabs-color-royal .tab-item.activated {
     margin-top: -2px;
-    color: #cc0000;
-    border: 0 solid #cc0000;
+    color: #dedede;
+    border: 0 solid #dedede;
     border-top-width: 2px; }
     .tabs-striped.tabs-color-royal .tab-item.tab-item-active .badge, .tabs-striped.tabs-color-royal .tab-item.tab-item-active .mma-messages-date span, .mma-messages-date .tabs-striped.tabs-color-royal .tab-item.tab-item-active span, .tabs-striped.tabs-color-royal .tab-item.tab-item-active
     .mma-messages-unreadfrom span,
@@ -5112,9 +5112,9 @@ a.subdued {
 
 .tabs-background-royal .tabs,
 .tabs-background-royal > .tabs {
-  background-color: #cc0000;
-  background-image: linear-gradient(0deg, #a30000, #a30000 50%, transparent 50%);
-  border-color: #a30000; }
+  background-color: #dedede;
+  background-image: linear-gradient(0deg, #cacaca, #cacaca 50%, transparent 50%);
+  border-color: #cacaca; }
 
 .tabs-background-dark .tabs,
 .tabs-background-dark > .tabs {
@@ -5256,15 +5256,15 @@ a.subdued {
       opacity: 1; }
 
 .tabs-color-royal .tab-item {
-  color: rgba(204, 0, 0, 0.6);
+  color: rgba(222, 222, 222, 0.6);
   opacity: 1; }
   .tabs-color-royal .tab-item .badge, .tabs-color-royal .tab-item .mma-messages-date span, .mma-messages-date .tabs-color-royal .tab-item span, .tabs-color-royal .tab-item
   .mma-messages-unreadfrom span,
   .mma-messages-unreadfrom .tabs-color-royal .tab-item span, .tabs-color-royal .tab-item .mma-chat-notice span, .mma-chat-notice .tabs-color-royal .tab-item span {
     opacity: 0.6; }
   .tabs-color-royal .tab-item.tab-item-active, .tabs-color-royal .tab-item.active, .tabs-color-royal .tab-item.activated {
-    color: #cc0000;
-    border: 0 solid #cc0000; }
+    color: #dedede;
+    border: 0 solid #dedede; }
     .tabs-color-royal .tab-item.tab-item-active .badge, .tabs-color-royal .tab-item.tab-item-active .mma-messages-date span, .mma-messages-date .tabs-color-royal .tab-item.tab-item-active span, .tabs-color-royal .tab-item.tab-item-active
     .mma-messages-unreadfrom span,
     .mma-messages-unreadfrom .tabs-color-royal .tab-item.tab-item-active span, .tabs-color-royal .tab-item.tab-item-active .mma-chat-notice span, .mma-chat-notice .tabs-color-royal .tab-item.tab-item-active span, .tabs-color-royal .tab-item.active .badge, .tabs-color-royal .tab-item.active .mma-messages-date span, .mma-messages-date .tabs-color-royal .tab-item.active span, .tabs-color-royal .tab-item.active
@@ -5359,11 +5359,11 @@ ion-tabs.tabs-striped.tabs-color-active-energized .tab-item.tab-item-active, ion
 ion-tabs.tabs-color-active-royal .tab-item {
   color: #3a3a3a; }
   ion-tabs.tabs-color-active-royal .tab-item.tab-item-active, ion-tabs.tabs-color-active-royal .tab-item.active, ion-tabs.tabs-color-active-royal .tab-item.activated {
-    color: #cc0000; }
+    color: #dedede; }
 
 ion-tabs.tabs-striped.tabs-color-active-royal .tab-item.tab-item-active, ion-tabs.tabs-striped.tabs-color-active-royal .tab-item.active, ion-tabs.tabs-striped.tabs-color-active-royal .tab-item.activated {
-  border-color: #cc0000;
-  color: #cc0000; }
+  border-color: #dedede;
+  color: #dedede; }
 
 ion-tabs.tabs-color-active-dark .tab-item {
   color: #fff; }
@@ -5590,7 +5590,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   .tab-item.tab-item-active.tab-item-royal,
   .tab-item.active.tab-item-royal,
   .tab-item.activated.tab-item-royal {
-    color: #cc0000; }
+    color: #dedede; }
   .tab-item.tab-item-active.tab-item-dark,
   .tab-item.active.tab-item-dark,
   .tab-item.activated.tab-item-dark {
@@ -6169,8 +6169,8 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
     background-color: #fbad1a;
     color: #fff; }
   .item.item-royal, .mm-grades-table .item-royal.itemcenter {
-    border-color: #a30000;
-    background-color: #cc0000;
+    border-color: #cacaca;
+    background-color: #dedede;
     color: #fff; }
   .item.item-dark, .mm-grades-table .item-dark.itemcenter {
     border-color: #111;
@@ -6326,16 +6326,16 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   .item-complex.activated .item-content.item-royal,
   .item .item-content.active.item-royal, .mm-grades-table .itemcenter .item-content.active.item-royal,
   .item .item-content.activated.item-royal, .mm-grades-table .itemcenter .item-content.activated.item-royal {
-    border-color: #a30000;
-    background-color: #a30000; }
+    border-color: #cacaca;
+    background-color: #cacaca; }
     .item.active.item-royal.item-complex > .item-content, .mm-grades-table .active.item-royal.item-complex.itemcenter > .item-content,
     .item.activated.item-royal.item-complex > .item-content, .mm-grades-table .activated.item-royal.item-complex.itemcenter > .item-content,
     .item-complex.active .item-content.item-royal.item-complex > .item-content,
     .item-complex.activated .item-content.item-royal.item-complex > .item-content,
     .item .item-content.active.item-royal.item-complex > .item-content, .mm-grades-table .itemcenter .item-content.active.item-royal.item-complex > .item-content,
     .item .item-content.activated.item-royal.item-complex > .item-content, .mm-grades-table .itemcenter .item-content.activated.item-royal.item-complex > .item-content {
-      border-color: #a30000;
-      background-color: #a30000; }
+      border-color: #cacaca;
+      background-color: #cacaca; }
   .item.active.item-dark, .mm-grades-table .active.item-dark.itemcenter,
   .item.activated.item-dark,
   .mm-grades-table .activated.item-dark.itemcenter,
@@ -6535,15 +6535,15 @@ a.item-content {
       background-color: #f7a304; }
 
 .item-complex.item-royal > .item-content {
-  border-color: #a30000;
-  background-color: #cc0000;
+  border-color: #cacaca;
+  background-color: #dedede;
   color: #fff; }
   .item-complex.item-royal > .item-content.active, .item-complex.item-royal > .item-content:active {
-    border-color: #a30000;
-    background-color: #a30000; }
+    border-color: #cacaca;
+    background-color: #cacaca; }
     .item-complex.item-royal > .item-content.active.item-complex > .item-content, .item-complex.item-royal > .item-content:active.item-complex > .item-content {
-      border-color: #a30000;
-      background-color: #a30000; }
+      border-color: #cacaca;
+      background-color: #cacaca; }
 
 .item-complex.item-dark > .item-content {
   border-color: #111;
@@ -7309,7 +7309,7 @@ button.item.item-button-right,
 .mma-messages-date span.badge-royal,
 .mma-messages-unreadfrom span.badge-royal,
 .mma-chat-notice span.badge-royal {
-  background-color: #cc0000;
+  background-color: #dedede;
   color: #fff; }
 
 .tabs .tab-item .badge.badge-dark, .tabs .tab-item .mma-messages-date span.badge-dark, .mma-messages-date .tabs .tab-item span.badge-dark, .tabs .tab-item
@@ -8020,8 +8020,8 @@ ion-slides {
     stroke: #fbad1a;
     fill: #fbad1a; }
   .spinner.spinner-royal {
-    stroke: #cc0000;
-    fill: #cc0000; }
+    stroke: #dedede;
+    fill: #dedede; }
   .spinner.spinner-dark {
     stroke: #3a3a3a;
     fill: #3a3a3a; }
@@ -8062,7 +8062,7 @@ ion-slides {
   stop-color: #fbad1a; }
 
 .spinner-spiral.spinner-royal .stop2 {
-  stop-color: #cc0000; }
+  stop-color: #dedede; }
 
 .spinner-spiral.spinner-dark .stop2 {
   stop-color: #3a3a3a; }
@@ -8476,12 +8476,12 @@ input[type="checkbox"][readonly] {
 
 .checkbox-royal input:before,
 .checkbox-royal .checkbox-icon:before {
-  border-color: #cc0000; }
+  border-color: #dedede; }
 
 .checkbox-royal input:checked:before,
 .checkbox-royal input:checked + .checkbox-icon:before {
-  background: #cc0000;
-  border-color: #cc0000; }
+  background: #dedede;
+  border-color: #dedede; }
 
 .checkbox-dark input:before,
 .checkbox-dark .checkbox-icon:before {
@@ -8657,8 +8657,8 @@ input:checked + .checkbox-icon:after {
   background-color: #fbad1a; }
 
 .toggle.toggle-royal input:checked + .track {
-  border-color: #cc0000;
-  background-color: #cc0000; }
+  border-color: #dedede;
+  background-color: #dedede; }
 
 .toggle.toggle-dark input:checked + .track {
   border-color: #3a3a3a;
@@ -8805,10 +8805,10 @@ input:checked + .checkbox-icon:after {
   background-color: #fbad1a; }
 
 .toggle-small .toggle-royal input:checked + .track {
-  background-color: rgba(204, 0, 0, 0.5); }
+  background-color: rgba(222, 222, 222, 0.5); }
 
 .toggle-small .toggle-royal input:checked + .track .handle {
-  background-color: #cc0000; }
+  background-color: #dedede; }
 
 .toggle-small .toggle-dark input:checked + .track {
   background-color: rgba(58, 58, 58, 0.5); }
@@ -8970,9 +8970,9 @@ input:checked + .checkbox-icon:after {
   .range.range-energized input::-ms-fill-lower {
     background: #fbad1a; }
   .range.range-royal input::-webkit-slider-thumb:before {
-    background: #cc0000; }
+    background: #dedede; }
   .range.range-royal input::-ms-fill-lower {
-    background: #cc0000; }
+    background: #dedede; }
   .range.range-dark input::-webkit-slider-thumb:before {
     background: #3a3a3a; }
   .range.range-dark input::-ms-fill-lower {
@@ -9097,7 +9097,7 @@ input:checked + .checkbox-icon:after {
   .item-select.item-energized:after, .item-select.item-energized .input-label {
     color: #fff; }
   .item-select.item-royal select {
-    background: #cc0000;
+    background: #dedede;
     color: #fff; }
   .item-select.item-royal:after, .item-select.item-royal .input-label {
     color: #fff; }
@@ -9360,28 +9360,28 @@ progress {
         color: #fff; }
   .button.button-royal {
     border-color: #0064d2;
-    background-color: #cc0000;
+    background-color: #dedede;
     color: #fff; }
     .button.button-royal:hover {
       color: #fff;
       text-decoration: none; }
     .button.button-royal.active, .button.button-royal.activated {
       border-color: #0064d2;
-      background-color: #a30000; }
+      background-color: #cacaca; }
     .button.button-royal.button-clear {
       border-color: transparent;
       background: none;
       box-shadow: none;
-      color: #cc0000; }
+      color: #dedede; }
     .button.button-royal.button-icon {
       border-color: transparent;
       background: none; }
     .button.button-royal.button-outline {
-      border-color: #cc0000;
+      border-color: #dedede;
       background: transparent;
-      color: #cc0000; }
+      color: #dedede; }
       .button.button-royal.button-outline.active, .button.button-royal.button-outline.activated {
-        background-color: #cc0000;
+        background-color: #dedede;
         box-shadow: none;
         color: #fff; }
   .button.button-dark {
@@ -9563,7 +9563,7 @@ a.button {
   .button-bar.bar-energized > .button {
     border-color: #f7a304; }
   .button-bar.bar-royal > .button {
-    border-color: #a30000; }
+    border-color: #cacaca; }
   .button-bar.bar-dark > .button {
     border-color: #111; }
 
@@ -10104,13 +10104,13 @@ a.button {
   border-color: #f7a304; }
 
 .royal, a.royal {
-  color: #cc0000; }
+  color: #dedede; }
 
 .royal-bg {
-  background-color: #cc0000; }
+  background-color: #dedede; }
 
 .royal-border {
-  border-color: #a30000; }
+  border-color: #cacaca; }
 
 .dark, a.dark {
   color: #3a3a3a; }
@@ -10542,7 +10542,7 @@ a.button {
  * App Branding
  */
 .mm-bglogo {
-  background: #cc0000;
+  background: #dedede;
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
@@ -10592,21 +10592,21 @@ a.button {
 
 .bar-content {
   border-color: transparent;
-  background-color: #cc0000;
+  background-color: #dedede;
   background-image: linear-gradient(0deg, transparent, transparent 50%, transparent 50%);
   color: #ffffff; }
   .bar-content .title {
     color: #ffffff; }
   .bar-content .button {
     border-color: transparent;
-    background-color: #cc0000;
+    background-color: #dedede;
     color: #ffffff; }
     .bar-content .button:hover {
       color: #ffffff;
       text-decoration: none; }
     .bar-content .button.active, .bar-content .button.activated {
       border-color: transparent;
-      background-color: #cc0000; }
+      background-color: #dedede; }
     .bar-content .button.button-clear {
       border-color: transparent;
       background: none;
@@ -10774,7 +10774,7 @@ p.item-text-wrap {
 
 /* Show buttons as tabs */
 .mm-tabs-color .tab-item {
-  color: rgba(204, 0, 0, 0.6);
+  color: rgba(222, 222, 222, 0.6);
   opacity: 1; }
   .mm-tabs-color .tab-item .badge, .mm-tabs-color .tab-item .mma-messages-date span, .mma-messages-date .mm-tabs-color .tab-item span, .mm-tabs-color .tab-item
   .mma-messages-unreadfrom span,
@@ -10782,8 +10782,8 @@ p.item-text-wrap {
     opacity: 0.6; }
   .mm-tabs-color .tab-item.tab-item-active, .mm-tabs-color .tab-item.active, .mm-tabs-color .tab-item.activated {
     margin-top: -2px;
-    color: #cc0000;
-    border: 0 solid #cc0000;
+    color: #dedede;
+    border: 0 solid #dedede;
     border-top-width: 2px; }
     .mm-tabs-color .tab-item.tab-item-active .badge, .mm-tabs-color .tab-item.tab-item-active .mma-messages-date span, .mma-messages-date .mm-tabs-color .tab-item.tab-item-active span, .mm-tabs-color .tab-item.tab-item-active
     .mma-messages-unreadfrom span,
@@ -10796,15 +10796,15 @@ p.item-text-wrap {
       opacity: 1; }
 
 .mm-tabs-color .tab-item {
-  color: rgba(204, 0, 0, 0.6);
+  color: rgba(222, 222, 222, 0.6);
   opacity: 1; }
   .mm-tabs-color .tab-item .badge, .mm-tabs-color .tab-item .mma-messages-date span, .mma-messages-date .mm-tabs-color .tab-item span, .mm-tabs-color .tab-item
   .mma-messages-unreadfrom span,
   .mma-messages-unreadfrom .mm-tabs-color .tab-item span, .mm-tabs-color .tab-item .mma-chat-notice span, .mma-chat-notice .mm-tabs-color .tab-item span {
     opacity: 0.6; }
   .mm-tabs-color .tab-item.tab-item-active, .mm-tabs-color .tab-item.active, .mm-tabs-color .tab-item.activated {
-    color: #cc0000;
-    border: 0 solid #cc0000; }
+    color: #dedede;
+    border: 0 solid #dedede; }
     .mm-tabs-color .tab-item.tab-item-active .badge, .mm-tabs-color .tab-item.tab-item-active .mma-messages-date span, .mma-messages-date .mm-tabs-color .tab-item.tab-item-active span, .mm-tabs-color .tab-item.tab-item-active
     .mma-messages-unreadfrom span,
     .mma-messages-unreadfrom .mm-tabs-color .tab-item.tab-item-active span, .mm-tabs-color .tab-item.tab-item-active .mma-chat-notice span, .mma-chat-notice .mm-tabs-color .tab-item.tab-item-active span, .mm-tabs-color .tab-item.active .badge, .mm-tabs-color .tab-item.active .mma-messages-date span, .mma-messages-date .mm-tabs-color .tab-item.active span, .mm-tabs-color .tab-item.active
@@ -10834,7 +10834,7 @@ p.item-text-wrap {
 
 .mm-menu-selected:not(.button), .mm-split-item-selected:not(.button), .item.mma-mod-lesson-selected:not(.button), .mm-grades-table .mma-mod-lesson-selected.itemcenter:not(.button) {
   background-color: #f5f5f5;
-  border-left: 5px solid red;
+  border-left: 5px solid #f8f8f8;
   padding-left: 12px; }
   .mm-menu-selected:not(.button).item-avatar, .mm-menu-selected.item-media:not(.button), .item-media.mm-split-item-selected:not(.button), .item-media.item.mma-mod-lesson-selected:not(.button), .mm-grades-table .item-media.mma-mod-lesson-selected.itemcenter:not(.button), .mm-menu-selected.item-avatar-center:not(.button), .item-avatar-center.mm-split-item-selected:not(.button), .item-avatar-center.item.mma-mod-lesson-selected:not(.button), .mm-grades-table .item-avatar-center.mma-mod-lesson-selected.itemcenter:not(.button), .mm-split-item-selected:not(.button).item-avatar, .mm-split-item-selected.item-progress:not(.button), .mm-menu-selected.item-progress:not(.button), .item-progress.item.mma-mod-lesson-selected:not(.button), .mm-grades-table .item-progress.mma-mod-lesson-selected.itemcenter:not(.button), .item.mma-mod-lesson-selected:not(.button).item-avatar, .mm-grades-table .mma-mod-lesson-selected.itemcenter:not(.button).item-avatar, .mm-menu-selected:not(.button).item-avatar-left, .mm-split-item-selected:not(.button).item-avatar-left, .item.mma-mod-lesson-selected:not(.button).item-avatar-left, .mm-grades-table .mma-mod-lesson-selected.itemcenter:not(.button).item-avatar-left {
     padding-left: 68px; }
@@ -12110,7 +12110,7 @@ progress {
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset; }
   progress .progress-bar-fallback span, progress[value]::-webkit-progress-value {
-    background-color: red;
+    background-color: #f8f8f8;
     border-radius: 2px; }
   progress .progress-bar-fallback {
     width: 100%;
@@ -12212,7 +12212,7 @@ ol.list-with-style, ul.list-with-style {
   background-color: #eeeeee; }
   .mm-recaptcha-modal .bar-header {
     border-color: transparent;
-    background-color: #cc0000;
+    background-color: #dedede;
     background-image: linear-gradient(0deg, transparent, transparent 50%, transparent 50%);
     color: #ffffff; }
     .mm-recaptcha-modal .bar-header .title {
@@ -12647,7 +12647,7 @@ mm-course-mod-description .card .item, mm-course-mod-description .card .mm-grade
         width: 100%; }
         .progress-chart-container .progress-doughnut .progress-indicator svg .circle {
           stroke-width: 15px;
-          stroke: red;
+          stroke: #f8f8f8;
           fill: none;
           stroke-dasharray: 173;
           stroke-dashoffset: 173;
@@ -12925,7 +12925,7 @@ mm-course-list-item div.item-icon-left.earlysubmission {
   background-color: #eeeeee; }
   .mm-capture-media-modal .bar-header {
     border-color: transparent;
-    background-color: #cc0000;
+    background-color: #dedede;
     background-image: linear-gradient(0deg, transparent, transparent 50%, transparent 50%);
     color: #ffffff; }
     .mm-capture-media-modal .bar-header .title {
@@ -13255,7 +13255,7 @@ li.mm-question-answer-incorrect,
 
 .bar-side-menu {
   border-color: transparent;
-  background-color: #cc0000;
+  background-color: #dedede;
   background-image: linear-gradient(0deg, transparent, transparent 50%, transparent 50%);
   color: #ffffff;
   height: 80px !important; }
@@ -13865,7 +13865,7 @@ p.mma-mod-assign-warning {
     .mma-forum-discussion-link.mm-split-item-selected article .item-heading,
     .mma-forum-discussion-link.mm-split-item-selected > .item article .item-heading, .mm-grades-table
     .mma-forum-discussion-link.mm-split-item-selected > .itemcenter article .item-heading {
-      border-top: 5px solid #cc0000;
+      border-top: 5px solid #dedede;
       margin-top: -1px; }
 
 .mma-forum-align-right {
