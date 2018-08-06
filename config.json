@@ -48,9 +48,9 @@
     "demo_sites": [],
     "gcmpn": "578987199728",
     "customurlscheme": "cmoodlemobile",
-    "siteurl": "www.elearning.etvbharat.com",
+    "siteurl": "http://elearning.etvbharat.com",
     "multisitesdisplay": "select",
     "skipssoconfirmation": "false",
     "forcedefaultlanguage": "false",
-    "privacypolicy": "www.elearning.etvbharat.com/privacy_policy.html"
+    "privacypolicy": "http://elearning.etvbharat.com/privacy_policy.html"
 }
