@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.vidyamantra.cmoodleapp180" versionCode="20230" version="3.4.2">
-     <name>eLearning @ ETV Bharat</name>
+     <name>ETV Bharat eLearning</name>
 
 
     <description>An exclusive mobile app of eLearning @ ETV Bharat</description>
