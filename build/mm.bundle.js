@@ -72003,7 +72003,6 @@ angular.module('mm.core')
     "demo_sites": [],
     "gcmpn": "578987199728",
     "customurlscheme": "leapmobile",
-    "siteurl": "http://moodle.amref.org/",
     "multisitesdisplay": "select",
     "skipssoconfirmation": "false",
     "forcedefaultlanguage": "false",
