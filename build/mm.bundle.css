@@ -13115,9 +13115,6 @@ mm-course-list-item div.item-icon-left.earlysubmission {
     background: #ffffff;
     border: 1px solid #dddddd; }
 
-#mm-settings-languagelabel {
-  color: #3a3a3a; }
-
 .mm-question-textarea {
   width: 100%;
   height: 250px;
@@ -13252,6 +13249,9 @@ li.mm-question-answer-incorrect,
 
 .questioncorrectnessicon {
   font-size: 20px; }
+
+#mm-settings-languagelabel {
+  color: #3a3a3a; }
 
 .bar-side-menu {
   border-color: transparent;
