@@ -2412,20 +2412,6 @@ mm-course-list-item .item-icon-left {
   max-height: 34px;
 }
 
-.mm-fileuploader-file-handler {
-    input {
-        position: absolute;
-        top: 0;
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        opacity: 0;
-        outline: none;
-        z-index: 100;
-        cursor: pointer;
-    }
-}
-
 .mm-capture-media-modal {
     background-color: $gray-light;
 
@@ -2508,76 +2494,19 @@ mm-course-list-item .item-icon-left {
     }
 }
 
-
-.mm-mm_login_sites {
-  .item-thumbnail-left .item-content {
-    padding-top: $item-padding;
-    padding-right: $item-padding;
-  }
-
-  .list-left-editing .item-thumbnail-left .item-content {
-    padding-right: (ceil( ($item-padding * 3) + ($item-padding / 3) ) - 5);
-  }
-
-  .avatar {
-    margin: 0;
-    width: 80px;
-    height: 80px;
-    max-width: 80px;
-    max-height: 80px;
-    border-radius : 50%;
-    padding: 4px;
-    border: 1px solid #ddd;
-    text-indent: -99999px;
-  }
+.mm-fileuploader-file-handler {
+    input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        opacity: 0;
+        outline: none;
+        z-index: 100;
+        cursor: pointer;
+    }
 }
-
-.mm-login-sitepolicy-iframe {
-  height: 300px;
-}
-
-.mm-oauth-icon, .item.mm-oauth-icon {
-  padding: ($item-padding / 2);
-
-  > img, > span {
-    max-height: $item-icon-font-size;
-    max-width: $item-icon-font-size;
-    vertical-align: middle;
-  }
-  > span {
-    margin-left: 5px;
-    color: $gray-darker;
-  }
-}
-
-.mm-mm_login_credentials, .mm-mm_login_reconnect, .mm-mm_login_site {
-  .mm-ioninput-password {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  background: -webkit-radial-gradient(white, $gray-light);
-  background: radial-gradient(white, $gray-light);
-
-  img {
-    max-width: 100%;
-  }
-
-  img.moodle-logo {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .box {
-    padding: 16px;
-    background: $white;
-    border: 1px solid $item-default-border;
-  }
-
-  .mm-sitename, .mm-siteurl {
-    @if $mm-fixed-url { display: none; }
-  }
-}
-
 
 /* - User grades table (most of it extracted from MM1)
 -------------------------------------------------------------------------- */
@@ -2683,6 +2612,77 @@ mm-course-list-item .item-icon-left {
     border-bottom: 1px solid $item-light-border;
   }
 }
+
+
+.mm-mm_login_sites {
+  .item-thumbnail-left .item-content {
+    padding-top: $item-padding;
+    padding-right: $item-padding;
+  }
+
+  .list-left-editing .item-thumbnail-left .item-content {
+    padding-right: (ceil( ($item-padding * 3) + ($item-padding / 3) ) - 5);
+  }
+
+  .avatar {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
+    border-radius : 50%;
+    padding: 4px;
+    border: 1px solid #ddd;
+    text-indent: -99999px;
+  }
+}
+
+.mm-login-sitepolicy-iframe {
+  height: 300px;
+}
+
+.mm-oauth-icon, .item.mm-oauth-icon {
+  padding: ($item-padding / 2);
+
+  > img, > span {
+    max-height: $item-icon-font-size;
+    max-width: $item-icon-font-size;
+    vertical-align: middle;
+  }
+  > span {
+    margin-left: 5px;
+    color: $gray-darker;
+  }
+}
+
+.mm-mm_login_credentials, .mm-mm_login_reconnect, .mm-mm_login_site {
+  .mm-ioninput-password {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  background: -webkit-radial-gradient(white, $gray-light);
+  background: radial-gradient(white, $gray-light);
+
+  img {
+    max-width: 100%;
+  }
+
+  img.moodle-logo {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .box {
+    padding: 16px;
+    background: $white;
+    border: 1px solid $item-default-border;
+  }
+
+  .mm-sitename, .mm-siteurl {
+    @if $mm-fixed-url { display: none; }
+  }
+}
+
 
 
 $mm-question-correct-color:         $green-dark !default;
@@ -3806,6 +3806,36 @@ p.mma-mod-quiz-warning {
 #mma-mod-quiz-toc .item {
   border-color: $gray-dark;
 }
+.mm-site_mod_survey {
+  .row, .input-label {
+    font-size: $font-size-base;
+  }
+
+  .mma-mod_survey-darkbg {
+    background-color: $item-divider-bg;
+  }
+
+  .mma-mod_survey-padding-top {
+    padding-top: 20px;
+  }
+
+  textarea.mma-mod_survey-textarea {
+    height: 100px;
+    border: 1px solid $item-default-border;
+  }
+
+  select.mma-mod_survey-select {
+    background-color: transparent;
+    padding-left: 0px;
+    padding-right: $item-padding * 2;
+    max-width: 100%;
+
+    .mma-mod_survey-defaultoption {
+      display: none;
+    }
+  }
+}
+
 
 $mma-mod-scorm-level-margin:		25px !default;
 $mma-mod-scorm-warning-color:		$red !default;
@@ -3853,36 +3883,6 @@ ion-popover-view {
 .platform-ios ion-popover-view.mma-scorm-popover {
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.mm-site_mod_survey {
-  .row, .input-label {
-    font-size: $font-size-base;
-  }
-
-  .mma-mod_survey-darkbg {
-    background-color: $item-divider-bg;
-  }
-
-  .mma-mod_survey-padding-top {
-    padding-top: 20px;
-  }
-
-  textarea.mma-mod_survey-textarea {
-    height: 100px;
-    border: 1px solid $item-default-border;
-  }
-
-  select.mma-mod_survey-select {
-    background-color: transparent;
-    padding-left: 0px;
-    padding-right: $item-padding * 2;
-    max-width: 100%;
-
-    .mma-mod_survey-defaultoption {
-      display: none;
-    }
-  }
 }
 
 $mma-mod-wiki-toc-level-padding:    12px !default;
