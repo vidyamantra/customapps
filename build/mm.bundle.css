@@ -14234,99 +14234,6 @@ ion-popover-view {
   align-content: center;
   flex-direction: column; }
 
-.mma-qtype-ddmarker-container mm-loading {
-  position: absolute;
-  left: 50%; }
-
-.mma-qtype-ddmarker-container .qtext {
-  margin-bottom: 0.5em;
-  display: block; }
-
-.mma-qtype-ddmarker-container div.droparea img {
-  border: 1px solid #626262;
-  max-width: 100%; }
-
-.mma-qtype-ddmarker-container .draghome img, .mma-qtype-ddmarker-container .draghome span {
-  visibility: hidden; }
-
-.mma-qtype-ddmarker-container .dragitems .dragitem {
-  cursor: pointer;
-  position: absolute;
-  z-index: 2; }
-
-.mma-qtype-ddmarker-container .dropzones {
-  position: absolute; }
-
-.mma-qtype-ddmarker-container .dropzones svg {
-  z-index: 3; }
-
-.mma-qtype-ddmarker-container .dragitem.beingdragged .markertext {
-  z-index: 5;
-  box-shadow: 3px 3px 4px #626262; }
-
-.mma-qtype-ddmarker-container .dragitems .draghome {
-  margin: 10px;
-  display: inline-block; }
-
-.mma-qtype-ddmarker-container .dragitems.readonly .dragitem {
-  cursor: auto; }
-
-.mma-qtype-ddmarker-container div.ddarea {
-  text-align: center; }
-
-.mma-qtype-ddmarker-container div.ddarea .markertexts {
-  min-height: 80px;
-  position: absolute;
-  text-align: left; }
-
-.mma-qtype-ddmarker-container .dropbackground {
-  margin: 0 auto; }
-
-.mma-qtype-ddmarker-container div.dragitems div.draghome, .mma-qtype-ddmarker-container div.dragitems div.dragitem,
-.mma-qtype-ddmarker-container div.draghome, .mma-qtype-ddmarker-container div.drag {
-  font: 13px/1.231 arial,helvetica,clean,sans-serif; }
-
-.mma-qtype-ddmarker-container div.dragitems span.markertext,
-.mma-qtype-ddmarker-container div.markertexts span.markertext {
-  margin: 0 5px;
-  z-index: 2;
-  background-color: #ffffff;
-  border: 2px solid #626262;
-  padding: 5px;
-  display: inline-block;
-  zoom: 1;
-  border-radius: 10px; }
-
-.mma-qtype-ddmarker-container div.markertexts span.markertext {
-  z-index: 3;
-  background-color: #feefd1;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #fbad1a;
-  position: absolute; }
-
-.mma-qtype-ddmarker-container span.wrongpart {
-  background-color: #feefd1;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #fbad1a;
-  padding: 5px;
-  border-radius: 10px;
-  filter: alpha(opacity=60);
-  opacity: 0.6;
-  margin: 5px;
-  display: inline-block; }
-
-.mma-qtype-ddmarker-container div.dragitems img.target {
-  position: absolute;
-  left: -7px;
-  /* This must be half the size of the target image, minus 0.5. */
-  top: -7px;
-  /* In other words, this works for a 15x15 cross-hair. */ }
-
-.mma-qtype-ddmarker-container div.dragitems div.draghome img.target {
-  display: none; }
-
 .mma-qtype-ddimageortext-container mm-loading {
   position: absolute;
   left: 50%; }
@@ -14422,6 +14329,99 @@ ion-popover-view {
 .mma-qtype-ddimageortext-container .drag.beingdragged {
   z-index: 3;
   box-shadow: 3px 3px 4px #626262; }
+
+.mma-qtype-ddmarker-container mm-loading {
+  position: absolute;
+  left: 50%; }
+
+.mma-qtype-ddmarker-container .qtext {
+  margin-bottom: 0.5em;
+  display: block; }
+
+.mma-qtype-ddmarker-container div.droparea img {
+  border: 1px solid #626262;
+  max-width: 100%; }
+
+.mma-qtype-ddmarker-container .draghome img, .mma-qtype-ddmarker-container .draghome span {
+  visibility: hidden; }
+
+.mma-qtype-ddmarker-container .dragitems .dragitem {
+  cursor: pointer;
+  position: absolute;
+  z-index: 2; }
+
+.mma-qtype-ddmarker-container .dropzones {
+  position: absolute; }
+
+.mma-qtype-ddmarker-container .dropzones svg {
+  z-index: 3; }
+
+.mma-qtype-ddmarker-container .dragitem.beingdragged .markertext {
+  z-index: 5;
+  box-shadow: 3px 3px 4px #626262; }
+
+.mma-qtype-ddmarker-container .dragitems .draghome {
+  margin: 10px;
+  display: inline-block; }
+
+.mma-qtype-ddmarker-container .dragitems.readonly .dragitem {
+  cursor: auto; }
+
+.mma-qtype-ddmarker-container div.ddarea {
+  text-align: center; }
+
+.mma-qtype-ddmarker-container div.ddarea .markertexts {
+  min-height: 80px;
+  position: absolute;
+  text-align: left; }
+
+.mma-qtype-ddmarker-container .dropbackground {
+  margin: 0 auto; }
+
+.mma-qtype-ddmarker-container div.dragitems div.draghome, .mma-qtype-ddmarker-container div.dragitems div.dragitem,
+.mma-qtype-ddmarker-container div.draghome, .mma-qtype-ddmarker-container div.drag {
+  font: 13px/1.231 arial,helvetica,clean,sans-serif; }
+
+.mma-qtype-ddmarker-container div.dragitems span.markertext,
+.mma-qtype-ddmarker-container div.markertexts span.markertext {
+  margin: 0 5px;
+  z-index: 2;
+  background-color: #ffffff;
+  border: 2px solid #626262;
+  padding: 5px;
+  display: inline-block;
+  zoom: 1;
+  border-radius: 10px; }
+
+.mma-qtype-ddmarker-container div.markertexts span.markertext {
+  z-index: 3;
+  background-color: #feefd1;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fbad1a;
+  position: absolute; }
+
+.mma-qtype-ddmarker-container span.wrongpart {
+  background-color: #feefd1;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fbad1a;
+  padding: 5px;
+  border-radius: 10px;
+  filter: alpha(opacity=60);
+  opacity: 0.6;
+  margin: 5px;
+  display: inline-block; }
+
+.mma-qtype-ddmarker-container div.dragitems img.target {
+  position: absolute;
+  left: -7px;
+  /* This must be half the size of the target image, minus 0.5. */
+  top: -7px;
+  /* In other words, this works for a 15x15 cross-hair. */ }
+
+.mma-qtype-ddmarker-container div.dragitems div.draghome img.target {
+  display: none; }
 
 .mma-qtype-ddwtos-container .qtext {
   margin-bottom: 0.5em;
@@ -14519,15 +14519,6 @@ ion-popover-view {
 .mma-qtype-ddwtos-container sub {
   bottom: -0.2em; }
 
-.mma-qtype-match-container .item-select select,
-.mma-qtype-match-container .item-select .mm-select-fix {
-  padding: 0 36px 0 0;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column; }
-
 .mma-qtype-gapselect-container p {
   margin: 0 0 .5em; }
 
@@ -14542,6 +14533,15 @@ ion-popover-view {
   border-radius: 4px;
   margin-bottom: 10px;
   background: #f5f5f5; }
+
+.mma-qtype-match-container .item-select select,
+.mma-qtype-match-container .item-select .mm-select-fix {
+  padding: 0 36px 0 0;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column; }
 
 .mma-qtype-multianswer-container p {
   margin: 0 0 .5em; }
