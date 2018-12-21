@@ -52,5 +52,5 @@
     "multisitesdisplay": "select",
     "skipssoconfirmation": "false",
     "forcedefaultlanguage": "false",
-    "privacypolicy": "http://usanmiguel.org/md/admin/settings.php?section=sitepolicies"
+    "privacypolicy": "usanmiguel.org/md"
 }
