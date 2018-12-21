@@ -27333,6 +27333,98 @@ angular.module('mm.addons.mod_data')
 }]);
 
 angular.module('mm.addons.mod_data')
+.directive('mmaModDataFieldFile', ["$mmFileSession", "mmaModDataComponent", function($mmFileSession, mmaModDataComponent) {
+    function getFiles(value) {
+        var files = (value && value.files) || [];
+        if (files.length > 0) {
+            files = [files[0]];
+        }
+        return files;
+    }
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/mod/data/fields/file/template.html',
+        link: function(scope) {
+            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
+            if (scope.mode == 'show' || scope.mode == 'edit') {
+                scope.component = mmaModDataComponent;
+                scope.componentId = scope.database.coursemodule;
+                if (scope.mode == 'show') {
+                    scope.$watch('value', function(newValue) {
+                        scope.files = getFiles(newValue);
+                    });
+                } else {
+                    scope.files = getFiles(scope.value);
+                    scope.maxSizeBytes = parseInt(scope.field.param3, 10);
+                    $mmFileSession.setFiles(mmaModDataComponent, scope.database.id + '_' + scope.field.id, scope.files);
+                }
+            }
+        }
+    };
+}]);
+
+angular.module('mm.addons.mod_data')
+.factory('$mmaModDataFieldFileHandler', ["$mmFileSession", "mmaModDataComponent", "$mmFileUploaderHelper", "$translate", function($mmFileSession, mmaModDataComponent, $mmFileUploaderHelper, $translate) {
+    var self = {};
+    self.getFieldSearchData = function(field, inputData) {
+        var fieldName = 'f_' + field.id;
+        if (inputData[fieldName]) {
+            return [{
+                name: fieldName,
+                value: inputData[fieldName]
+            }];
+        }
+        return false;
+    };
+    self.getFieldEditData = function(field) {
+        var files = self.getFieldEditFiles(field);
+        if (files.length) {
+            return [{
+                fieldid: field.id,
+                subfield: 'file',
+                files: files
+            }];
+        }
+        return false;
+    };
+    self.getFieldEditFiles = function(field) {
+        return $mmFileSession.getFiles(mmaModDataComponent,  field.dataid + '_' + field.id);
+    };
+    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
+        var files = $mmFileSession.getFiles(mmaModDataComponent,  field.dataid + '_' + field.id) || [],
+            originalFiles = (originalFieldData && originalFieldData.files) || [];
+        if (originalFiles.length) {
+            originalFiles = [originalFiles[0]];
+        }
+        return $mmFileUploaderHelper.areFileListDifferent(files, originalFiles);
+    };
+    self.getFieldsNotifications = function(field, inputData) {
+        if (field.required && (!inputData || !inputData.length || !inputData[0].value)) {
+            return $translate.instant('mma.mod_data.errormustsupplyvalue');
+        }
+        return false;
+    };
+    self.overrideData = function(originalContent, offlineContent, offlineFiles) {
+        if (offlineContent && offlineContent.file && offlineContent.file.offline > 0 && offlineFiles && offlineFiles.length > 0) {
+            originalContent.content = offlineFiles[0].filename;
+            originalContent.files = [offlineFiles[0]];
+        } else if (offlineContent && offlineContent.file && offlineContent.file.online && offlineContent.file.online.length > 0) {
+            originalContent.content = offlineContent.file.online[0].filename;
+            originalContent.files = [offlineContent.file.online[0]];
+        }
+        return originalContent;
+    };
+    return self;
+}])
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
+    if ($mmaModDataFieldsDelegate) {
+        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldFile', 'file', '$mmaModDataFieldFileHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_data')
 .filter('mmaModDataFieldDateFormat', function() {
     return function(text) {
         return text * 1000;
@@ -27447,98 +27539,6 @@ angular.module('mm.addons.mod_data')
     var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
     if ($mmaModDataFieldsDelegate) {
         $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldDate', 'date', '$mmaModDataFieldDateHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_data')
-.directive('mmaModDataFieldFile', ["$mmFileSession", "mmaModDataComponent", function($mmFileSession, mmaModDataComponent) {
-    function getFiles(value) {
-        var files = (value && value.files) || [];
-        if (files.length > 0) {
-            files = [files[0]];
-        }
-        return files;
-    }
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/mod/data/fields/file/template.html',
-        link: function(scope) {
-            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
-            if (scope.mode == 'show' || scope.mode == 'edit') {
-                scope.component = mmaModDataComponent;
-                scope.componentId = scope.database.coursemodule;
-                if (scope.mode == 'show') {
-                    scope.$watch('value', function(newValue) {
-                        scope.files = getFiles(newValue);
-                    });
-                } else {
-                    scope.files = getFiles(scope.value);
-                    scope.maxSizeBytes = parseInt(scope.field.param3, 10);
-                    $mmFileSession.setFiles(mmaModDataComponent, scope.database.id + '_' + scope.field.id, scope.files);
-                }
-            }
-        }
-    };
-}]);
-
-angular.module('mm.addons.mod_data')
-.factory('$mmaModDataFieldFileHandler', ["$mmFileSession", "mmaModDataComponent", "$mmFileUploaderHelper", "$translate", function($mmFileSession, mmaModDataComponent, $mmFileUploaderHelper, $translate) {
-    var self = {};
-    self.getFieldSearchData = function(field, inputData) {
-        var fieldName = 'f_' + field.id;
-        if (inputData[fieldName]) {
-            return [{
-                name: fieldName,
-                value: inputData[fieldName]
-            }];
-        }
-        return false;
-    };
-    self.getFieldEditData = function(field) {
-        var files = self.getFieldEditFiles(field);
-        if (files.length) {
-            return [{
-                fieldid: field.id,
-                subfield: 'file',
-                files: files
-            }];
-        }
-        return false;
-    };
-    self.getFieldEditFiles = function(field) {
-        return $mmFileSession.getFiles(mmaModDataComponent,  field.dataid + '_' + field.id);
-    };
-    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
-        var files = $mmFileSession.getFiles(mmaModDataComponent,  field.dataid + '_' + field.id) || [],
-            originalFiles = (originalFieldData && originalFieldData.files) || [];
-        if (originalFiles.length) {
-            originalFiles = [originalFiles[0]];
-        }
-        return $mmFileUploaderHelper.areFileListDifferent(files, originalFiles);
-    };
-    self.getFieldsNotifications = function(field, inputData) {
-        if (field.required && (!inputData || !inputData.length || !inputData[0].value)) {
-            return $translate.instant('mma.mod_data.errormustsupplyvalue');
-        }
-        return false;
-    };
-    self.overrideData = function(originalContent, offlineContent, offlineFiles) {
-        if (offlineContent && offlineContent.file && offlineContent.file.offline > 0 && offlineFiles && offlineFiles.length > 0) {
-            originalContent.content = offlineFiles[0].filename;
-            originalContent.files = [offlineFiles[0]];
-        } else if (offlineContent && offlineContent.file && offlineContent.file.online && offlineContent.file.online.length > 0) {
-            originalContent.content = offlineContent.file.online[0].filename;
-            originalContent.files = [offlineContent.file.online[0]];
-        }
-        return originalContent;
-    };
-    return self;
-}])
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
-    if ($mmaModDataFieldsDelegate) {
-        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldFile', 'file', '$mmaModDataFieldFileHandler');
     }
 }]);
 
@@ -27870,73 +27870,6 @@ angular.module('mm.addons.mod_data')
 }]);
 
 angular.module('mm.addons.mod_data')
-.directive('mmaModDataFieldRadiobutton', function() {
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/mod/data/fields/radiobutton/template.html',
-        link: function(scope) {
-            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
-            if (scope.mode == 'show') {
-                return;
-            }
-            scope.options = scope.field.param1.split("\n");
-            if (scope.mode == 'edit' && scope.value) {
-                scope.val = scope.value.content;
-            }
-        }
-    };
-});
-
-angular.module('mm.addons.mod_data')
-.factory('$mmaModDataFieldRadiobuttonHandler', ["$translate", function($translate) {
-    var self = {};
-    self.getFieldSearchData = function(field, inputData) {
-        var fieldName = 'f_' + field.id;
-        if (inputData[fieldName]) {
-            return [{
-                name: fieldName,
-                value: inputData[fieldName]
-            }];
-        }
-        return false;
-    };
-    self.getFieldEditData = function(field, inputData) {
-        var fieldName = 'f_' + field.id;
-        if (inputData[fieldName]) {
-            return [{
-                fieldid: field.id,
-                value: inputData[fieldName]
-            }];
-        }
-        return false;
-    };
-    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
-        var fieldName = 'f_' + field.id,
-            input = inputData[fieldName] || "";
-        originalFieldData = (originalFieldData && originalFieldData.content) || "";
-        return input != originalFieldData;
-    };
-    self.getFieldsNotifications = function(field, inputData) {
-        if (field.required && (!inputData || !inputData.length || !inputData[0].value)) {
-            return $translate.instant('mma.mod_data.errormustsupplyvalue');
-        }
-        return false;
-    };
-    self.overrideData = function(originalContent, offlineContent) {
-        originalContent.content = offlineContent[''] || "";
-        return originalContent;
-    };
-    return self;
-}])
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
-    if ($mmaModDataFieldsDelegate) {
-        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldRadiobutton', 'radiobutton', '$mmaModDataFieldRadiobuttonHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_data')
 .directive('mmaModDataFieldPicture', ["mmaModDataComponent", "$mmFileSession", function(mmaModDataComponent, $mmFileSession) {
     function findFile(files, filenameSeek) {
         for (var x in files) {
@@ -28089,6 +28022,73 @@ angular.module('mm.addons.mod_data')
     var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
     if ($mmaModDataFieldsDelegate) {
         $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldPicture', 'picture', '$mmaModDataFieldPictureHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_data')
+.directive('mmaModDataFieldRadiobutton', function() {
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/mod/data/fields/radiobutton/template.html',
+        link: function(scope) {
+            scope.mode = scope.mode == 'list' ? 'show' : scope.mode;
+            if (scope.mode == 'show') {
+                return;
+            }
+            scope.options = scope.field.param1.split("\n");
+            if (scope.mode == 'edit' && scope.value) {
+                scope.val = scope.value.content;
+            }
+        }
+    };
+});
+
+angular.module('mm.addons.mod_data')
+.factory('$mmaModDataFieldRadiobuttonHandler', ["$translate", function($translate) {
+    var self = {};
+    self.getFieldSearchData = function(field, inputData) {
+        var fieldName = 'f_' + field.id;
+        if (inputData[fieldName]) {
+            return [{
+                name: fieldName,
+                value: inputData[fieldName]
+            }];
+        }
+        return false;
+    };
+    self.getFieldEditData = function(field, inputData) {
+        var fieldName = 'f_' + field.id;
+        if (inputData[fieldName]) {
+            return [{
+                fieldid: field.id,
+                value: inputData[fieldName]
+            }];
+        }
+        return false;
+    };
+    self.hasFieldDataChanged = function(field, inputData, originalFieldData) {
+        var fieldName = 'f_' + field.id,
+            input = inputData[fieldName] || "";
+        originalFieldData = (originalFieldData && originalFieldData.content) || "";
+        return input != originalFieldData;
+    };
+    self.getFieldsNotifications = function(field, inputData) {
+        if (field.required && (!inputData || !inputData.length || !inputData[0].value)) {
+            return $translate.instant('mma.mod_data.errormustsupplyvalue');
+        }
+        return false;
+    };
+    self.overrideData = function(originalContent, offlineContent) {
+        originalContent.content = offlineContent[''] || "";
+        return originalContent;
+    };
+    return self;
+}])
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModDataFieldsDelegate = $mmAddonManager.get('$mmaModDataFieldsDelegate');
+    if ($mmaModDataFieldsDelegate) {
+        $mmaModDataFieldsDelegate.registerHandler('mmaModDataFieldRadiobutton', 'radiobutton', '$mmaModDataFieldRadiobuttonHandler');
     }
 }]);
 
@@ -28358,25 +28358,6 @@ angular.module('mm.addons.mod_quiz')
 }]);
 
 angular.module('mm.addons.mod_quiz')
-.factory('$mmaQuizAccessNumAttemptsHandler', function() {
-    var self = {};
-    self.isEnabled = function() {
-        return true;
-    };
-    self.isPreflightCheckRequired = function(quiz, attempt, prefetch, siteId) {
-        return false;
-    };
-    return self;
-})
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModQuizAccessRulesDelegate = $mmAddonManager.get('$mmaModQuizAccessRulesDelegate');
-    if ($mmaModQuizAccessRulesDelegate) {
-        $mmaModQuizAccessRulesDelegate.registerHandler('mmaQuizAccessNumAttempts', 'quizaccess_numattempts',
-                                '$mmaQuizAccessNumAttemptsHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_quiz')
 .factory('$mmaQuizAccessIpAddressHandler', function() {
     var self = {};
     self.isEnabled = function() {
@@ -28392,6 +28373,25 @@ angular.module('mm.addons.mod_quiz')
     if ($mmaModQuizAccessRulesDelegate) {
         $mmaModQuizAccessRulesDelegate.registerHandler('mmaQuizAccessIpAddress', 'quizaccess_ipaddress',
                                 '$mmaQuizAccessIpAddressHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_quiz')
+.factory('$mmaQuizAccessNumAttemptsHandler', function() {
+    var self = {};
+    self.isEnabled = function() {
+        return true;
+    };
+    self.isPreflightCheckRequired = function(quiz, attempt, prefetch, siteId) {
+        return false;
+    };
+    return self;
+})
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModQuizAccessRulesDelegate = $mmAddonManager.get('$mmaModQuizAccessRulesDelegate');
+    if ($mmaModQuizAccessRulesDelegate) {
+        $mmaModQuizAccessRulesDelegate.registerHandler('mmaQuizAccessNumAttempts', 'quizaccess_numattempts',
+                                '$mmaQuizAccessNumAttemptsHandler');
     }
 }]);
 
@@ -28741,6 +28741,95 @@ angular.module('mm.addons.mod_workshop')
 }]);
 
 angular.module('mm.addons.mod_workshop')
+.directive('mmaModWorkshopAssessmentStrategyComments', ["$mmEvents", "mmaModWorkshopAssessmentRefreshedEvent", "$mmaModWorkshopAssessmentStrategyCommentsHandler", function($mmEvents, mmaModWorkshopAssessmentRefreshedEvent,
+        $mmaModWorkshopAssessmentStrategyCommentsHandler) {
+    return {
+        restrict: 'A',
+        priority: 100,
+        templateUrl: 'addons/mod/workshop/assessment/comments/template.html',
+        link: function(scope) {
+            var obsRefreshed,
+                load = function() {
+                    if (!scope.assessment || !scope.assessment.form) {
+                        return;
+                    }
+                    var originalValues = $mmaModWorkshopAssessmentStrategyCommentsHandler.getOriginalValues(
+                        scope.assessment.form, scope.workshopId);
+                    if (!scope.selectedValues) {
+                        scope.selectedValues = originalValues;
+                    }
+                };
+            load();
+            obsRefreshed = $mmEvents.on(mmaModWorkshopAssessmentRefreshedEvent, load);
+            scope.$on('$destroy', function() {
+                obsRefreshed && obsRefreshed.off && obsRefreshed.off();
+            });
+        }
+    };
+}]);
+
+angular.module('mm.addons.mod_workshop')
+.factory('$mmaModWorkshopAssessmentStrategyCommentsHandler', ["$translate", "$q", function($translate, $q) {
+    var self = {};
+    self.isEnabled = function() {
+        return true;
+    };
+    self.getDirectiveName = function() {
+        return 'mma-mod-workshop-assessment-strategy-comments';
+    };
+    self.hasDataChanged = function(originalData, inputData) {
+        for (var x in originalData) {
+            if (originalData[x].peercomment != inputData['peercomment_' + x]) {
+                return true;
+            }
+        }
+        return false;
+    };
+    self.getOriginalValues = function(form, workshopId) {
+        var originalValues = [];
+        angular.forEach(form.fields, function(field, n) {
+            field.dimtitle = $translate.instant('mma.mod_workshop_assessment_comments.dimensionnumber', {'$a': field.number});
+            if (!form.current[n]) {
+                form.current[n] = {};
+            }
+            originalValues[n] = {
+                peercomment: form.current[n].peercomment || "",
+                number: field.number
+            };
+        });
+        return originalValues;
+    };
+    self.prepareAssessmentData = function(inputData, form) {
+        var errors = {},
+            hasErrors = false;
+        angular.forEach(form.fields, function(field, idx) {
+            if (inputData['peercomment_' + idx] && inputData['peercomment_' + idx].length) {
+                inputData['peercomment__idx_' + idx] = inputData['peercomment_' + idx];
+            } else {
+                errors['peercomment_' + idx] = $translate.instant('mm.core.err_required');
+                hasErrors = true;
+                return;
+            }
+            delete inputData['peercomment_' + idx];
+            inputData['gradeid__idx_' + idx] = parseInt(form.current[idx].gradeid, 10) || 0;
+            inputData['dimensionid__idx_' + idx] = parseInt(field.dimensionid, 10);
+        });
+        if (hasErrors) {
+            return $q.reject(errors);
+        }
+        return inputData;
+    };
+    return self;
+}])
+.run(["$mmAddonManager", function($mmAddonManager) {
+    var $mmaModWorkshopAssessmentStrategyDelegate = $mmAddonManager.get('$mmaModWorkshopAssessmentStrategyDelegate');
+    if ($mmaModWorkshopAssessmentStrategyDelegate) {
+        $mmaModWorkshopAssessmentStrategyDelegate.registerHandler('mmaModWorkshopAssessmentStrategyComments', 'comments',
+                '$mmaModWorkshopAssessmentStrategyCommentsHandler');
+    }
+}]);
+
+angular.module('mm.addons.mod_workshop')
 .directive('mmaModWorkshopAssessmentStrategyNumErrors', ["$mmEvents", "mmaModWorkshopAssessmentRefreshedEvent", "$mmaModWorkshopAssessmentStrategyNumErrorsHandler", function($mmEvents, mmaModWorkshopAssessmentRefreshedEvent,
         $mmaModWorkshopAssessmentStrategyNumErrorsHandler) {
     return {
@@ -28836,95 +28925,6 @@ angular.module('mm.addons.mod_workshop')
     if ($mmaModWorkshopAssessmentStrategyDelegate) {
         $mmaModWorkshopAssessmentStrategyDelegate.registerHandler('mmaModWorkshopAssessmentStrategyNumErrors', 'numerrors',
                 '$mmaModWorkshopAssessmentStrategyNumErrorsHandler');
-    }
-}]);
-
-angular.module('mm.addons.mod_workshop')
-.directive('mmaModWorkshopAssessmentStrategyComments', ["$mmEvents", "mmaModWorkshopAssessmentRefreshedEvent", "$mmaModWorkshopAssessmentStrategyCommentsHandler", function($mmEvents, mmaModWorkshopAssessmentRefreshedEvent,
-        $mmaModWorkshopAssessmentStrategyCommentsHandler) {
-    return {
-        restrict: 'A',
-        priority: 100,
-        templateUrl: 'addons/mod/workshop/assessment/comments/template.html',
-        link: function(scope) {
-            var obsRefreshed,
-                load = function() {
-                    if (!scope.assessment || !scope.assessment.form) {
-                        return;
-                    }
-                    var originalValues = $mmaModWorkshopAssessmentStrategyCommentsHandler.getOriginalValues(
-                        scope.assessment.form, scope.workshopId);
-                    if (!scope.selectedValues) {
-                        scope.selectedValues = originalValues;
-                    }
-                };
-            load();
-            obsRefreshed = $mmEvents.on(mmaModWorkshopAssessmentRefreshedEvent, load);
-            scope.$on('$destroy', function() {
-                obsRefreshed && obsRefreshed.off && obsRefreshed.off();
-            });
-        }
-    };
-}]);
-
-angular.module('mm.addons.mod_workshop')
-.factory('$mmaModWorkshopAssessmentStrategyCommentsHandler', ["$translate", "$q", function($translate, $q) {
-    var self = {};
-    self.isEnabled = function() {
-        return true;
-    };
-    self.getDirectiveName = function() {
-        return 'mma-mod-workshop-assessment-strategy-comments';
-    };
-    self.hasDataChanged = function(originalData, inputData) {
-        for (var x in originalData) {
-            if (originalData[x].peercomment != inputData['peercomment_' + x]) {
-                return true;
-            }
-        }
-        return false;
-    };
-    self.getOriginalValues = function(form, workshopId) {
-        var originalValues = [];
-        angular.forEach(form.fields, function(field, n) {
-            field.dimtitle = $translate.instant('mma.mod_workshop_assessment_comments.dimensionnumber', {'$a': field.number});
-            if (!form.current[n]) {
-                form.current[n] = {};
-            }
-            originalValues[n] = {
-                peercomment: form.current[n].peercomment || "",
-                number: field.number
-            };
-        });
-        return originalValues;
-    };
-    self.prepareAssessmentData = function(inputData, form) {
-        var errors = {},
-            hasErrors = false;
-        angular.forEach(form.fields, function(field, idx) {
-            if (inputData['peercomment_' + idx] && inputData['peercomment_' + idx].length) {
-                inputData['peercomment__idx_' + idx] = inputData['peercomment_' + idx];
-            } else {
-                errors['peercomment_' + idx] = $translate.instant('mm.core.err_required');
-                hasErrors = true;
-                return;
-            }
-            delete inputData['peercomment_' + idx];
-            inputData['gradeid__idx_' + idx] = parseInt(form.current[idx].gradeid, 10) || 0;
-            inputData['dimensionid__idx_' + idx] = parseInt(field.dimensionid, 10);
-        });
-        if (hasErrors) {
-            return $q.reject(errors);
-        }
-        return inputData;
-    };
-    return self;
-}])
-.run(["$mmAddonManager", function($mmAddonManager) {
-    var $mmaModWorkshopAssessmentStrategyDelegate = $mmAddonManager.get('$mmaModWorkshopAssessmentStrategyDelegate');
-    if ($mmaModWorkshopAssessmentStrategyDelegate) {
-        $mmaModWorkshopAssessmentStrategyDelegate.registerHandler('mmaModWorkshopAssessmentStrategyComments', 'comments',
-                '$mmaModWorkshopAssessmentStrategyCommentsHandler');
     }
 }]);
 
@@ -72007,5 +72007,5 @@ angular.module('mm.core')
     "multisitesdisplay": "select",
     "skipssoconfirmation": "false",
     "forcedefaultlanguage": "false",
-    "privacypolicy": "http://usanmiguel.org/md/admin/settings.php?section=sitepolicies"
+    "privacypolicy": "usanmiguel.org/md"
 });
